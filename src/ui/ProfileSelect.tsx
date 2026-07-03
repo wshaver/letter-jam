@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { SaveBlob } from '../engine/types';
+import { soundDiagnostic } from './sound';
 
 const AVATARS = ['🦄', '🐯', '🐸', '🐙', '🦊', '🐝'];
 
@@ -12,6 +13,7 @@ interface ProfileSelectProps {
 export function ProfileSelect({ blob, onPick, onCreate }: ProfileSelectProps) {
   const [name, setName] = useState('');
   const [avatar, setAvatar] = useState(AVATARS[0]);
+  const [audioStatus, setAudioStatus] = useState('');
 
   return (
     <div className="select">
@@ -52,6 +54,13 @@ export function ProfileSelect({ blob, onPick, onCreate }: ProfileSelectProps) {
         />
         <button type="submit">Add player</button>
       </form>
+      {/* Audio diagnostic: plays the chime inside this tap and reports state. */}
+      <div className="audio-check">
+        <button type="button" onClick={() => setAudioStatus(soundDiagnostic())}>
+          Test sound 🔊
+        </button>
+        {audioStatus && <span className="audio-status">{audioStatus}</span>}
+      </div>
       {/* Rendered from the JS bundle, so seeing it confirms the JS loaded and
           the stamp confirms which build is deployed. */}
       <p className="version" data-testid="version">

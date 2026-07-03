@@ -54,10 +54,11 @@ export function pickDecoys(target: Word, words: Word[], difficulty: Difficulty, 
 
 const firstLetter = (w: Word): string => w.text[0]?.toLowerCase() ?? '';
 
-// Guarantee at least one decoy shares the target's first letter (for
-// multi-letter targets), so a child must read past the first letter rather
-// than matching on it alone. Skipped for single glyphs (letters mode), where
-// the "first letter" is the whole card and its match would be the target.
+// Guarantee at least one decoy shares the target's first letter, so a child
+// must read past the first letter rather than matching on it alone. This
+// applies even to one-letter words ('a', 'i') — e.g. 'a' vs 'at' forces her
+// to notice it's a single letter. Skipped only in letters mode, where the
+// card IS a single glyph and a same-first match would be the target itself.
 function biasSharedFirstLetter(
   target: Word,
   picked: Word[],
@@ -65,7 +66,7 @@ function biasSharedFirstLetter(
   count: number,
   rng: Rng,
 ): void {
-  if (target.text.length < 2 || picked.length < count) return;
+  if (target.tags?.includes('letter') || picked.length < count) return;
   const tf = firstLetter(target);
   if (picked.some((w) => firstLetter(w) === tf)) return; // already satisfied
 

@@ -168,3 +168,16 @@ it('draws the same-first-letter decoy from the whole pool, not just introduced w
     expect(decoys.some((d) => d.text[0] === 'c'), `seed ${seed}`).toBe(true);
   }
 });
+
+it('biases a same-first-letter decoy for one-letter word targets (a, i)', () => {
+  // 'a' and 'i' are real one-letter WORDS (no letter tag) — the bias applies.
+  const pool = ['a', 'at', 'an', 'and', 'know', 'just', 'dog', 'sun', 'pig', 'box'].map(W);
+  const target = W('a');
+  for (let seed = 0; seed < 20; seed++) {
+    const decoys = pickDecoys(target, pool, { choiceCount: 3, decoyNearness: 0 }, seeded(seed));
+    expect(
+      decoys.some((d) => d.text[0] === 'a'),
+      `seed ${seed}: ${decoys.map((d) => d.text).join(',')}`,
+    ).toBe(true);
+  }
+});

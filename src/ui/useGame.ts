@@ -56,14 +56,18 @@ export function useGame(opts: UseGameOpts) {
     if (status !== 'playing' || !round) return;
     if (word.id === round.target.id) {
       const firstTry = !hadWrong.current;
-      onProfileChange(applyResult(profileRef.current, round.target.id, firstTry));
+      const updated = applyResult(profileRef.current, round.target.id, firstTry);
+      profileRef.current = updated;
+      onProfileChange(updated);
       setCelebration(firstTry ? 'big' : 'small');
       setStatus('won');
     } else {
       hadWrong.current = true;
       setWrongIds((prev) => new Set(prev).add(word.id));
       if (profileRef.current.settings.wrongAnswerMode === 'oneAndDone') {
-        onProfileChange(applyResult(profileRef.current, round.target.id, false));
+        const updated = applyResult(profileRef.current, round.target.id, false);
+        profileRef.current = updated;
+        onProfileChange(updated);
         setStatus('missed');
       }
     }

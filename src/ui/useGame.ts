@@ -26,8 +26,9 @@ export function useGame(opts: UseGameOpts) {
   const [wrongIds, setWrongIds] = useState<Set<string>>(new Set());
   const hadWrong = useRef(false);
   const lastTargetId = useRef<string | null>(null);
+  const inputLockedUntil = useRef(0);
 
-  const startRound = useCallback(() => {
+  const startRound = useCallback((opts?: { auto?: boolean }) => {
     const introduced = introduceIfNeeded(profileRef.current, words);
     if (introduced !== profileRef.current) {
       profileRef.current = introduced;
@@ -40,6 +41,7 @@ export function useGame(opts: UseGameOpts) {
     hadWrong.current = false;
     setCelebration(null);
     setStatus('playing');
+    if (opts?.auto) inputLockedUntil.current = Date.now() + 400;
     speaker.speak(wordPrompt(r.target.text, r.target.sentence));
   }, [words, speaker, onProfileChange, rng]);
 
@@ -53,6 +55,7 @@ export function useGame(opts: UseGameOpts) {
   }, [startRound]);
 
   const choose = (word: Word) => {
+    if (Date.now() < inputLockedUntil.current) return; // brief input lock after auto-advance
     if (status !== 'playing' || !round) return;
     if (word.id === round.target.id) {
       const firstTry = !hadWrong.current;

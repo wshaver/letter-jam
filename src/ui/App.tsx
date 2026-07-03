@@ -33,6 +33,8 @@ export function App() {
     });
   }, []);
 
+  const onProfileChange = useCallback((p: Profile) => update((prev) => upsertProfile(prev, p)), [update]);
+
   if (!blob) return <div className="loading">Loading…</div>;
 
   const active = blob.profiles.find((p) => p.id === blob.activeProfileId) ?? null;
@@ -53,8 +55,6 @@ export function App() {
       />
     );
   }
-
-  const onProfileChange = (p: Profile) => update((prev) => upsertProfile(prev, p));
 
   if (screen === 'settings') {
     return <Settings profile={active} onChange={onProfileChange} onBack={() => setScreen('play')} />;

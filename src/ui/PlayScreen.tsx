@@ -26,7 +26,7 @@ export function PlayScreen(props: PlayScreenProps) {
   }, [status]);
 
   useEffect(() => {
-    if (status !== 'playing' && countdown <= 0) next();
+    if (status !== 'playing' && countdown <= 0) next({ auto: true });
   }, [countdown, status, next]);
 
   if (!round) return null;
@@ -56,7 +56,7 @@ export function PlayScreen(props: PlayScreenProps) {
         <div className="round-end">
           {status === 'won' && celebration && <Feedback level={celebration} />}
           {status === 'missed' && <p className="aw">aw…</p>}
-          <button className="next" onClick={next}>
+          <button className="next" onClick={() => next()}>
             Next ({Math.max(countdown, 0)})
           </button>
         </div>

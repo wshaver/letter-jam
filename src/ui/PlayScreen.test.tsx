@@ -120,3 +120,24 @@ it('auto-advances three seconds after a round resolves', async () => {
     vi.useRealTimers();
   }
 });
+
+it('briefly ignores card taps after an auto-advance', async () => {
+  vi.useFakeTimers();
+  try {
+    const user = userEvent.setup({ advanceTimers: vi.advanceTimersByTime });
+    const { spoken, speaker } = fakeSpeaker();
+    const onProfileChange = vi.fn();
+    render(<PlayScreen profile={makeProfile()} onProfileChange={onProfileChange} words={WORDS} speaker={speaker} rng={seeded(1)} />);
+    await user.click(screen.getByRole('button', { name: lastSpokenTarget(spoken) }));
+    await act(async () => { vi.advanceTimersByTime(3100); }); // auto-advance to round 2
+    expect(spoken.length).toBe(2);
+    const callsAfterAdvance = onProfileChange.mock.calls.length;
+    await user.click(screen.getByRole('button', { name: lastSpokenTarget(spoken) }));
+    expect(onProfileChange.mock.calls.length).toBe(callsAfterAdvance); // locked
+    await act(async () => { vi.advanceTimersByTime(500); });
+    await user.click(screen.getByRole('button', { name: lastSpokenTarget(spoken) }));
+    expect(onProfileChange.mock.calls.length).toBe(callsAfterAdvance + 1); // unlocked
+  } finally {
+    vi.useRealTimers();
+  }
+});

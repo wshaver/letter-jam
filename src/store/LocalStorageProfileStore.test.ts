@@ -33,3 +33,15 @@ it('defaults gameMode on legacy blobs that predate it', async () => {
   expect(blob.profiles[0].settings.gameMode).toBe('words');
   expect(blob.profiles[0].settings.wrongAnswerMode).toBe('oneAndDone'); // preserved
 });
+
+it('backfills streak on legacy stats that predate it', async () => {
+  const legacy = {
+    version: 1,
+    activeProfileId: 'x',
+    profiles: [{ id: 'x', name: 'Old', avatar: '🦄', settings: { wrongAnswerMode: 'keepTrying', gameMode: 'words' }, progress: { words: {}, stats: { rounds: 7, correctFirstTry: 5 } } }],
+  };
+  localStorage.setItem('letter-jam-save-v1', JSON.stringify(legacy));
+  const store = new LocalStorageProfileStore();
+  const blob = await store.load();
+  expect(blob.profiles[0].progress.stats).toEqual({ rounds: 7, correctFirstTry: 5, streak: 0 });
+});

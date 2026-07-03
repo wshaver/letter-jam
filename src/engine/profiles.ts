@@ -7,7 +7,7 @@ export function createProfile(id: string, name: string, avatar: string): Profile
     name,
     avatar,
     settings: { wrongAnswerMode: 'keepTrying', gameMode: 'words' },
-    progress: { words: {}, stats: { rounds: 0, correctFirstTry: 0 } },
+    progress: { words: {}, stats: { rounds: 0, correctFirstTry: 0, streak: 0 } },
   };
 }
 
@@ -29,6 +29,7 @@ export function applyResult(profile: Profile, wordId: string, correctFirstTry: b
       stats: {
         rounds: profile.progress.stats.rounds + 1,
         correctFirstTry: profile.progress.stats.correctFirstTry + (correctFirstTry ? 1 : 0),
+        streak: correctFirstTry ? (profile.progress.stats.streak ?? 0) + 1 : 0,
       },
     },
   };

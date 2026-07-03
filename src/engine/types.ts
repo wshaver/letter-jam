@@ -29,6 +29,7 @@ export interface ProfileSettings {
 export interface ProfileStats {
   rounds: number;
   correctFirstTry: number;
+  streak: number; // consecutive first-try wins; resets on any miss
 }
 
 export interface Profile {

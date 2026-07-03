@@ -6,7 +6,7 @@ it('creates a profile with keepTrying default and empty progress', () => {
   expect(p.settings.wrongAnswerMode).toBe('keepTrying');
   expect(p.settings.gameMode).toBe('words');
   expect(p.progress.words).toEqual({});
-  expect(p.progress.stats).toEqual({ rounds: 0, correctFirstTry: 0 });
+  expect(p.progress.stats).toEqual({ rounds: 0, correctFirstTry: 0, streak: 0 });
 });
 
 it('upsertProfile adds then replaces in place, preserving order', () => {
@@ -23,8 +23,19 @@ it('applyResult moves a word up on first-try correct and records stats', () => {
   const p = createProfile('id1', 'Ada', '🦄');
   const p1 = applyResult(p, 'the', true);
   expect(p1.progress.words['the'].box).toBe(2);
-  expect(p1.progress.stats).toEqual({ rounds: 1, correctFirstTry: 1 });
+  expect(p1.progress.stats).toEqual({ rounds: 1, correctFirstTry: 1, streak: 1 });
   const p2 = applyResult(p1, 'the', false);
   expect(p2.progress.words['the'].box).toBe(1);
   expect(p2.progress.stats.correctFirstTry).toBe(1);
+});
+
+it('streak counts consecutive first-try wins and resets on a miss', () => {
+  let p = createProfile('id1', 'Ada', '🦄');
+  p = applyResult(p, 'the', true);
+  p = applyResult(p, 'go', true);
+  expect(p.progress.stats.streak).toBe(2);
+  p = applyResult(p, 'in', false);
+  expect(p.progress.stats.streak).toBe(0);
+  p = applyResult(p, 'it', true);
+  expect(p.progress.stats.streak).toBe(1);
 });

@@ -169,3 +169,16 @@ it('resets the countdown after an auto-advance (no instant skip on the next win)
     vi.useRealTimers();
   }
 });
+
+it('shows the stats bar with streak, stars, pool, mastered, and rounds', () => {
+  const { speaker } = fakeSpeaker();
+  const p = makeProfile();
+  p.progress.stats = { rounds: 12, correctFirstTry: 9, streak: 4 };
+  p.progress.words['cat'].box = 5; // one mastered word in the pool
+  render(<PlayScreen profile={p} onProfileChange={() => {}} words={WORDS} speaker={speaker} rng={seeded(1)} />);
+  expect(screen.getByTitle('Correct in a row')).toHaveTextContent('🔥 4');
+  expect(screen.getByTitle('First-try wins')).toHaveTextContent('⭐ 9');
+  expect(screen.getByTitle('Words in the pool')).toHaveTextContent(`📚 ${WORDS.length}`);
+  expect(screen.getByTitle('Mastered')).toHaveTextContent('🏆 1');
+  expect(screen.getByTitle('Rounds played')).toHaveTextContent('🎲 12');
+});

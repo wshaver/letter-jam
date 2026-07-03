@@ -3,10 +3,12 @@ export interface Speaker {
   cancel(): void;
 }
 
-// Spoken carrier phrase. Isolated function words ("a", "the") are frequently
-// mispronounced by TTS on their own; the phrase also cues the child.
-export function wordPrompt(word: string): string {
-  return `Find the word, ${word}!`;
+// Three-part prompt: the word alone, a context sentence, the word alone
+// again. The bracketing keeps the target unambiguous even though the
+// sentence contains other dictionary words; periods give the TTS pauses.
+export function wordPrompt(word: string, sentence: string): string {
+  const cap = word.charAt(0).toUpperCase() + word.slice(1);
+  return `${cap}. ${sentence} ${cap}.`;
 }
 
 export function pickVoice(

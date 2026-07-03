@@ -40,7 +40,7 @@ export function useGame(opts: UseGameOpts) {
     hadWrong.current = false;
     setCelebration(null);
     setStatus('playing');
-    speaker.speak(wordPrompt(r.target.text));
+    speaker.speak(wordPrompt(r.target.text, r.target.sentence));
   }, [words, speaker, onProfileChange, rng]);
 
   const started = useRef(false);
@@ -74,7 +74,7 @@ export function useGame(opts: UseGameOpts) {
   };
 
   const replay = () => {
-    if (round) speaker.speak(wordPrompt(round.target.text));
+    if (round) speaker.speak(wordPrompt(round.target.text, round.target.sentence));
   };
 
   return { round, status, celebration, wrongIds, choose, replay, next: startRound };

@@ -154,3 +154,17 @@ it('does not force a same-glyph decoy for single-letter (letter mode) targets', 
   expect(decoys.every((d) => d.text.toLowerCase() !== 'a')).toBe(true); // target/case still excluded
   expect(decoys.length).toBeGreaterThan(0);
 });
+
+it('draws the same-first-letter decoy from the whole pool, not just introduced words', () => {
+  // Only 'cat' is introduced; its same-first-letter neighbors are NOT — they
+  // must still be eligible as decoys (decoys come from the full dictionary).
+  const pool = ['cat', 'car', 'can', 'cot', 'dog', 'sun', 'pig', 'box', 'hen', 'mud'].map(W);
+  const p = createProfile('id', 'A', '🦄');
+  p.progress.words['cat'] = { ...newWordState(), choiceCount: 4, decoyNearness: 0 };
+  for (let seed = 0; seed < 20; seed++) {
+    const round = buildRound(p, pool, seeded(seed));
+    expect(round.target.id).toBe('cat');
+    const decoys = round.choices.filter((c) => c.id !== 'cat');
+    expect(decoys.some((d) => d.text[0] === 'c'), `seed ${seed}`).toBe(true);
+  }
+});

@@ -23,6 +23,7 @@ export interface WordState {
 
 export interface ProfileSettings {
   wrongAnswerMode: 'keepTrying' | 'oneAndDone';
+  gameMode: 'words' | 'letters';
 }
 
 export interface ProfileStats {

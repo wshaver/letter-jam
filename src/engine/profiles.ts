@@ -6,7 +6,7 @@ export function createProfile(id: string, name: string, avatar: string): Profile
     id,
     name,
     avatar,
-    settings: { wrongAnswerMode: 'keepTrying' },
+    settings: { wrongAnswerMode: 'keepTrying', gameMode: 'words' },
     progress: { words: {}, stats: { rounds: 0, correctFirstTry: 0 } },
   };
 }

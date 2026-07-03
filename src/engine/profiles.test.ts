@@ -4,6 +4,7 @@ import type { SaveBlob } from './types';
 it('creates a profile with keepTrying default and empty progress', () => {
   const p = createProfile('id1', 'Ada', '🦄');
   expect(p.settings.wrongAnswerMode).toBe('keepTrying');
+  expect(p.settings.gameMode).toBe('words');
   expect(p.progress.words).toEqual({});
   expect(p.progress.stats).toEqual({ rounds: 0, correctFirstTry: 0 });
 });

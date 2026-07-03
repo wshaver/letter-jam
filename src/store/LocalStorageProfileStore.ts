@@ -8,7 +8,12 @@ export class LocalStorageProfileStore implements ProfileStore {
     const raw = localStorage.getItem(KEY);
     if (!raw) return structuredClone(EMPTY_BLOB);
     try {
-      return JSON.parse(raw) as SaveBlob;
+      const blob = JSON.parse(raw) as SaveBlob;
+      // Backfill settings added after a blob was saved (e.g. gameMode).
+      for (const p of blob.profiles) {
+        p.settings = { ...{ wrongAnswerMode: 'keepTrying', gameMode: 'words' }, ...p.settings };
+      }
+      return blob;
     } catch {
       return structuredClone(EMPTY_BLOB);
     }

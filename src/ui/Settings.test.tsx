@@ -10,6 +10,6 @@ it('toggles wrong-answer mode to oneAndDone', async () => {
   render(<Settings profile={createProfile('id', 'A', '🦄')} onChange={onChange} onBack={() => {}} />);
   await user.click(screen.getByRole('checkbox'));
   expect(onChange).toHaveBeenCalledWith(
-    expect.objectContaining({ settings: { wrongAnswerMode: 'oneAndDone' } }),
+    expect.objectContaining({ settings: expect.objectContaining({ wrongAnswerMode: 'oneAndDone' }) }),
   );
 });

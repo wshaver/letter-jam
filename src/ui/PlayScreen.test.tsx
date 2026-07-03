@@ -51,7 +51,7 @@ function renderedWrongCard(target: string): HTMLElement {
   throw new Error('no wrong card rendered');
 }
 
-it('speaks the carrier phrase and celebrates a first-try correct tap', async () => {
+it('speaks the three-part prompt and celebrates a first-try correct tap', async () => {
   const user = userEvent.setup();
   const { spoken, speaker } = fakeSpeaker();
   render(<PlayScreen profile={makeProfile()} onProfileChange={() => {}} words={WORDS} speaker={speaker} rng={seeded(1)} />);

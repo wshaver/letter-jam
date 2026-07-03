@@ -29,6 +29,7 @@ it('includes Dolch nouns with length-banded grades and the noun tag', () => {
 it('every word carries a capitalized, period-terminated sentence containing it', () => {
   for (const w of allWords()) {
     expect(w.sentence, w.id).toMatch(/^[A-Z].*\.$/);
+    // Smoke check only — the authoritative word-boundary validation runs in build-words.mjs.
     expect(w.sentence.toLowerCase(), w.id).toContain(w.text);
   }
 });

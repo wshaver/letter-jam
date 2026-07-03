@@ -42,15 +42,18 @@ export function Feedback({ level }: { level: 'big' | 'small' }) {
     playChime(level);
   }, [level]);
 
-  // A handful of emoji float up from the bottom; randomized per celebration.
+  // Floating emoji are the big-win flourish only — a recovered win (after a
+  // wrong tap) stays muted with just confetti and the softer chime.
   const floaters = useMemo(
     () =>
-      Array.from({ length: level === 'big' ? 8 : 4 }, () => ({
-        emoji: FLOAT_EMOJI[Math.floor(Math.random() * FLOAT_EMOJI.length)],
-        left: 5 + Math.random() * 90,
-        delay: Math.random() * 0.6,
-        duration: 1.8 + Math.random() * 1.2,
-      })),
+      level === 'big'
+        ? Array.from({ length: 8 }, () => ({
+            emoji: FLOAT_EMOJI[Math.floor(Math.random() * FLOAT_EMOJI.length)],
+            left: 5 + Math.random() * 90,
+            delay: Math.random() * 0.6,
+            duration: 1.8 + Math.random() * 1.2,
+          }))
+        : [],
     [level],
   );
 

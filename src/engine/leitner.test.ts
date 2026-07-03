@@ -1,3 +1,4 @@
+import type { WordState } from './types';
 import {
   newWordState,
   recordResult,
@@ -27,7 +28,7 @@ it('correct first try moves up one box, clamped at max', () => {
 });
 
 it('a miss drops two boxes, with a floor at box 1', () => {
-  let s = { ...newWordState(), box: 5 as const, seen: 4, correct: 4 };
+  let s: WordState = { ...newWordState(), box: 5, seen: 4, correct: 4 };
   s = recordResult(s, false);
   expect(s.box).toBe(3); // a slip on a known word: moderate comeback
   s = recordResult(s, false);
@@ -55,7 +56,7 @@ it('difficulty steps up on reaching box 4 and again at box 5, then caps', () => 
 });
 
 it('two misses in a row step difficulty down and reset the streak', () => {
-  let s = { ...newWordState(), box: 5 as const, choiceCount: 5, decoyNearness: 0.8 };
+  let s: WordState = { ...newWordState(), box: 5, choiceCount: 5, decoyNearness: 0.8 };
   s = recordResult(s, false);
   expect(s.missStreak).toBe(1);
   expect(s.choiceCount).toBe(5); // a single miss does not ease

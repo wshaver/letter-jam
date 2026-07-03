@@ -95,7 +95,7 @@ body { touch-action: manipulation; }
   background: #334; color: #fff; padding: 0.4rem 0.8rem; border-radius: 0.5rem;
   font-size: 0.95rem; white-space: nowrap; z-index: 20;
 }
-.topbar .stats .stat-tip { left: auto; right: 0; transform: none; }
+.topbar .stats .stat-tip { left: 0; right: auto; transform: none; }
 
 /* --- floating celebration emoji --- */
 .floaters { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 5; }

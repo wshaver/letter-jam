@@ -1,0 +1,1322 @@
+[
+  {
+    "id": "after",
+    "text": "after",
+    "grade": "1",
+    "length": 5
+  },
+  {
+    "id": "again",
+    "text": "again",
+    "grade": "1",
+    "length": 5
+  },
+  {
+    "id": "an",
+    "text": "an",
+    "grade": "1",
+    "length": 2
+  },
+  {
+    "id": "any",
+    "text": "any",
+    "grade": "1",
+    "length": 3
+  },
+  {
+    "id": "as",
+    "text": "as",
+    "grade": "1",
+    "length": 2
+  },
+  {
+    "id": "ask",
+    "text": "ask",
+    "grade": "1",
+    "length": 3
+  },
+  {
+    "id": "by",
+    "text": "by",
+    "grade": "1",
+    "length": 2
+  },
+  {
+    "id": "could",
+    "text": "could",
+    "grade": "1",
+    "length": 5
+  },
+  {
+    "id": "every",
+    "text": "every",
+    "grade": "1",
+    "length": 5
+  },
+  {
+    "id": "fly",
+    "text": "fly",
+    "grade": "1",
+    "length": 3
+  },
+  {
+    "id": "from",
+    "text": "from",
+    "grade": "1",
+    "length": 4
+  },
+  {
+    "id": "give",
+    "text": "give",
+    "grade": "1",
+    "length": 4
+  },
+  {
+    "id": "going",
+    "text": "going",
+    "grade": "1",
+    "length": 5
+  },
+  {
+    "id": "had",
+    "text": "had",
+    "grade": "1",
+    "length": 3
+  },
+  {
+    "id": "has",
+    "text": "has",
+    "grade": "1",
+    "length": 3
+  },
+  {
+    "id": "her",
+    "text": "her",
+    "grade": "1",
+    "length": 3
+  },
+  {
+    "id": "him",
+    "text": "him",
+    "grade": "1",
+    "length": 3
+  },
+  {
+    "id": "his",
+    "text": "his",
+    "grade": "1",
+    "length": 3
+  },
+  {
+    "id": "how",
+    "text": "how",
+    "grade": "1",
+    "length": 3
+  },
+  {
+    "id": "just",
+    "text": "just",
+    "grade": "1",
+    "length": 4
+  },
+  {
+    "id": "know",
+    "text": "know",
+    "grade": "1",
+    "length": 4
+  },
+  {
+    "id": "let",
+    "text": "let",
+    "grade": "1",
+    "length": 3
+  },
+  {
+    "id": "live",
+    "text": "live",
+    "grade": "1",
+    "length": 4
+  },
+  {
+    "id": "may",
+    "text": "may",
+    "grade": "1",
+    "length": 3
+  },
+  {
+    "id": "of",
+    "text": "of",
+    "grade": "1",
+    "length": 2
+  },
+  {
+    "id": "old",
+    "text": "old",
+    "grade": "1",
+    "length": 3
+  },
+  {
+    "id": "once",
+    "text": "once",
+    "grade": "1",
+    "length": 4
+  },
+  {
+    "id": "open",
+    "text": "open",
+    "grade": "1",
+    "length": 4
+  },
+  {
+    "id": "over",
+    "text": "over",
+    "grade": "1",
+    "length": 4
+  },
+  {
+    "id": "put",
+    "text": "put",
+    "grade": "1",
+    "length": 3
+  },
+  {
+    "id": "round",
+    "text": "round",
+    "grade": "1",
+    "length": 5
+  },
+  {
+    "id": "some",
+    "text": "some",
+    "grade": "1",
+    "length": 4
+  },
+  {
+    "id": "stop",
+    "text": "stop",
+    "grade": "1",
+    "length": 4
+  },
+  {
+    "id": "take",
+    "text": "take",
+    "grade": "1",
+    "length": 4
+  },
+  {
+    "id": "thank",
+    "text": "thank",
+    "grade": "1",
+    "length": 5
+  },
+  {
+    "id": "them",
+    "text": "them",
+    "grade": "1",
+    "length": 4
+  },
+  {
+    "id": "then",
+    "text": "then",
+    "grade": "1",
+    "length": 4
+  },
+  {
+    "id": "think",
+    "text": "think",
+    "grade": "1",
+    "length": 5
+  },
+  {
+    "id": "walk",
+    "text": "walk",
+    "grade": "1",
+    "length": 4
+  },
+  {
+    "id": "were",
+    "text": "were",
+    "grade": "1",
+    "length": 4
+  },
+  {
+    "id": "when",
+    "text": "when",
+    "grade": "1",
+    "length": 4
+  },
+  {
+    "id": "always",
+    "text": "always",
+    "grade": "2",
+    "length": 6
+  },
+  {
+    "id": "around",
+    "text": "around",
+    "grade": "2",
+    "length": 6
+  },
+  {
+    "id": "because",
+    "text": "because",
+    "grade": "2",
+    "length": 7
+  },
+  {
+    "id": "been",
+    "text": "been",
+    "grade": "2",
+    "length": 4
+  },
+  {
+    "id": "before",
+    "text": "before",
+    "grade": "2",
+    "length": 6
+  },
+  {
+    "id": "best",
+    "text": "best",
+    "grade": "2",
+    "length": 4
+  },
+  {
+    "id": "both",
+    "text": "both",
+    "grade": "2",
+    "length": 4
+  },
+  {
+    "id": "buy",
+    "text": "buy",
+    "grade": "2",
+    "length": 3
+  },
+  {
+    "id": "call",
+    "text": "call",
+    "grade": "2",
+    "length": 4
+  },
+  {
+    "id": "cold",
+    "text": "cold",
+    "grade": "2",
+    "length": 4
+  },
+  {
+    "id": "does",
+    "text": "does",
+    "grade": "2",
+    "length": 4
+  },
+  {
+    "id": "dont",
+    "text": "dont",
+    "grade": "2",
+    "length": 4
+  },
+  {
+    "id": "fast",
+    "text": "fast",
+    "grade": "2",
+    "length": 4
+  },
+  {
+    "id": "first",
+    "text": "first",
+    "grade": "2",
+    "length": 5
+  },
+  {
+    "id": "five",
+    "text": "five",
+    "grade": "2",
+    "length": 4
+  },
+  {
+    "id": "found",
+    "text": "found",
+    "grade": "2",
+    "length": 5
+  },
+  {
+    "id": "gave",
+    "text": "gave",
+    "grade": "2",
+    "length": 4
+  },
+  {
+    "id": "goes",
+    "text": "goes",
+    "grade": "2",
+    "length": 4
+  },
+  {
+    "id": "green",
+    "text": "green",
+    "grade": "2",
+    "length": 5
+  },
+  {
+    "id": "its",
+    "text": "its",
+    "grade": "2",
+    "length": 3
+  },
+  {
+    "id": "made",
+    "text": "made",
+    "grade": "2",
+    "length": 4
+  },
+  {
+    "id": "many",
+    "text": "many",
+    "grade": "2",
+    "length": 4
+  },
+  {
+    "id": "off",
+    "text": "off",
+    "grade": "2",
+    "length": 3
+  },
+  {
+    "id": "or",
+    "text": "or",
+    "grade": "2",
+    "length": 2
+  },
+  {
+    "id": "pull",
+    "text": "pull",
+    "grade": "2",
+    "length": 4
+  },
+  {
+    "id": "read",
+    "text": "read",
+    "grade": "2",
+    "length": 4
+  },
+  {
+    "id": "right",
+    "text": "right",
+    "grade": "2",
+    "length": 5
+  },
+  {
+    "id": "sing",
+    "text": "sing",
+    "grade": "2",
+    "length": 4
+  },
+  {
+    "id": "sit",
+    "text": "sit",
+    "grade": "2",
+    "length": 3
+  },
+  {
+    "id": "sleep",
+    "text": "sleep",
+    "grade": "2",
+    "length": 5
+  },
+  {
+    "id": "tell",
+    "text": "tell",
+    "grade": "2",
+    "length": 4
+  },
+  {
+    "id": "their",
+    "text": "their",
+    "grade": "2",
+    "length": 5
+  },
+  {
+    "id": "these",
+    "text": "these",
+    "grade": "2",
+    "length": 5
+  },
+  {
+    "id": "those",
+    "text": "those",
+    "grade": "2",
+    "length": 5
+  },
+  {
+    "id": "upon",
+    "text": "upon",
+    "grade": "2",
+    "length": 4
+  },
+  {
+    "id": "us",
+    "text": "us",
+    "grade": "2",
+    "length": 2
+  },
+  {
+    "id": "use",
+    "text": "use",
+    "grade": "2",
+    "length": 3
+  },
+  {
+    "id": "very",
+    "text": "very",
+    "grade": "2",
+    "length": 4
+  },
+  {
+    "id": "wash",
+    "text": "wash",
+    "grade": "2",
+    "length": 4
+  },
+  {
+    "id": "which",
+    "text": "which",
+    "grade": "2",
+    "length": 5
+  },
+  {
+    "id": "why",
+    "text": "why",
+    "grade": "2",
+    "length": 3
+  },
+  {
+    "id": "wish",
+    "text": "wish",
+    "grade": "2",
+    "length": 4
+  },
+  {
+    "id": "work",
+    "text": "work",
+    "grade": "2",
+    "length": 4
+  },
+  {
+    "id": "would",
+    "text": "would",
+    "grade": "2",
+    "length": 5
+  },
+  {
+    "id": "write",
+    "text": "write",
+    "grade": "2",
+    "length": 5
+  },
+  {
+    "id": "your",
+    "text": "your",
+    "grade": "2",
+    "length": 4
+  },
+  {
+    "id": "about",
+    "text": "about",
+    "grade": "3",
+    "length": 5
+  },
+  {
+    "id": "better",
+    "text": "better",
+    "grade": "3",
+    "length": 6
+  },
+  {
+    "id": "bring",
+    "text": "bring",
+    "grade": "3",
+    "length": 5
+  },
+  {
+    "id": "carry",
+    "text": "carry",
+    "grade": "3",
+    "length": 5
+  },
+  {
+    "id": "clean",
+    "text": "clean",
+    "grade": "3",
+    "length": 5
+  },
+  {
+    "id": "cut",
+    "text": "cut",
+    "grade": "3",
+    "length": 3
+  },
+  {
+    "id": "done",
+    "text": "done",
+    "grade": "3",
+    "length": 4
+  },
+  {
+    "id": "draw",
+    "text": "draw",
+    "grade": "3",
+    "length": 4
+  },
+  {
+    "id": "drink",
+    "text": "drink",
+    "grade": "3",
+    "length": 5
+  },
+  {
+    "id": "eight",
+    "text": "eight",
+    "grade": "3",
+    "length": 5
+  },
+  {
+    "id": "fall",
+    "text": "fall",
+    "grade": "3",
+    "length": 4
+  },
+  {
+    "id": "far",
+    "text": "far",
+    "grade": "3",
+    "length": 3
+  },
+  {
+    "id": "full",
+    "text": "full",
+    "grade": "3",
+    "length": 4
+  },
+  {
+    "id": "got",
+    "text": "got",
+    "grade": "3",
+    "length": 3
+  },
+  {
+    "id": "grow",
+    "text": "grow",
+    "grade": "3",
+    "length": 4
+  },
+  {
+    "id": "hold",
+    "text": "hold",
+    "grade": "3",
+    "length": 4
+  },
+  {
+    "id": "hot",
+    "text": "hot",
+    "grade": "3",
+    "length": 3
+  },
+  {
+    "id": "hurt",
+    "text": "hurt",
+    "grade": "3",
+    "length": 4
+  },
+  {
+    "id": "if",
+    "text": "if",
+    "grade": "3",
+    "length": 2
+  },
+  {
+    "id": "keep",
+    "text": "keep",
+    "grade": "3",
+    "length": 4
+  },
+  {
+    "id": "kind",
+    "text": "kind",
+    "grade": "3",
+    "length": 4
+  },
+  {
+    "id": "laugh",
+    "text": "laugh",
+    "grade": "3",
+    "length": 5
+  },
+  {
+    "id": "light",
+    "text": "light",
+    "grade": "3",
+    "length": 5
+  },
+  {
+    "id": "long",
+    "text": "long",
+    "grade": "3",
+    "length": 4
+  },
+  {
+    "id": "much",
+    "text": "much",
+    "grade": "3",
+    "length": 4
+  },
+  {
+    "id": "myself",
+    "text": "myself",
+    "grade": "3",
+    "length": 6
+  },
+  {
+    "id": "never",
+    "text": "never",
+    "grade": "3",
+    "length": 5
+  },
+  {
+    "id": "only",
+    "text": "only",
+    "grade": "3",
+    "length": 4
+  },
+  {
+    "id": "own",
+    "text": "own",
+    "grade": "3",
+    "length": 3
+  },
+  {
+    "id": "pick",
+    "text": "pick",
+    "grade": "3",
+    "length": 4
+  },
+  {
+    "id": "seven",
+    "text": "seven",
+    "grade": "3",
+    "length": 5
+  },
+  {
+    "id": "shall",
+    "text": "shall",
+    "grade": "3",
+    "length": 5
+  },
+  {
+    "id": "show",
+    "text": "show",
+    "grade": "3",
+    "length": 4
+  },
+  {
+    "id": "six",
+    "text": "six",
+    "grade": "3",
+    "length": 3
+  },
+  {
+    "id": "small",
+    "text": "small",
+    "grade": "3",
+    "length": 5
+  },
+  {
+    "id": "start",
+    "text": "start",
+    "grade": "3",
+    "length": 5
+  },
+  {
+    "id": "ten",
+    "text": "ten",
+    "grade": "3",
+    "length": 3
+  },
+  {
+    "id": "today",
+    "text": "today",
+    "grade": "3",
+    "length": 5
+  },
+  {
+    "id": "together",
+    "text": "together",
+    "grade": "3",
+    "length": 8
+  },
+  {
+    "id": "try",
+    "text": "try",
+    "grade": "3",
+    "length": 3
+  },
+  {
+    "id": "warm",
+    "text": "warm",
+    "grade": "3",
+    "length": 4
+  },
+  {
+    "id": "a",
+    "text": "a",
+    "grade": "preK",
+    "length": 1
+  },
+  {
+    "id": "and",
+    "text": "and",
+    "grade": "preK",
+    "length": 3
+  },
+  {
+    "id": "away",
+    "text": "away",
+    "grade": "preK",
+    "length": 4
+  },
+  {
+    "id": "big",
+    "text": "big",
+    "grade": "preK",
+    "length": 3
+  },
+  {
+    "id": "blue",
+    "text": "blue",
+    "grade": "preK",
+    "length": 4
+  },
+  {
+    "id": "can",
+    "text": "can",
+    "grade": "preK",
+    "length": 3
+  },
+  {
+    "id": "come",
+    "text": "come",
+    "grade": "preK",
+    "length": 4
+  },
+  {
+    "id": "down",
+    "text": "down",
+    "grade": "preK",
+    "length": 4
+  },
+  {
+    "id": "find",
+    "text": "find",
+    "grade": "preK",
+    "length": 4
+  },
+  {
+    "id": "for",
+    "text": "for",
+    "grade": "preK",
+    "length": 3
+  },
+  {
+    "id": "funny",
+    "text": "funny",
+    "grade": "preK",
+    "length": 5
+  },
+  {
+    "id": "go",
+    "text": "go",
+    "grade": "preK",
+    "length": 2
+  },
+  {
+    "id": "help",
+    "text": "help",
+    "grade": "preK",
+    "length": 4
+  },
+  {
+    "id": "here",
+    "text": "here",
+    "grade": "preK",
+    "length": 4
+  },
+  {
+    "id": "i",
+    "text": "i",
+    "grade": "preK",
+    "length": 1
+  },
+  {
+    "id": "in",
+    "text": "in",
+    "grade": "preK",
+    "length": 2
+  },
+  {
+    "id": "is",
+    "text": "is",
+    "grade": "preK",
+    "length": 2
+  },
+  {
+    "id": "it",
+    "text": "it",
+    "grade": "preK",
+    "length": 2
+  },
+  {
+    "id": "jump",
+    "text": "jump",
+    "grade": "preK",
+    "length": 4
+  },
+  {
+    "id": "little",
+    "text": "little",
+    "grade": "preK",
+    "length": 6
+  },
+  {
+    "id": "look",
+    "text": "look",
+    "grade": "preK",
+    "length": 4
+  },
+  {
+    "id": "make",
+    "text": "make",
+    "grade": "preK",
+    "length": 4
+  },
+  {
+    "id": "me",
+    "text": "me",
+    "grade": "preK",
+    "length": 2
+  },
+  {
+    "id": "my",
+    "text": "my",
+    "grade": "preK",
+    "length": 2
+  },
+  {
+    "id": "not",
+    "text": "not",
+    "grade": "preK",
+    "length": 3
+  },
+  {
+    "id": "one",
+    "text": "one",
+    "grade": "preK",
+    "length": 3
+  },
+  {
+    "id": "play",
+    "text": "play",
+    "grade": "preK",
+    "length": 4
+  },
+  {
+    "id": "red",
+    "text": "red",
+    "grade": "preK",
+    "length": 3
+  },
+  {
+    "id": "run",
+    "text": "run",
+    "grade": "preK",
+    "length": 3
+  },
+  {
+    "id": "said",
+    "text": "said",
+    "grade": "preK",
+    "length": 4
+  },
+  {
+    "id": "see",
+    "text": "see",
+    "grade": "preK",
+    "length": 3
+  },
+  {
+    "id": "the",
+    "text": "the",
+    "grade": "preK",
+    "length": 3
+  },
+  {
+    "id": "three",
+    "text": "three",
+    "grade": "preK",
+    "length": 5
+  },
+  {
+    "id": "to",
+    "text": "to",
+    "grade": "preK",
+    "length": 2
+  },
+  {
+    "id": "two",
+    "text": "two",
+    "grade": "preK",
+    "length": 3
+  },
+  {
+    "id": "up",
+    "text": "up",
+    "grade": "preK",
+    "length": 2
+  },
+  {
+    "id": "we",
+    "text": "we",
+    "grade": "preK",
+    "length": 2
+  },
+  {
+    "id": "where",
+    "text": "where",
+    "grade": "preK",
+    "length": 5
+  },
+  {
+    "id": "yellow",
+    "text": "yellow",
+    "grade": "preK",
+    "length": 6
+  },
+  {
+    "id": "you",
+    "text": "you",
+    "grade": "preK",
+    "length": 3
+  },
+  {
+    "id": "all",
+    "text": "all",
+    "grade": "K",
+    "length": 3
+  },
+  {
+    "id": "am",
+    "text": "am",
+    "grade": "K",
+    "length": 2
+  },
+  {
+    "id": "are",
+    "text": "are",
+    "grade": "K",
+    "length": 3
+  },
+  {
+    "id": "at",
+    "text": "at",
+    "grade": "K",
+    "length": 2
+  },
+  {
+    "id": "ate",
+    "text": "ate",
+    "grade": "K",
+    "length": 3
+  },
+  {
+    "id": "be",
+    "text": "be",
+    "grade": "K",
+    "length": 2
+  },
+  {
+    "id": "black",
+    "text": "black",
+    "grade": "K",
+    "length": 5
+  },
+  {
+    "id": "brown",
+    "text": "brown",
+    "grade": "K",
+    "length": 5
+  },
+  {
+    "id": "but",
+    "text": "but",
+    "grade": "K",
+    "length": 3
+  },
+  {
+    "id": "came",
+    "text": "came",
+    "grade": "K",
+    "length": 4
+  },
+  {
+    "id": "did",
+    "text": "did",
+    "grade": "K",
+    "length": 3
+  },
+  {
+    "id": "do",
+    "text": "do",
+    "grade": "K",
+    "length": 2
+  },
+  {
+    "id": "eat",
+    "text": "eat",
+    "grade": "K",
+    "length": 3
+  },
+  {
+    "id": "four",
+    "text": "four",
+    "grade": "K",
+    "length": 4
+  },
+  {
+    "id": "get",
+    "text": "get",
+    "grade": "K",
+    "length": 3
+  },
+  {
+    "id": "good",
+    "text": "good",
+    "grade": "K",
+    "length": 4
+  },
+  {
+    "id": "have",
+    "text": "have",
+    "grade": "K",
+    "length": 4
+  },
+  {
+    "id": "he",
+    "text": "he",
+    "grade": "K",
+    "length": 2
+  },
+  {
+    "id": "into",
+    "text": "into",
+    "grade": "K",
+    "length": 4
+  },
+  {
+    "id": "like",
+    "text": "like",
+    "grade": "K",
+    "length": 4
+  },
+  {
+    "id": "must",
+    "text": "must",
+    "grade": "K",
+    "length": 4
+  },
+  {
+    "id": "new",
+    "text": "new",
+    "grade": "K",
+    "length": 3
+  },
+  {
+    "id": "no",
+    "text": "no",
+    "grade": "K",
+    "length": 2
+  },
+  {
+    "id": "now",
+    "text": "now",
+    "grade": "K",
+    "length": 3
+  },
+  {
+    "id": "on",
+    "text": "on",
+    "grade": "K",
+    "length": 2
+  },
+  {
+    "id": "our",
+    "text": "our",
+    "grade": "K",
+    "length": 3
+  },
+  {
+    "id": "out",
+    "text": "out",
+    "grade": "K",
+    "length": 3
+  },
+  {
+    "id": "please",
+    "text": "please",
+    "grade": "K",
+    "length": 6
+  },
+  {
+    "id": "pretty",
+    "text": "pretty",
+    "grade": "K",
+    "length": 6
+  },
+  {
+    "id": "ran",
+    "text": "ran",
+    "grade": "K",
+    "length": 3
+  },
+  {
+    "id": "ride",
+    "text": "ride",
+    "grade": "K",
+    "length": 4
+  },
+  {
+    "id": "saw",
+    "text": "saw",
+    "grade": "K",
+    "length": 3
+  },
+  {
+    "id": "say",
+    "text": "say",
+    "grade": "K",
+    "length": 3
+  },
+  {
+    "id": "she",
+    "text": "she",
+    "grade": "K",
+    "length": 3
+  },
+  {
+    "id": "so",
+    "text": "so",
+    "grade": "K",
+    "length": 2
+  },
+  {
+    "id": "soon",
+    "text": "soon",
+    "grade": "K",
+    "length": 4
+  },
+  {
+    "id": "that",
+    "text": "that",
+    "grade": "K",
+    "length": 4
+  },
+  {
+    "id": "there",
+    "text": "there",
+    "grade": "K",
+    "length": 5
+  },
+  {
+    "id": "they",
+    "text": "they",
+    "grade": "K",
+    "length": 4
+  },
+  {
+    "id": "this",
+    "text": "this",
+    "grade": "K",
+    "length": 4
+  },
+  {
+    "id": "too",
+    "text": "too",
+    "grade": "K",
+    "length": 3
+  },
+  {
+    "id": "under",
+    "text": "under",
+    "grade": "K",
+    "length": 5
+  },
+  {
+    "id": "want",
+    "text": "want",
+    "grade": "K",
+    "length": 4
+  },
+  {
+    "id": "was",
+    "text": "was",
+    "grade": "K",
+    "length": 3
+  },
+  {
+    "id": "well",
+    "text": "well",
+    "grade": "K",
+    "length": 4
+  },
+  {
+    "id": "went",
+    "text": "went",
+    "grade": "K",
+    "length": 4
+  },
+  {
+    "id": "what",
+    "text": "what",
+    "grade": "K",
+    "length": 4
+  },
+  {
+    "id": "white",
+    "text": "white",
+    "grade": "K",
+    "length": 5
+  },
+  {
+    "id": "who",
+    "text": "who",
+    "grade": "K",
+    "length": 3
+  },
+  {
+    "id": "will",
+    "text": "will",
+    "grade": "K",
+    "length": 4
+  },
+  {
+    "id": "with",
+    "text": "with",
+    "grade": "K",
+    "length": 4
+  },
+  {
+    "id": "yes",
+    "text": "yes",
+    "grade": "K",
+    "length": 3
+  }
+]

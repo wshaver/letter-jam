@@ -82,3 +82,15 @@ it('ends the round and reveals the answer on a wrong tap in oneAndDone mode', as
   // The correct card is highlighted so the child still learns the answer.
   expect(screen.getByRole('button', { name: target })).toHaveClass('reveal');
 });
+
+it('gives long words the long class for smaller text', async () => {
+  const { speaker } = fakeSpeaker();
+  const longWords = ['together', 'because', 'always', 'cat', 'dog', 'sun'].map(W);
+  const p = createProfile('id', 'A', '🦄');
+  for (const w of longWords) p.progress.words[w.id] = newWordState();
+  render(<PlayScreen profile={p} onProfileChange={() => {}} words={longWords} speaker={speaker} rng={seeded(1)} />);
+  for (const card of document.querySelectorAll('.card')) {
+    const text = card.textContent ?? '';
+    expect(card.className.includes('long'), text).toBe(text.length >= 7);
+  }
+});

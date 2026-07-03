@@ -22,15 +22,15 @@ export function PlayScreen(props: PlayScreenProps) {
         🔊
       </button>
       <div className="cards">
-        {round.choices.map((w, i) => {
+        {round.choices.map((w) => {
           const reveal = status === 'missed' && w.id === round.target.id;
+          const size = w.text.length === 1 ? 'glyph' : w.text.length >= 7 ? 'long' : '';
           return (
             <button
               key={w.id}
-              className={`card ${w.text.length === 1 ? 'glyph' : ''} ${wrongIds.has(w.id) ? 'faded' : ''} ${reveal ? 'reveal' : ''}`}
-              style={{ animationDelay: `${i * 0.15}s` }}
+              className={`card ${size} ${wrongIds.has(w.id) ? 'faded' : ''} ${reveal ? 'reveal' : ''}`}
               disabled={wrongIds.has(w.id) || status !== 'playing'}
-              onClick={() => choose(w)}
+              onPointerDown={() => choose(w)}
             >
               {w.text}
             </button>

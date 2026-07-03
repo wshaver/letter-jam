@@ -15,3 +15,13 @@ it('looks up a word by id with computed length', () => {
   expect(w?.grade).toBe('preK');
   expect(w?.length).toBe(3);
 });
+
+it('includes Dolch nouns with length-banded grades and the noun tag', () => {
+  expect(allWords().length).toBe(313);
+  expect(wordById('dog')).toMatchObject({ grade: 'preK', tags: ['noun'] });
+  expect(wordById('ball')).toMatchObject({ grade: 'K', tags: ['noun'] });
+  expect(wordById('house')).toMatchObject({ grade: '1', tags: ['noun'] });
+  expect(wordById('window')).toMatchObject({ grade: '2', tags: ['noun'] });
+  expect(wordById('christmas')).toMatchObject({ grade: '3', tags: ['noun'] });
+  expect(wordById('the')?.tags).toBeUndefined(); // service words untagged
+});

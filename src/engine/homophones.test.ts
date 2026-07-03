@@ -15,3 +15,8 @@ it('unrelated words are not homophones', () => {
   expect(areHomophones('cat', 'dog')).toBe(false);
   expect(areHomophones('for', 'from')).toBe(false);
 });
+
+it('covers the noun-created homophone groups', () => {
+  expect(areHomophones('i', 'eye')).toBe(true);
+  expect(areHomophones('would', 'wood')).toBe(true);
+});

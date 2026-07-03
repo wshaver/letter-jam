@@ -19,8 +19,10 @@ export function PlayScreen(props: PlayScreenProps) {
   const [countdown, setCountdown] = useState(3);
 
   useEffect(() => {
-    if (status === 'playing') return;
+    // Reset on EVERY status change — including back to 'playing'. Leaving a
+    // stale 0 behind after an auto-advance made the next win skip instantly.
     setCountdown(3);
+    if (status === 'playing') return;
     const id = setInterval(() => setCountdown((c) => c - 1), 1000);
     return () => clearInterval(id);
   }, [status]);

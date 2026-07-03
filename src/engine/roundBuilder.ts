@@ -22,15 +22,32 @@ export function pickDecoys(target: Word, words: Word[], difficulty: Difficulty, 
     .map((w) => ({ w, s: similarity(target.text, w.text) }))
     .sort((a, b) => a.s - b.s); // ascending: least similar first
   const n = scored.length;
-  // If the pool is smaller than requested, return all candidates — callers must not
+  // If the pool is smaller than requested, take all candidates — callers must not
   // assume a fixed choice count when the candidate pool is small.
-  if (n <= count) return scored.map((x) => x.w);
+  const candidates =
+    n <= count
+      ? scored.map((x) => x.w)
+      : (() => {
+          const center = Math.round(difficulty.decoyNearness * (n - 1));
+          const windowSize = Math.min(n, Math.max(count * 3, count + 2));
+          const start = Math.max(0, Math.min(center - Math.floor(windowSize / 2), n - windowSize));
+          return shuffle(
+            scored.slice(start, start + windowSize).map((x) => x.w),
+            rng,
+          );
+        })();
 
-  const center = Math.round(difficulty.decoyNearness * (n - 1));
-  const windowSize = Math.min(n, Math.max(count * 3, count + 2));
-  const start = Math.max(0, Math.min(center - Math.floor(windowSize / 2), n - windowSize));
-  const window = scored.slice(start, start + windowSize).map((x) => x.w);
-  return shuffle(window, rng).slice(0, count);
+  // Decoys must also be mutually distinct: two cases of the same glyph (H/h)
+  // or a homophone pair (to/too) side by side confuse without teaching.
+  const picked: Word[] = [];
+  for (const w of candidates) {
+    if (picked.length >= count) break;
+    const clashes = picked.some(
+      (p) => p.text.toLowerCase() === w.text.toLowerCase() || areHomophones(p.text, w.text),
+    );
+    if (!clashes) picked.push(w);
+  }
+  return picked;
 }
 
 export function buildRound(

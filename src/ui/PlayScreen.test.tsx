@@ -148,3 +148,24 @@ it('briefly ignores card taps after an auto-advance', async () => {
     vi.useRealTimers();
   }
 });
+
+it('resets the countdown after an auto-advance (no instant skip on the next win)', async () => {
+  vi.useFakeTimers();
+  try {
+    const user = userEvent.setup({ advanceTimers: vi.advanceTimersByTime });
+    const { spoken, speaker } = fakeSpeaker();
+    render(<PlayScreen profile={makeProfile()} onProfileChange={() => {}} words={WORDS} speaker={speaker} rng={seeded(1)} />);
+    await user.click(screen.getByRole('button', { name: lastSpokenTarget(spoken) }));
+    await act(async () => { vi.advanceTimersByTime(3100); }); // auto-advance -> round 2
+    expect(spoken.length).toBe(2);
+    await act(async () => { vi.advanceTimersByTime(500); }); // clear the input lock
+    await user.click(screen.getByRole('button', { name: lastSpokenTarget(spoken) })); // win round 2
+    // Regression: stale countdown-0 must not fire an instant advance.
+    expect(spoken.length).toBe(2);
+    expect(screen.getByRole('button', { name: /next \(3\)/i })).toBeInTheDocument();
+    await act(async () => { vi.advanceTimersByTime(3100); });
+    expect(spoken.length).toBe(3); // advances only after a full fresh countdown
+  } finally {
+    vi.useRealTimers();
+  }
+});

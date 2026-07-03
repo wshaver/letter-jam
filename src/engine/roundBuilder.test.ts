@@ -1,6 +1,7 @@
 import { activePool, pickDecoys, buildRound } from './roundBuilder';
 import { createProfile } from './profiles';
 import { newWordState } from './leitner';
+import { areHomophones } from './homophones';
 import type { Difficulty, Word } from './types';
 import type { Rng } from './random';
 
@@ -92,5 +93,41 @@ it('never shows the other case of the target letter', () => {
   for (let seed = 0; seed < 20; seed++) {
     const ids = pickDecoys(upper, pool, { choiceCount: 5, decoyNearness: 0.5 }, seeded(seed)).map((w) => w.id);
     expect(ids).not.toContain('letter-a-lc');
+  }
+});
+
+it('decoys are mutually distinct: no case-pairs or homophone-pairs among them', () => {
+  // 8 letters in both cases, all introduced with 5 choices at high nearness —
+  // without mutual dedupe, H and h (etc.) land in the same round as decoys.
+  const letters: Word[] = [];
+  for (const ch of 'abcdefgh') {
+    letters.push({ id: `letter-${ch}-uc`, text: ch.toUpperCase(), grade: 'lettersUpper', length: 1, sentence: `${ch.toUpperCase()} is for x.`, tags: ['letter', 'upper'] });
+    letters.push({ id: `letter-${ch}-lc`, text: ch, grade: 'lettersLower', length: 1, sentence: `${ch.toUpperCase()} is for x.`, tags: ['letter', 'lower'] });
+  }
+  const p = createProfile('id', 'A', '🦄');
+  for (const w of letters) {
+    p.progress.words[w.id] = { ...newWordState(), choiceCount: 5, decoyNearness: 0.8 };
+  }
+  for (let seed = 0; seed < 30; seed++) {
+    const round = buildRound(p, letters, seeded(seed));
+    const folded = round.choices.map((c) => c.text.toLowerCase());
+    expect(new Set(folded).size, `seed ${seed}: ${round.choices.map((c) => c.text).join(',')}`).toBe(round.choices.length);
+  }
+});
+
+it('homophone pairs never co-appear as decoys', () => {
+  const wordsPool = ['cat', 'to', 'too', 'two', 'go', 'in', 'is', 'it'].map(W);
+  const p = createProfile('id', 'A', '🦄');
+  for (const w of wordsPool) {
+    p.progress.words[w.id] = { ...newWordState(), choiceCount: 5, decoyNearness: 0.8 };
+  }
+  for (let seed = 0; seed < 30; seed++) {
+    const round = buildRound(p, wordsPool, seeded(seed));
+    const texts = round.choices.map((c) => c.text);
+    for (let i = 0; i < texts.length; i++) {
+      for (let j = i + 1; j < texts.length; j++) {
+        expect(areHomophones(texts[i], texts[j]), `seed ${seed}: ${texts.join(',')}`).toBe(false);
+      }
+    }
   }
 });

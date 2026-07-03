@@ -9,7 +9,7 @@ import type { Rng } from '../engine/random';
 
 vi.mock('canvas-confetti', () => ({ default: vi.fn() }));
 
-const W = (id: string): Word => ({ id, text: id, grade: 'preK', length: id.length });
+const W = (id: string): Word => ({ id, text: id, grade: 'preK', length: id.length, sentence: `We can see the ${id} now.` });
 const WORDS = ['cat', 'cot', 'can', 'car', 'dog', 'sun'].map(W);
 
 function seeded(seed: number): Rng {

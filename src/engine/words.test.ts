@@ -25,3 +25,10 @@ it('includes Dolch nouns with length-banded grades and the noun tag', () => {
   expect(wordById('christmas')).toMatchObject({ grade: '3', tags: ['noun'] });
   expect(wordById('the')?.tags).toBeUndefined(); // service words untagged
 });
+
+it('every word carries a capitalized, period-terminated sentence containing it', () => {
+  for (const w of allWords()) {
+    expect(w.sentence, w.id).toMatch(/^[A-Z].*\.$/);
+    expect(w.sentence.toLowerCase(), w.id).toContain(w.text);
+  }
+});

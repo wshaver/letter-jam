@@ -1,6 +1,7 @@
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { SENTENCES, EDGE_EXCEPTIONS, EXTRA_FORMS } from './sentences.mjs';
 
 const DOLCH = {
   preK: ['a','and','away','big','blue','can','come','down','find','for','funny','go','help','here','i','in','is','it','jump','little','look','make','me','my','not','one','play','red','run','said','see','the','three','to','two','up','we','where','yellow','you'],
@@ -38,6 +39,69 @@ if (ids.size !== words.length) {
   console.error('Duplicate word ids across DOLCH and NOUNS lists');
   process.exit(1);
 }
+
+// --- sentence validation -----------------------------------------------
+// Every allowed token form: the vocabulary itself plus simple inflections.
+function allowedForms(vocab) {
+  const forms = new Set(vocab);
+  for (const w of vocab) {
+    forms.add(w + 's');
+    forms.add(w + 'es');
+    forms.add(w + 'd');
+    forms.add(w + 'ed');
+    forms.add(w + 'ing');
+    if (w.endsWith('e')) forms.add(w.slice(0, -1) + 'ing'); // come -> coming
+    const last = w[w.length - 1];
+    if (!'aeiouy'.includes(last)) {
+      forms.add(w + last + 'ing'); // run -> running
+      forms.add(w + last + 'ed'); // stop -> stopped
+    }
+    if (w.endsWith('y')) {
+      forms.add(w.slice(0, -1) + 'ies'); // baby -> babies
+      forms.add(w.slice(0, -1) + 'ied'); // carry -> carried
+    }
+  }
+  for (const f of EXTRA_FORMS) forms.add(f);
+  return forms;
+}
+
+function validateSentences(words) {
+  const forms = allowedForms(words.map((w) => w.text));
+  const errors = [];
+  for (const { text } of words) {
+    const sentence = SENTENCES[text];
+    if (!sentence) {
+      errors.push(`${text}: missing sentence`);
+      continue;
+    }
+    if (!/^[A-Z].*\.$/.test(sentence)) {
+      errors.push(`${text}: must start capitalized and end with a period`);
+    }
+    const tokens = sentence
+      .toLowerCase()
+      .replace(/'/g, '')
+      .replace(/[.,!?;:]/g, ' ')
+      .split(/\s+/)
+      .filter(Boolean);
+    if (!tokens.includes(text)) {
+      errors.push(`${text}: sentence does not contain the word`);
+    }
+    if ((tokens[0] === text || tokens[tokens.length - 1] === text) && !EDGE_EXCEPTIONS.includes(text)) {
+      errors.push(`${text}: word is first or last (rewrite, or add to EDGE_EXCEPTIONS if unavoidable)`);
+    }
+    for (const t of tokens) {
+      if (!forms.has(t)) errors.push(`${text}: token "${t}" not in allowed vocabulary`);
+    }
+  }
+  if (errors.length) {
+    console.error(`Sentence validation failed (${errors.length} errors):`);
+    for (const e of errors) console.error('  ' + e);
+    process.exit(1);
+  }
+}
+
+validateSentences(words);
+for (const w of words) w.sentence = SENTENCES[w.text];
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const outPath = `${__dirname}/../src/data/words.json`;

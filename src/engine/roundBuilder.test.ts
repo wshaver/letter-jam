@@ -13,7 +13,7 @@ function seeded(seed: number): Rng {
   };
 }
 
-const W = (id: string): Word => ({ id, text: id, grade: 'preK', length: id.length });
+const W = (id: string): Word => ({ id, text: id, grade: 'preK', length: id.length, sentence: `We can see the ${id} now.` });
 // 9 confusable 3-letter decoys + 9 clearly-different longer decoys, so the
 // selection window (size 9 for choiceCount 4) lands on disjoint ends.
 const NEAR = ['cot', 'can', 'car', 'cap', 'cab', 'bat', 'hat', 'mat', 'rat'];

@@ -4,10 +4,13 @@ export const NUM_BOXES = 5;
 export const MISS_DROP = 2; // a miss drops this many boxes (floor 1)
 export const MIN_CHOICES = 3;
 export const MAX_CHOICES = 5;
-export const NEARNESS_STEP = 0.4;
+export const NEARNESS_STEP_UP = 0.1; // nearness rises on every correct answer
+export const NEARNESS_STEP_DOWN = 0.3; // relief after 2 consecutive misses
 export const MAX_NEARNESS = 0.8;
 export const HARDER_BOX = 4; // reaching this box (or higher) steps difficulty up
 export const MISSES_TO_EASE = 2; // consecutive misses that step difficulty down
+
+const round1 = (n: number) => Math.round(n * 10) / 10;
 
 export function newWordState(): WordState {
   return {
@@ -32,9 +35,7 @@ export function recordResult(state: WordState, correctFirstTry: boolean): WordSt
       correct: state.correct + 1,
       introduced: true,
       choiceCount: harder ? Math.min(state.choiceCount + 1, MAX_CHOICES) : state.choiceCount,
-      decoyNearness: harder
-        ? Math.min(state.decoyNearness + NEARNESS_STEP, MAX_NEARNESS)
-        : state.decoyNearness,
+      decoyNearness: round1(Math.min(state.decoyNearness + NEARNESS_STEP_UP, MAX_NEARNESS)),
       missStreak: 0,
     };
   }
@@ -46,7 +47,7 @@ export function recordResult(state: WordState, correctFirstTry: boolean): WordSt
     correct: state.correct,
     introduced: true,
     choiceCount: ease ? Math.max(state.choiceCount - 1, MIN_CHOICES) : state.choiceCount,
-    decoyNearness: ease ? Math.max(state.decoyNearness - NEARNESS_STEP, 0) : state.decoyNearness,
+    decoyNearness: ease ? round1(Math.max(state.decoyNearness - NEARNESS_STEP_DOWN, 0)) : state.decoyNearness,
     missStreak: ease ? 0 : missStreak,
   };
 }

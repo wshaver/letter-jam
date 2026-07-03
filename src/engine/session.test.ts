@@ -23,20 +23,29 @@ it('introduces the initial batch when nothing is introduced', () => {
   expect(introduced).toHaveLength(DEFAULT_SESSION_CONFIG.initialBatch);
 });
 
-it('does not introduce more until the mastery threshold is met', () => {
+it('does not introduce more while any pool word sits in box 1', () => {
   const p0 = introduceIfNeeded(createProfile('id', 'A', '🦄'), WORDS);
   const before = Object.keys(p0.progress.words).length;
-  const p1 = introduceIfNeeded(p0, WORDS); // still box 1, no mastery
+  const p1 = introduceIfNeeded(p0, WORDS); // all still box 1
   expect(Object.keys(p1.progress.words).length).toBe(before);
 });
 
-it('trickles in more words once enough are mastered', () => {
+it('trickles in more words as soon as box 1 is empty', () => {
   let p = introduceIfNeeded(createProfile('id', 'A', '🦄'), WORDS);
-  // Force all introduced words to a mastered box.
-  for (const id of Object.keys(p.progress.words)) p.progress.words[id].box = 5;
+  for (const id of Object.keys(p.progress.words)) p.progress.words[id].box = 2;
   const before = Object.keys(p.progress.words).length;
   p = introduceIfNeeded(p, WORDS);
-  expect(Object.keys(p.progress.words).length).toBeGreaterThan(before);
+  expect(Object.keys(p.progress.words).length).toBe(before + DEFAULT_SESSION_CONFIG.trickleBatch);
+});
+
+it('a single word back in box 1 pauses introduction', () => {
+  let p = introduceIfNeeded(createProfile('id', 'A', '🦄'), WORDS);
+  const ids = Object.keys(p.progress.words);
+  for (const id of ids) p.progress.words[id].box = 3;
+  p.progress.words[ids[0]].box = 1; // one missed word
+  const before = Object.keys(p.progress.words).length;
+  p = introduceIfNeeded(p, WORDS);
+  expect(Object.keys(p.progress.words).length).toBe(before);
 });
 
 it('scopes introduction counting to the passed pool', () => {

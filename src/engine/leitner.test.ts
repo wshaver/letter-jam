@@ -38,32 +38,34 @@ it('a miss drops two boxes, with a floor at box 1', () => {
   expect(s.seen).toBe(7);
 });
 
-it('difficulty steps up on reaching box 4 and again at box 5, then caps', () => {
+it('nearness rises 0.1 on every correct; choiceCount still steps at box >= 4', () => {
   let s = newWordState();
   s = recordResult(s, true); // box 2
-  s = recordResult(s, true); // box 3
+  expect(s.decoyNearness).toBeCloseTo(0.1);
   expect(s.choiceCount).toBe(MIN_CHOICES);
-  expect(s.decoyNearness).toBe(0);
-  s = recordResult(s, true); // box 4 → step up
+  s = recordResult(s, true); // box 3
+  expect(s.decoyNearness).toBeCloseTo(0.2);
+  expect(s.choiceCount).toBe(MIN_CHOICES);
+  s = recordResult(s, true); // box 4 -> choiceCount steps
+  expect(s.decoyNearness).toBeCloseTo(0.3);
   expect(s.choiceCount).toBe(4);
+  s = recordResult(s, true); // box 5
   expect(s.decoyNearness).toBeCloseTo(0.4);
-  s = recordResult(s, true); // box 5 → step up again
   expect(s.choiceCount).toBe(MAX_CHOICES);
-  expect(s.decoyNearness).toBeCloseTo(MAX_NEARNESS);
-  s = recordResult(s, true); // stays box 5, already capped
+  for (let i = 0; i < 10; i++) s = recordResult(s, true);
+  expect(s.decoyNearness).toBe(MAX_NEARNESS); // capped, clean 1-decimal value
   expect(s.choiceCount).toBe(MAX_CHOICES);
-  expect(s.decoyNearness).toBeCloseTo(MAX_NEARNESS);
 });
 
-it('two misses in a row step difficulty down and reset the streak', () => {
+it('two misses in a row ease difficulty and reset the streak', () => {
   let s: WordState = { ...newWordState(), box: 5, choiceCount: 5, decoyNearness: 0.8 };
   s = recordResult(s, false);
   expect(s.missStreak).toBe(1);
-  expect(s.choiceCount).toBe(5); // a single miss does not ease
+  expect(s.decoyNearness).toBeCloseTo(0.8); // single miss does not ease
   s = recordResult(s, false);
+  expect(s.decoyNearness).toBeCloseTo(0.5); // -0.3
   expect(s.choiceCount).toBe(4);
-  expect(s.decoyNearness).toBeCloseTo(0.4);
-  expect(s.missStreak).toBe(0); // takes another 2 misses to ease again
+  expect(s.missStreak).toBe(0);
 });
 
 it('a correct answer resets the miss streak', () => {

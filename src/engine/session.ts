@@ -1,4 +1,4 @@
-import type { Box, Grade, Profile, Word } from './types';
+import type { Grade, Profile, Word } from './types';
 import { newWordState } from './leitner';
 
 export const GRADES: Grade[] = ['lettersUpper', 'lettersLower', 'preK', 'K', '1', '2', '3'];
@@ -6,15 +6,11 @@ export const GRADES: Grade[] = ['lettersUpper', 'lettersLower', 'preK', 'K', '1'
 export interface SessionConfig {
   initialBatch: number;
   trickleBatch: number;
-  trickleThreshold: number;
-  masteredBox: Box;
 }
 
 export const DEFAULT_SESSION_CONFIG: SessionConfig = {
   initialBatch: 6,
   trickleBatch: 3,
-  trickleThreshold: 0.6,
-  masteredBox: 4,
 };
 
 export function orderedWords(words: Word[]): Word[] {
@@ -38,8 +34,10 @@ export function introduceIfNeeded(
   if (introducedIds.length === 0) {
     toIntroduce = ordered.slice(0, config.initialBatch);
   } else {
-    const mastered = introducedIds.filter((id) => state[id].box >= config.masteredBox).length;
-    if (mastered / introducedIds.length >= config.trickleThreshold) {
+    // Trickle as soon as box 1 is empty: every introduced pool word has been
+    // answered at least once since it last missed.
+    const anyInBoxOne = introducedIds.some((id) => state[id].box === 1);
+    if (!anyInBoxOne) {
       toIntroduce = ordered.filter((w) => !state[w.id]?.introduced).slice(0, config.trickleBatch);
     }
   }

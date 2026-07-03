@@ -83,7 +83,7 @@ it('ends the round and reveals the answer on a wrong tap in oneAndDone mode', as
   expect(screen.getByRole('button', { name: target })).toHaveClass('reveal');
 });
 
-it('gives long words the long class for smaller text', () => {
+it('sizes the whole round by its longest word (no font-size tell)', () => {
   const { speaker } = fakeSpeaker();
   const make = (ids: string[]) => {
     const pool = ids.map(W);
@@ -96,11 +96,18 @@ it('gives long words the long class for smaller text', () => {
   expect(document.querySelectorAll('.card').length).toBeGreaterThan(0);
   expect(document.querySelector('.card.long')).toBeNull();
   short.unmount();
-  // All-long pool: every rendered card must have it.
+  // Mixed 3-word pool (choiceCount 3 renders ALL of them): the short word
+  // must inherit the long size — a bigger font would reveal the answer.
+  const mixed = make(['go', 'squirrel', 'because']);
+  const mixedCards = [...document.querySelectorAll('.card')];
+  expect(mixedCards).toHaveLength(3);
+  expect(mixedCards.every((c) => c.classList.contains('long'))).toBe(true);
+  mixed.unmount();
+  // All-long pool: every rendered card has it.
   make(['together', 'because', 'morning', 'picture', 'children']);
   const cards = [...document.querySelectorAll('.card')];
   expect(cards.length).toBeGreaterThan(0);
-  expect(cards.every((c) => c.className.includes('long'))).toBe(true);
+  expect(cards.every((c) => c.classList.contains('long'))).toBe(true);
 });
 
 it('auto-advances three seconds after a round resolves', async () => {

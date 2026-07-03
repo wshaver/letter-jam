@@ -31,6 +31,11 @@ export function PlayScreen(props: PlayScreenProps) {
 
   if (!round) return null;
 
+  // One font size for the whole round, sized to its longest word — otherwise
+  // a short target among long decoys is a visual tell for the answer.
+  const maxLen = Math.max(...round.choices.map((w) => w.text.length));
+  const size = maxLen === 1 ? 'glyph' : maxLen >= 7 ? 'long' : '';
+
   return (
     <div className="play">
       <button className="speaker" aria-label="Hear the word again" onClick={replay}>
@@ -39,7 +44,6 @@ export function PlayScreen(props: PlayScreenProps) {
       <div className="cards">
         {round.choices.map((w) => {
           const reveal = status === 'missed' && w.id === round.target.id;
-          const size = w.text.length === 1 ? 'glyph' : w.text.length >= 7 ? 'long' : '';
           return (
             <button
               key={w.id}

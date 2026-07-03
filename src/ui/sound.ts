@@ -74,15 +74,18 @@ export function playChime(level: 'big' | 'small'): void {
     notes.forEach((f, i) => {
       const o = c.createOscillator();
       const g = c.createGain();
+      // Triangle reads louder than a pure sine at the same gain; a higher peak
+      // brings the chime up near the speech volume.
+      o.type = 'triangle';
       o.frequency.value = f;
       o.connect(g);
       g.connect(c.destination);
       const t = c.currentTime + i * 0.12;
       g.gain.setValueAtTime(0.001, t);
-      g.gain.exponentialRampToValueAtTime(0.2, t + 0.02);
-      g.gain.exponentialRampToValueAtTime(0.001, t + 0.15);
+      g.gain.exponentialRampToValueAtTime(0.5, t + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.001, t + 0.18);
       o.start(t);
-      o.stop(t + 0.16);
+      o.stop(t + 0.19);
     });
   } catch {
     // audio not available in this environment

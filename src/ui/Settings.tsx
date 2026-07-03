@@ -27,6 +27,22 @@ export function Settings({ profile, onChange, onBack }: SettingsProps) {
         />
         Stop after a wrong answer (harder)
       </label>
+      <label className="setting-row">
+        <input
+          type="checkbox"
+          checked={profile.settings.gameMode === 'letters'}
+          onChange={(e) =>
+            onChange({
+              ...profile,
+              settings: {
+                ...profile.settings,
+                gameMode: e.target.checked ? 'letters' : 'words',
+              },
+            })
+          }
+        />
+        Letter mode (letter recognition for little ones)
+      </label>
       <button onClick={onBack}>Done</button>
     </div>
   );

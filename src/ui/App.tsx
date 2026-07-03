@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import type { Profile, SaveBlob } from '../engine/types';
 import { LocalStorageProfileStore } from '../store/LocalStorageProfileStore';
 import { createSpeaker } from '../engine/speech';
-import { allWords } from '../engine/words';
+import { wordsForMode } from '../engine/words';
 import { createProfile, upsertProfile } from '../engine/profiles';
 import { newId } from '../engine/id';
 import { ProfileSelect } from './ProfileSelect';
@@ -75,10 +75,10 @@ export function App() {
         </button>
       </header>
       <PlayScreen
-        key={active.id}
+        key={`${active.id}:${active.settings.gameMode}`}
         profile={active}
         onProfileChange={onProfileChange}
-        words={allWords()}
+        words={wordsForMode(active.settings.gameMode)}
         speaker={speaker}
       />
     </div>

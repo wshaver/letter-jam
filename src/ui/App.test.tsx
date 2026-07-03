@@ -28,3 +28,18 @@ it('persists the created player across reloads', async () => {
   render(<App />);
   expect(await screen.findByRole('button', { name: /Bo/ })).toBeInTheDocument();
 });
+
+it('letters mode shows single-glyph cards', async () => {
+  const user = userEvent.setup();
+  render(<App />);
+  await user.type(await screen.findByLabelText('New player name'), 'Tot');
+  await user.click(screen.getByRole('button', { name: 'Add player' }));
+  await screen.findByRole('button', { name: 'Hear the word again' });
+  await user.click(screen.getByRole('button', { name: 'Settings' }));
+  await user.click(screen.getByRole('checkbox', { name: /letter mode/i }));
+  await user.click(screen.getByRole('button', { name: 'Done' }));
+  await screen.findByRole('button', { name: 'Hear the word again' });
+  const cards = document.querySelectorAll('.card');
+  expect(cards.length).toBeGreaterThanOrEqual(3);
+  for (const c of cards) expect((c.textContent ?? '').length).toBe(1);
+});

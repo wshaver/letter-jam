@@ -27,7 +27,7 @@ export function PlayScreen(props: PlayScreenProps) {
           return (
             <button
               key={w.id}
-              className={`card ${wrongIds.has(w.id) ? 'faded' : ''} ${reveal ? 'reveal' : ''}`}
+              className={`card ${w.text.length === 1 ? 'glyph' : ''} ${wrongIds.has(w.id) ? 'faded' : ''} ${reveal ? 'reveal' : ''}`}
               style={{ animationDelay: `${i * 0.15}s` }}
               disabled={wrongIds.has(w.id) || status !== 'playing'}
               onClick={() => choose(w)}

@@ -50,9 +50,13 @@ every round should be able to end in celebration.
 ## Core Gameplay Loop (Mode A)
 
 1. The round builder picks a **target word** (weighted toward low Leitner boxes
-   and freshly introduced words) plus **N−1 decoys** at the current
-   similarity tier.
-2. The word is spoken via TTS. A large **speaker button** lets the child replay
+   and freshly introduced words) plus **N−1 decoys** at the target word's
+   stored difficulty. The previous round's target is never picked again
+   immediately, and decoys are never **homophones** of the target (TO/TOO/TWO
+   on screen together would make the round unanswerable).
+2. The word is spoken via TTS in a short **carrier phrase** — "Find the word,
+   cat!" — because isolated function words ("a", "the") are frequently
+   mispronounced on their own. A large **speaker button** lets the child replay
    it (this also satisfies browsers that require a user gesture before audio).
 3. The word cards gently fall and settle onto the screen. Motion is decorative.
 4. The child taps a card:
@@ -62,24 +66,35 @@ every round should be able to end in celebration.
      others remain, and the child keeps trying until correct. The correct word
      triggers a minor celebration, but Leitner marks the word a **miss** 
      (back to box 1).
-   - **Wrong tap (oneAndDone mode, optional) →** a gentle "aw," the round ends
-     with no confetti, Leitner marks a miss, and play moves on.
+   - **Wrong tap (oneAndDone mode, optional) →** a gentle "aw," the correct
+     card is briefly highlighted so the child still learns the answer, the
+     round ends with no confetti, Leitner marks a miss, and play moves on.
 5. Progress is autosaved. Sessions are **endless** — the child plays until they
    stop.
 
 ## Difficulty
 
-Difficulty is **derived from the child's mastery**, not a manually selected
-level. Two axes tighten as the current grade's words climb into high Leitner
-boxes:
+Difficulty is tracked **per word** and stored with the word's progress in the
+save blob. Each word carries two figures:
 
-- **Choice count:** starts at **3**, grows toward **4–5** as mastery rises.
-- **Decoy similarity:** starts **wildly different** — different length *and*
-  different starting sound (e.g. CAT vs. BANANA vs. HOUSE) — and tightens toward
-  **confusable** (CAT vs. COT vs. CAN) as mastery rises.
+- **Choice count** (3–5): how many cards are on screen when this word is the
+  target. Starts at **3**.
+- **Decoy nearness** (0–0.8, in steps of 0.4): how confusable the decoys are.
+  Starts at **0** — wildly different words (CAT vs. BANANA vs. HOUSE) — and
+  tightens toward **confusable** (CAT vs. COT vs. CAN).
 
-Word length and grade rarity provide the coarse spine (via the grade lists);
-decoy similarity and choice count are the fine-grained knobs.
+Adjustment rules (applied by the Leitner engine when a result is recorded):
+
+- **Step up** when the word is answered correctly on the first try and lands in
+  **box ≥ 4**: choice count +1 (capped at 5) and nearness +0.4 (capped at 0.8).
+  So a word gets harder as it enters box 4 and again at box 5, then it's maxed.
+- **Step down** when the word is missed **twice in a row**: choice count −1
+  (floor 3) and nearness −0.4 (floor 0). The miss streak then resets, so it
+  takes another two consecutive misses to step down again. Any correct answer
+  also resets the streak.
+
+A round's difficulty is simply the **target word's** stored difficulty. Word
+length and grade rarity still provide the coarse spine (via the grade lists).
 
 ## Word Data & Packs
 
@@ -88,6 +103,10 @@ decoy similarity and choice count are the fine-grained knobs.
   lists. Public domain. (Fry 1000 is a possible future extension for a longer
   tail but is out of scope for the first build.)
 - Assembled at build-prep time into `src/data/words.json`.
+- **Homophone groups:** a small table of homophones among (and near) the lists
+  — to/too/two, there/their, for/four, no/know, by/buy, right/write, ate/eight,
+  one/won, red/read, blue/blew, new/knew, be/bee, see/sea, our/hour — ships
+  with the app. Words in the same group never appear together in one round.
 - **Auto-advance with trickle:** the child auto-advances through grades. There is
   no hard graduation wall. Once a threshold fraction of the current grade's
   *introduced* words sit in a high box (box ≥ 4), the session logic seeds a few
@@ -123,6 +142,11 @@ decoy similarity and choice count are the fine-grained knobs.
 
 - Browser `SpeechSynthesis`. **Preferred voice: Chrome's "Google US English"**,
   with graceful fallback to any available English voice on other browsers.
+- Words are spoken inside the carrier phrase **"Find the word, \<word\>!"** —
+  friendlier for kids and avoids the garbled pronunciation of isolated function
+  words ("a", "the").
+- **Heteronyms** ("read", "live", "use") may be pronounced with a different
+  sense than intended; accepted as a prototype limitation.
 - Voices load asynchronously and some browsers block audio until the first user
   gesture — the **speaker button** (tap to hear / replay) handles the gesture
   requirement and doubles as accessibility.
@@ -149,6 +173,7 @@ src/
     words.ts                 # load + query word data (by grade, length)
     leitner.ts               # pure box transitions + weighting
     similarity.ts            # word "confusability" scoring for decoys
+    homophones.ts            # homophone groups (never co-shown in a round)
     roundBuilder.ts          # picks target + decoys for one round
     session.ts               # progression + grade "trickle" logic
     speech.ts                # TTS wrapper over SpeechSynthesis
@@ -167,15 +192,18 @@ src/
 ### Module responsibilities
 
 - **words.ts** — loads `words.json`; queries by grade and length.
-- **leitner.ts** — pure box transitions (`recordResult`) and box-weighted
+- **leitner.ts** — pure box transitions (`recordResult`), per-word difficulty
+  stepping (up at box ≥ 4, down after 2 consecutive misses), and box-weighted
   selection helpers.
 - **similarity.ts** — scores how "confusable" two words are, based on length
   match + shared starting sound + edit distance. Drives far→near decoy selection.
-- **roundBuilder.ts** — given the active word pool, profile progress, and the
-  current difficulty tier, picks one target + N−1 decoys.
-- **session.ts** — owns progression: which grade is active, the trickle logic for
-  seeding next-grade words, and the derived difficulty tier (choice count +
-  similarity) from mastery.
+- **homophones.ts** — homophone groups among the word lists; the round builder
+  uses it to keep homophones of the target off the screen.
+- **roundBuilder.ts** — given the active word pool and profile progress, picks
+  one target (never the previous round's target) + N−1 decoys at the target
+  word's stored difficulty.
+- **session.ts** — owns progression: which grade is active and the trickle logic
+  for seeding next-grade words.
 - **speech.ts** — voice selection, `speak(word)`, browser-quirk handling.
 - **ProfileStore / LocalStorageProfileStore** — persistence behind an interface.
 - **ui/** — React screens; `useGame.ts` orchestrates a round and mediates between
@@ -221,6 +249,9 @@ interface WordState {
   seen: number;
   correct: number;
   introduced: boolean;
+  choiceCount: number;        // 3..5 — per-word difficulty: cards on screen
+  decoyNearness: number;      // 0..0.8 — per-word difficulty: decoy confusability
+  missStreak: number;         // consecutive misses; 2 in a row steps difficulty down
 }
 ```
 
@@ -229,10 +260,13 @@ interface WordState {
 - **Vitest** for the pure engine — `leitner`, `similarity`, `roundBuilder`,
   `session`, and the store. This is where TDD pays off:
   - Leitner transitions (correct → up, wrong → box 1, box clamping).
+  - Per-word difficulty steps up at box ≥ 4 and down after 2 consecutive misses,
+    with caps and floors respected.
   - Box-weighted selection favors low boxes.
   - Similarity scoring orders far vs. near decoys correctly.
-  - Round builder returns exactly one correct target + valid decoys at the right
-    similarity tier, with the right choice count for the difficulty.
+  - Homophones of the target never appear as decoys.
+  - Round builder returns exactly one correct target + valid decoys at the
+    target word's stored difficulty, and never repeats the previous target.
   - Trickle logic seeds next-grade words only once the threshold is met.
   - Store round-trips a blob and namespaces profiles correctly.
 - **React Testing Library** for component behavior: correct-tap and wrong-tap

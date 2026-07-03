@@ -25,3 +25,10 @@ it('creates a new player from the form', async () => {
   await user.click(screen.getByRole('button', { name: 'Add player' }));
   expect(onCreate).toHaveBeenCalledWith('Bo', expect.any(String));
 });
+
+it('shows the build version stamp (confirms the JS bundle loaded)', () => {
+  render(<ProfileSelect blob={blobWith()} onPick={() => {}} onCreate={() => {}} />);
+  const stamp = screen.getByTestId('version');
+  expect(stamp.textContent).toMatch(/^v.+/); // "v<sha> · <time>" or "vnogit …"
+  expect(stamp.textContent).not.toBe('v'); // never empty — proves __APP_VERSION__ was injected
+});

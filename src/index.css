@@ -106,3 +106,6 @@ body { touch-action: manipulation; }
 @media (prefers-reduced-motion: reduce) {
   .floater { display: none; }
 }
+
+/* --- build version stamp on the profile screen --- */
+.version { margin-top: 2rem; color: #99a; font-size: 0.8rem; font-family: monospace; }

@@ -52,6 +52,11 @@ export function ProfileSelect({ blob, onPick, onCreate }: ProfileSelectProps) {
         />
         <button type="submit">Add player</button>
       </form>
+      {/* Rendered from the JS bundle, so seeing it confirms the JS loaded and
+          the stamp confirms which build is deployed. */}
+      <p className="version" data-testid="version">
+        v{__APP_VERSION__}
+      </p>
     </div>
   );
 }

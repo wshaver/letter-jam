@@ -83,3 +83,14 @@ it('returns all candidates when the pool is smaller than requested', () => {
   const decoys = pickDecoys(target, words, { choiceCount: 5, decoyNearness: 0.5 }, seeded(1));
   expect(decoys.map((w) => w.id).sort()).toEqual(['can', 'cot']);
 });
+
+it('never shows the other case of the target letter', () => {
+  const upper: Word = { id: 'letter-a-uc', text: 'A', grade: 'lettersUpper', length: 1, sentence: 'A is for apple.', tags: ['letter', 'upper'] };
+  const lower: Word = { id: 'letter-a-lc', text: 'a', grade: 'lettersLower', length: 1, sentence: 'A is for apple.', tags: ['letter', 'lower'] };
+  const others = ['B', 'C', 'D', 'E'].map((t) => ({ id: `letter-${t.toLowerCase()}-uc`, text: t, grade: 'lettersUpper' as const, length: 1, sentence: `${t} is for x.`, tags: ['letter', 'upper'] }));
+  const pool = [upper, lower, ...others];
+  for (let seed = 0; seed < 20; seed++) {
+    const ids = pickDecoys(upper, pool, { choiceCount: 5, decoyNearness: 0.5 }, seeded(seed)).map((w) => w.id);
+    expect(ids).not.toContain('letter-a-lc');
+  }
+});

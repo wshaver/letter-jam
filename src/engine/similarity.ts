@@ -14,7 +14,22 @@ export function levenshtein(a: string, b: string): number {
   return dp[n];
 }
 
+// Visual confusion groups for single glyphs (case-specific — 'b'/'d' confuse,
+// 'B'/'D' confuse, but 'b'/'D' do not). Tunable with real-child feedback.
+const LETTER_CONFUSIONS: string[][] = [
+  ['b', 'd', 'p', 'q'], ['m', 'w'], ['n', 'u'], ['i', 'l', 'j'], ['c', 'e', 'o'],
+  ['a', 'o'], ['f', 't'], ['h', 'n'], ['v', 'y', 'w'], ['s', 'z'], ['g', 'q'],
+  ['O', 'Q', 'C', 'G'], ['E', 'F'], ['M', 'W'], ['N', 'Z'], ['I', 'L', 'J', 'T'],
+  ['U', 'V', 'Y'], ['P', 'R', 'B', 'D'], ['K', 'X'],
+];
+
+export function letterSimilarity(a: string, b: string): number {
+  if (a === b) return 1;
+  return LETTER_CONFUSIONS.some((g) => g.includes(a) && g.includes(b)) ? 0.9 : 0.1;
+}
+
 export function similarity(a: string, b: string): number {
+  if (a.length === 1 && b.length === 1) return letterSimilarity(a, b);
   const s1 = a.toLowerCase();
   const s2 = b.toLowerCase();
   if (s1 === s2) return 1;

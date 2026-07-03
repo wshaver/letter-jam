@@ -11,8 +11,14 @@ export function activePool(profile: Profile, words: Word[]): Word[] {
 export function pickDecoys(target: Word, words: Word[], difficulty: Difficulty, rng: Rng): Word[] {
   const count = difficulty.choiceCount - 1;
   const scored = words
-    // A homophone decoy would make the spoken target ambiguous — never show one.
-    .filter((w) => w.id !== target.id && !areHomophones(target.text, w.text))
+    .filter(
+      (w) =>
+        w.id !== target.id &&
+        // The other case of the same glyph answers the same spoken prompt.
+        w.text.toLowerCase() !== target.text.toLowerCase() &&
+        // A homophone decoy would make the spoken target ambiguous — never show one.
+        !areHomophones(target.text, w.text),
+    )
     .map((w) => ({ w, s: similarity(target.text, w.text) }))
     .sort((a, b) => a.s - b.s); // ascending: least similar first
   const n = scored.length;

@@ -1,5 +1,6 @@
 import { orderedWords, introduceIfNeeded, DEFAULT_SESSION_CONFIG } from './session';
 import { createProfile } from './profiles';
+import { newWordState } from './leitner';
 import type { Word } from './types';
 
 const W = (id: string, grade: Word['grade'], length: number): Word => ({ id, text: id, grade, length, sentence: `We can see the ${id} now.` });
@@ -36,4 +37,14 @@ it('trickles in more words once enough are mastered', () => {
   const before = Object.keys(p.progress.words).length;
   p = introduceIfNeeded(p, WORDS);
   expect(Object.keys(p.progress.words).length).toBeGreaterThan(before);
+});
+
+it('scopes introduction counting to the passed pool', () => {
+  // Profile has mastered out-of-pool (letter) items; the word pool must
+  // still get its own initial batch rather than being treated as underway.
+  const p = createProfile('id', 'A', '🦄');
+  p.progress.words['letter-a-uc'] = { ...newWordState(), box: 5 };
+  const introduced = introduceIfNeeded(p, WORDS);
+  const wordIds = Object.keys(introduced.progress.words).filter((id) => !id.startsWith('letter-'));
+  expect(wordIds).toHaveLength(DEFAULT_SESSION_CONFIG.initialBatch);
 });

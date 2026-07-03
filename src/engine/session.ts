@@ -30,7 +30,8 @@ export function introduceIfNeeded(
   config: SessionConfig = DEFAULT_SESSION_CONFIG,
 ): Profile {
   const state = profile.progress.words;
-  const introducedIds = Object.keys(state).filter((id) => state[id].introduced);
+  const poolIds = new Set(words.map((w) => w.id));
+  const introducedIds = Object.keys(state).filter((id) => state[id].introduced && poolIds.has(id));
   const ordered = orderedWords(words);
 
   let toIntroduce: Word[] = [];

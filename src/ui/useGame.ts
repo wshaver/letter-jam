@@ -5,6 +5,7 @@ import { wordAlone, wordPrompt, type Speaker } from '../engine/speech';
 import { introduceIfNeeded } from '../engine/session';
 import { buildRound } from '../engine/roundBuilder';
 import { applyResult } from '../engine/profiles';
+import { resumeAudio } from './sound';
 
 interface UseGameOpts {
   profile: Profile;
@@ -59,8 +60,11 @@ export function useGame(opts: UseGameOpts) {
     if (status !== 'playing' || !round) return;
     if (word.id === round.target.id) {
       // Stop the prompt: they got it, and on iOS an active speech session
-      // ducks the celebration chime to near-silence.
+      // ducks the celebration chime to near-silence. Re-activate the audio
+      // context here — this runs inside the tap gesture, iOS's one reliable
+      // moment to resume it — so the chime that fires shortly after can play.
       speaker.cancel();
+      resumeAudio();
       const firstTry = !hadWrong.current;
       const updated = applyResult(profileRef.current, round.target.id, firstTry);
       profileRef.current = updated;

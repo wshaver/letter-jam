@@ -39,7 +39,10 @@ function fireConfetti(level: 'big' | 'small') {
 export function Feedback({ level }: { level: 'big' | 'small' }) {
   useEffect(() => {
     fireConfetti(level);
-    playChime(level);
+    // Small beat so the just-cancelled speech session releases before the
+    // chime, so it isn't ducked on iOS.
+    const id = setTimeout(() => playChime(level), 120);
+    return () => clearTimeout(id);
   }, [level]);
 
   // Floating emoji are the big-win flourish only — a recovered win (after a

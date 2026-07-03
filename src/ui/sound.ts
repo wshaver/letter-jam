@@ -26,16 +26,27 @@ export function unlockAudio(): void {
   const c = getCtx();
   if (!c) return;
   if (c.state === 'suspended') void c.resume();
-  // iOS fully unlocks Web Audio only once a buffer has actually played inside
-  // a gesture; resume() alone can leave later scheduled sounds silent.
+  // iOS only accepts a *real* audio start inside a gesture — a 1-sample silent
+  // buffer is not enough. A brief, effectively inaudible oscillator burst
+  // activates the context so later programmatic chimes play.
   try {
-    const src = c.createBufferSource();
-    src.buffer = c.createBuffer(1, 1, 22050);
-    src.connect(c.destination);
-    src.start(0);
+    const o = c.createOscillator();
+    const g = c.createGain();
+    g.gain.value = 0.0001;
+    o.frequency.value = 440;
+    o.connect(g);
+    g.connect(c.destination);
+    o.start();
+    o.stop(c.currentTime + 0.15);
   } catch {
-    // buffer play not supported here — resume() above is the fallback
+    // oscillator not supported here — resume() above is the fallback
   }
+}
+
+// Re-activate the context from within a user gesture (e.g. the winning tap).
+export function resumeAudio(): void {
+  const c = getCtx();
+  if (c && c.state === 'suspended') void c.resume();
 }
 
 // Diagnostic: play the chime inside a direct gesture and report the context

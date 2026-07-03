@@ -83,14 +83,22 @@ it('ends the round and reveals the answer on a wrong tap in oneAndDone mode', as
   expect(screen.getByRole('button', { name: target })).toHaveClass('reveal');
 });
 
-it('gives long words the long class for smaller text', async () => {
+it('gives long words the long class for smaller text', () => {
   const { speaker } = fakeSpeaker();
-  const longWords = ['together', 'because', 'always', 'cat', 'dog', 'sun'].map(W);
-  const p = createProfile('id', 'A', '🦄');
-  for (const w of longWords) p.progress.words[w.id] = newWordState();
-  render(<PlayScreen profile={p} onProfileChange={() => {}} words={longWords} speaker={speaker} rng={seeded(1)} />);
-  for (const card of document.querySelectorAll('.card')) {
-    const text = card.textContent ?? '';
-    expect(card.className.includes('long'), text).toBe(text.length >= 7);
-  }
+  const make = (ids: string[]) => {
+    const pool = ids.map(W);
+    const p = createProfile('id', 'A', '🦄');
+    for (const w of pool) p.progress.words[w.id] = newWordState();
+    return render(<PlayScreen profile={p} onProfileChange={() => {}} words={pool} speaker={speaker} rng={seeded(1)} />);
+  };
+  // All-short pool: no card may have the long class.
+  const short = make(['cat', 'dog', 'sun', 'run', 'big']);
+  expect(document.querySelectorAll('.card').length).toBeGreaterThan(0);
+  expect(document.querySelector('.card.long')).toBeNull();
+  short.unmount();
+  // All-long pool: every rendered card must have it.
+  make(['together', 'because', 'morning', 'picture', 'children']);
+  const cards = [...document.querySelectorAll('.card')];
+  expect(cards.length).toBeGreaterThan(0);
+  expect(cards.every((c) => c.className.includes('long'))).toBe(true);
 });

@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import type { Profile, Word } from '../engine/types';
+import { useEffect, useRef, useState } from 'react';
+import type { Profile, Round, Word } from '../engine/types';
 import type { Rng } from '../engine/random';
 import type { Speaker } from '../engine/speech';
 import { useGame } from './useGame';
@@ -17,6 +17,23 @@ export function PlayScreen(props: PlayScreenProps) {
   const { round, status, celebration, wrongIds, choose, replay, next } = useGame(props);
 
   const [countdown, setCountdown] = useState(3);
+
+  // Clear the cards, pause, then re-flip on each new round so a card repeated
+  // from the previous round animates fresh instead of sitting in place (React
+  // would otherwise reuse the same-id DOM node and skip the flip). The very
+  // first round just flips in — there's nothing to clear.
+  const [showCards, setShowCards] = useState(true);
+  const prevRound = useRef<Round | null>(null);
+
+  useEffect(() => {
+    if (prevRound.current === round) return; // same round (incl. StrictMode re-run)
+    const isFirst = prevRound.current === null;
+    prevRound.current = round;
+    if (isFirst) return;
+    setShowCards(false);
+    const id = setTimeout(() => setShowCards(true), 100);
+    return () => clearTimeout(id);
+  }, [round]);
 
   useEffect(() => {
     // Reset on EVERY status change — including back to 'playing'. Leaving a
@@ -44,7 +61,8 @@ export function PlayScreen(props: PlayScreenProps) {
         🔊
       </button>
       <div className="cards">
-        {round.choices.map((w) => {
+        {showCards &&
+          round.choices.map((w) => {
           const reveal = status === 'missed' && w.id === round.target.id;
           return (
             <button

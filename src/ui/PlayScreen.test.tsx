@@ -144,7 +144,8 @@ it('briefly ignores card taps after an auto-advance', async () => {
     const onProfileChange = vi.fn();
     render(<PlayScreen profile={makeProfile()} onProfileChange={onProfileChange} words={WORDS} speaker={speaker} rng={seeded(1)} />);
     await user.click(screen.getByRole('button', { name: lastSpokenTarget(spoken) }));
-    await act(async () => { vi.advanceTimersByTime(3100); }); // auto-advance to round 2
+    await act(async () => { vi.advanceTimersByTime(3000); }); // countdown fires the auto-advance
+    await act(async () => { vi.advanceTimersByTime(150); }); // clear -> re-flip completes; cards back
     expect(spoken.length).toBe(2);
     const callsAfterAdvance = onProfileChange.mock.calls.length;
     await user.click(screen.getByRole('button', { name: lastSpokenTarget(spoken) }));
@@ -200,4 +201,21 @@ it('stops speech on a correct answer so the chime is not ducked', async () => {
   const before = cancels();
   await user.click(screen.getByRole('button', { name: target }));
   expect(cancels()).toBeGreaterThan(before);
+});
+
+it('clears the cards then re-flips them on a new round', async () => {
+  vi.useFakeTimers();
+  try {
+    const user = userEvent.setup({ advanceTimers: vi.advanceTimersByTime });
+    const { spoken, speaker } = fakeSpeaker();
+    render(<PlayScreen profile={makeProfile()} onProfileChange={() => {}} words={WORDS} speaker={speaker} rng={seeded(1)} />);
+    expect(document.querySelectorAll('.card').length).toBeGreaterThan(0); // first round flips in
+    await user.click(screen.getByRole('button', { name: lastSpokenTarget(spoken) }));
+    await act(async () => { vi.advanceTimersByTime(3000); }); // auto-advance -> cards cleared
+    expect(document.querySelectorAll('.card')).toHaveLength(0); // gone during the pause
+    await act(async () => { vi.advanceTimersByTime(150); }); // re-flip after the pause
+    expect(document.querySelectorAll('.card').length).toBeGreaterThan(0); // back
+  } finally {
+    vi.useRealTimers();
+  }
 });

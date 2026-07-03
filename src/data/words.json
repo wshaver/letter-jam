@@ -186,7 +186,7 @@
     "text": "once",
     "grade": "1",
     "length": 4,
-    "sentence": "We saw a squirrel once today."
+    "sentence": "We saw a squirrel once at the farm."
   },
   {
     "id": "open",
@@ -417,7 +417,7 @@
     "text": "green",
     "grade": "2",
     "length": 5,
-    "sentence": "The green grass is very long."
+    "sentence": "I like the green grass in our garden."
   },
   {
     "id": "its",
@@ -550,7 +550,7 @@
     "text": "very",
     "grade": "2",
     "length": 4,
-    "sentence": "The baby is very good today."
+    "sentence": "He can run very fast at school."
   },
   {
     "id": "wash",
@@ -725,7 +725,7 @@
     "text": "hot",
     "grade": "3",
     "length": 3,
-    "sentence": "The hot fire is very warm."
+    "sentence": "This hot corn is good to eat."
   },
   {
     "id": "hurt",
@@ -893,7 +893,7 @@
     "text": "warm",
     "grade": "3",
     "length": 4,
-    "sentence": "This warm fire is very good."
+    "sentence": "I like this warm bread."
   },
   {
     "id": "a",
@@ -1012,7 +1012,7 @@
     "text": "is",
     "grade": "preK",
     "length": 2,
-    "sentence": "This game is very funny."
+    "sentence": "This is my new game today."
   },
   {
     "id": "it",
@@ -1250,7 +1250,7 @@
     "text": "did",
     "grade": "K",
     "length": 3,
-    "sentence": "She did make a cake today."
+    "sentence": "She did want to make a cake."
   },
   {
     "id": "do",
@@ -1547,7 +1547,7 @@
     "tags": [
       "noun"
     ],
-    "sentence": "This apple is very good."
+    "sentence": "She ate a red apple with milk."
   },
   {
     "id": "baby",
@@ -1597,7 +1597,7 @@
     "tags": [
       "noun"
     ],
-    "sentence": "This bed is very warm."
+    "sentence": "She put her doll on the bed now."
   },
   {
     "id": "bell",
@@ -1637,7 +1637,7 @@
     "tags": [
       "noun"
     ],
-    "sentence": "This boat is very old."
+    "sentence": "The old boat goes fast."
   },
   {
     "id": "box",
@@ -1647,7 +1647,7 @@
     "tags": [
       "noun"
     ],
-    "sentence": "This box is very full."
+    "sentence": "This small box has a red toy."
   },
   {
     "id": "boy",
@@ -1667,7 +1667,7 @@
     "tags": [
       "noun"
     ],
-    "sentence": "This bread is very good."
+    "sentence": "Father cut the bread for us."
   },
   {
     "id": "brother",
@@ -1717,7 +1717,7 @@
     "tags": [
       "noun"
     ],
-    "sentence": "This chair is very old."
+    "sentence": "She will sit on the chair now."
   },
   {
     "id": "chicken",
@@ -1757,7 +1757,7 @@
     "tags": [
       "noun"
     ],
-    "sentence": "This coat is very warm."
+    "sentence": "Put your coat on before school."
   },
   {
     "id": "corn",
@@ -1767,7 +1767,7 @@
     "tags": [
       "noun"
     ],
-    "sentence": "This corn is very good."
+    "sentence": "The farmer will pick some corn soon."
   },
   {
     "id": "cow",
@@ -1807,7 +1807,7 @@
     "tags": [
       "noun"
     ],
-    "sentence": "This doll is very pretty."
+    "sentence": "My sister got a new doll for Christmas."
   },
   {
     "id": "door",
@@ -1847,7 +1847,7 @@
     "tags": [
       "noun"
     ],
-    "sentence": "This eye is very small."
+    "sentence": "A blue eye can see far away."
   },
   {
     "id": "farm",
@@ -1917,7 +1917,7 @@
     "tags": [
       "noun"
     ],
-    "sentence": "This floor is very clean."
+    "sentence": "We sit on the clean floor to play."
   },
   {
     "id": "flower",
@@ -1927,7 +1927,7 @@
     "tags": [
       "noun"
     ],
-    "sentence": "This flower is very pretty."
+    "sentence": "She gave her mother a pretty flower today."
   },
   {
     "id": "game",
@@ -1937,7 +1937,7 @@
     "tags": [
       "noun"
     ],
-    "sentence": "This game is very good."
+    "sentence": "We will play this game together."
   },
   {
     "id": "garden",
@@ -1977,7 +1977,7 @@
     "tags": [
       "noun"
     ],
-    "sentence": "This ground is very cold."
+    "sentence": "We sit down on this ground now."
   },
   {
     "id": "hand",
@@ -1997,7 +1997,7 @@
     "tags": [
       "noun"
     ],
-    "sentence": "This head is very small."
+    "sentence": "Put your head down and sleep."
   },
   {
     "id": "hill",
@@ -2007,7 +2007,7 @@
     "tags": [
       "noun"
     ],
-    "sentence": "This hill is very small."
+    "sentence": "We saw a hill by the farm."
   },
   {
     "id": "home",
@@ -2037,7 +2037,7 @@
     "tags": [
       "noun"
     ],
-    "sentence": "This house is very old."
+    "sentence": "This big house has a red door."
   },
   {
     "id": "kitty",
@@ -2137,7 +2137,7 @@
     "tags": [
       "noun"
     ],
-    "sentence": "This name is very pretty."
+    "sentence": "She will write her name on paper."
   },
   {
     "id": "nest",
@@ -2147,7 +2147,7 @@
     "tags": [
       "noun"
     ],
-    "sentence": "This nest is very small."
+    "sentence": "Look, the nest has a little egg."
   },
   {
     "id": "night",
@@ -2167,7 +2167,7 @@
     "tags": [
       "noun"
     ],
-    "sentence": "This paper is very clean."
+    "sentence": "This paper has a pretty picture."
   },
   {
     "id": "party",
@@ -2177,7 +2177,7 @@
     "tags": [
       "noun"
     ],
-    "sentence": "This party is very good."
+    "sentence": "At the party we ate cake and corn."
   },
   {
     "id": "picture",
@@ -2187,7 +2187,7 @@
     "tags": [
       "noun"
     ],
-    "sentence": "This picture is very pretty."
+    "sentence": "Look at this picture of my dog."
   },
   {
     "id": "pig",
@@ -2227,7 +2227,7 @@
     "tags": [
       "noun"
     ],
-    "sentence": "This ring is very small."
+    "sentence": "Mother has a pretty ring on her hand."
   },
   {
     "id": "robin",
@@ -2277,7 +2277,7 @@
     "tags": [
       "noun"
     ],
-    "sentence": "This shoe is very small."
+    "sentence": "Get your shoe and coat for school."
   },
   {
     "id": "sister",
@@ -2297,7 +2297,7 @@
     "tags": [
       "noun"
     ],
-    "sentence": "This snow is very cold."
+    "sentence": "We saw snow fall on the hill."
   },
   {
     "id": "song",
@@ -2307,7 +2307,7 @@
     "tags": [
       "noun"
     ],
-    "sentence": "This song is very good."
+    "sentence": "This little song makes us laugh."
   },
   {
     "id": "squirrel",
@@ -2327,7 +2327,7 @@
     "tags": [
       "noun"
     ],
-    "sentence": "This stick is very long."
+    "sentence": "The dog will carry a stick home."
   },
   {
     "id": "street",
@@ -2337,7 +2337,7 @@
     "tags": [
       "noun"
     ],
-    "sentence": "This street is very long."
+    "sentence": "Down this street we saw a cow."
   },
   {
     "id": "sun",
@@ -2347,7 +2347,7 @@
     "tags": [
       "noun"
     ],
-    "sentence": "The sun is very warm."
+    "sentence": "Today the sun came up over the hill."
   },
   {
     "id": "table",
@@ -2357,7 +2357,7 @@
     "tags": [
       "noun"
     ],
-    "sentence": "This table is very old."
+    "sentence": "Put the cake on the table now."
   },
   {
     "id": "thing",
@@ -2367,7 +2367,7 @@
     "tags": [
       "noun"
     ],
-    "sentence": "This thing is very funny."
+    "sentence": "That funny thing made us laugh."
   },
   {
     "id": "time",
@@ -2387,7 +2387,7 @@
     "tags": [
       "noun"
     ],
-    "sentence": "This top is very small."
+    "sentence": "On top of the hill we sat."
   },
   {
     "id": "toy",
@@ -2397,7 +2397,7 @@
     "tags": [
       "noun"
     ],
-    "sentence": "This toy is very funny."
+    "sentence": "He gave his toy to the baby."
   },
   {
     "id": "tree",
@@ -2407,7 +2407,7 @@
     "tags": [
       "noun"
     ],
-    "sentence": "This tree is very old."
+    "sentence": "The tree by our house is old."
   },
   {
     "id": "watch",
@@ -2417,7 +2417,7 @@
     "tags": [
       "noun"
     ],
-    "sentence": "This watch is very old."
+    "sentence": "Father will watch the game with us."
   },
   {
     "id": "water",
@@ -2427,7 +2427,7 @@
     "tags": [
       "noun"
     ],
-    "sentence": "This water is very cold."
+    "sentence": "We drink water before we eat."
   },
   {
     "id": "way",
@@ -2447,7 +2447,7 @@
     "tags": [
       "noun"
     ],
-    "sentence": "This wind is very cold."
+    "sentence": "A cold wind came down the hill."
   },
   {
     "id": "window",
@@ -2457,7 +2457,7 @@
     "tags": [
       "noun"
     ],
-    "sentence": "This window is very clean."
+    "sentence": "A bird sat by the window to sing."
   },
   {
     "id": "wood",
@@ -2467,6 +2467,6 @@
     "tags": [
       "noun"
     ],
-    "sentence": "This wood is very old."
+    "sentence": "Father will cut this wood for the fire."
   }
 ]

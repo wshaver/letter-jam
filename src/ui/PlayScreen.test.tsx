@@ -9,7 +9,7 @@ import type { Rng } from '../engine/random';
 
 vi.mock('canvas-confetti', () => ({ default: vi.fn() }));
 
-const W = (id: string): Word => ({ id, text: id, grade: 'preK', length: id.length });
+const W = (id: string): Word => ({ id, text: id, grade: 'preK', length: id.length, sentence: `We can see the ${id} now.` });
 const WORDS = ['cat', 'cot', 'can', 'car', 'dog', 'sun'].map(W);
 
 function seeded(seed: number): Rng {
@@ -33,11 +33,11 @@ function fakeSpeaker() {
   return { spoken, speaker: { speak: (t: string) => spoken.push(t), cancel: () => {} } };
 }
 
-// The game speaks "Find the word, <word>!" — parse the target back out.
+// The game speaks "Dog. The red dog sat. Dog." — the leading token is the target.
 function lastSpokenTarget(spoken: string[]): string {
-  const m = /Find the word, (\w+)!/.exec(spoken[spoken.length - 1]);
+  const m = /^(\w+)\./.exec(spoken[spoken.length - 1]);
   if (!m) throw new Error(`unexpected prompt: ${spoken[spoken.length - 1]}`);
-  return m[1];
+  return m[1].toLowerCase();
 }
 
 // Pick a wrong word that is actually rendered on screen (only choiceCount
@@ -51,11 +51,12 @@ function renderedWrongCard(target: string): HTMLElement {
   throw new Error('no wrong card rendered');
 }
 
-it('speaks the carrier phrase and celebrates a first-try correct tap', async () => {
+it('speaks the three-part prompt and celebrates a first-try correct tap', async () => {
   const user = userEvent.setup();
   const { spoken, speaker } = fakeSpeaker();
   render(<PlayScreen profile={makeProfile()} onProfileChange={() => {}} words={WORDS} speaker={speaker} rng={seeded(1)} />);
-  expect(spoken[spoken.length - 1]).toMatch(/^Find the word, \w+!$/);
+  expect(spoken[spoken.length - 1]).toMatch(/^([A-Z]\w*)\. .+\. \1\.$/);
+
   const target = lastSpokenTarget(spoken);
   await user.click(screen.getByRole('button', { name: target }));
   expect(screen.getByText('🎉 Yay! 🎈')).toBeInTheDocument();

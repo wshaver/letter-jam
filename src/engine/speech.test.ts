@@ -16,6 +16,6 @@ it('returns null when there are no voices', () => {
   expect(pickVoice([], 'Google US English')).toBeNull();
 });
 
-it('wraps the word in the carrier phrase', () => {
-  expect(wordPrompt('cat')).toBe('Find the word, cat!');
+it('brackets the sentence with the capitalized word', () => {
+  expect(wordPrompt('dog', 'The red dog sat.')).toBe('Dog. The red dog sat. Dog.');
 });

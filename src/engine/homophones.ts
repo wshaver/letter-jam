@@ -16,6 +16,8 @@ const HOMOPHONE_GROUPS: string[][] = [
   ['be', 'bee'],
   ['see', 'sea'],
   ['our', 'hour'],
+  ['i', 'eye'],
+  ['would', 'wood'],
 ];
 
 export function areHomophones(a: string, b: string): boolean {

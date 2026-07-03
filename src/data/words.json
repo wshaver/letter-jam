@@ -3,1320 +3,2470 @@
     "id": "after",
     "text": "after",
     "grade": "1",
-    "length": 5
+    "length": 5,
+    "sentence": "We ran after the little dog."
   },
   {
     "id": "again",
     "text": "again",
     "grade": "1",
-    "length": 5
+    "length": 5,
+    "sentence": "She will play this song again soon."
   },
   {
     "id": "an",
     "text": "an",
     "grade": "1",
-    "length": 2
+    "length": 2,
+    "sentence": "She saw an old red boat."
   },
   {
     "id": "any",
     "text": "any",
     "grade": "1",
-    "length": 3
+    "length": 3,
+    "sentence": "We do not have any milk."
   },
   {
     "id": "as",
     "text": "as",
     "grade": "1",
-    "length": 2
+    "length": 2,
+    "sentence": "She is as good as her brother."
   },
   {
     "id": "ask",
     "text": "ask",
     "grade": "1",
-    "length": 3
+    "length": 3,
+    "sentence": "I will ask my father now."
   },
   {
     "id": "by",
     "text": "by",
     "grade": "1",
-    "length": 2
+    "length": 2,
+    "sentence": "The cat sat by the door."
   },
   {
     "id": "could",
     "text": "could",
     "grade": "1",
-    "length": 5
+    "length": 5,
+    "sentence": "He could not find his shoe."
   },
   {
     "id": "every",
     "text": "every",
     "grade": "1",
-    "length": 5
+    "length": 5,
+    "sentence": "We play every day at school."
   },
   {
     "id": "fly",
     "text": "fly",
     "grade": "1",
-    "length": 3
+    "length": 3,
+    "sentence": "Little birds fly over the tree."
   },
   {
     "id": "from",
     "text": "from",
     "grade": "1",
-    "length": 4
+    "length": 4,
+    "sentence": "She came from her big house."
   },
   {
     "id": "give",
     "text": "give",
     "grade": "1",
-    "length": 4
+    "length": 4,
+    "sentence": "Please give me the red ball."
   },
   {
     "id": "going",
     "text": "going",
     "grade": "1",
-    "length": 5
+    "length": 5,
+    "sentence": "We are going to the farm."
   },
   {
     "id": "had",
     "text": "had",
     "grade": "1",
-    "length": 3
+    "length": 3,
+    "sentence": "The girl had a new doll."
   },
   {
     "id": "has",
     "text": "has",
     "grade": "1",
-    "length": 3
+    "length": 3,
+    "sentence": "My brother has a yellow toy."
   },
   {
     "id": "her",
     "text": "her",
     "grade": "1",
-    "length": 3
+    "length": 3,
+    "sentence": "I will help her find it."
   },
   {
     "id": "him",
     "text": "him",
     "grade": "1",
-    "length": 3
+    "length": 3,
+    "sentence": "We gave him a warm coat."
   },
   {
     "id": "his",
     "text": "his",
     "grade": "1",
-    "length": 3
+    "length": 3,
+    "sentence": "He put his shoe by the door."
   },
   {
     "id": "how",
     "text": "how",
     "grade": "1",
-    "length": 3
+    "length": 3,
+    "sentence": "Look how fast the horse can run."
   },
   {
     "id": "just",
     "text": "just",
     "grade": "1",
-    "length": 4
+    "length": 4,
+    "sentence": "She just found her little kitty."
   },
   {
     "id": "know",
     "text": "know",
     "grade": "1",
-    "length": 4
+    "length": 4,
+    "sentence": "I know where the cow went."
   },
   {
     "id": "let",
     "text": "let",
     "grade": "1",
-    "length": 3
+    "length": 3,
+    "sentence": "Please let me help you today."
   },
   {
     "id": "live",
     "text": "live",
     "grade": "1",
-    "length": 4
+    "length": 4,
+    "sentence": "The rabbit and duck live here."
   },
   {
     "id": "may",
     "text": "may",
     "grade": "1",
-    "length": 3
+    "length": 3,
+    "sentence": "You may play in the garden."
   },
   {
     "id": "of",
     "text": "of",
     "grade": "1",
-    "length": 2
+    "length": 2,
+    "sentence": "We ate all of the bread."
   },
   {
     "id": "old",
     "text": "old",
     "grade": "1",
-    "length": 3
+    "length": 3,
+    "sentence": "This old house has a big door."
   },
   {
     "id": "once",
     "text": "once",
     "grade": "1",
-    "length": 4
+    "length": 4,
+    "sentence": "We saw a squirrel once at the farm."
   },
   {
     "id": "open",
     "text": "open",
     "grade": "1",
-    "length": 4
+    "length": 4,
+    "sentence": "Please open the door for me."
   },
   {
     "id": "over",
     "text": "over",
     "grade": "1",
-    "length": 4
+    "length": 4,
+    "sentence": "The boy jumped over the hill."
   },
   {
     "id": "put",
     "text": "put",
     "grade": "1",
-    "length": 3
+    "length": 3,
+    "sentence": "She will put the toy down."
   },
   {
     "id": "round",
     "text": "round",
     "grade": "1",
-    "length": 5
+    "length": 5,
+    "sentence": "This little ball is round and red."
   },
   {
     "id": "some",
     "text": "some",
     "grade": "1",
-    "length": 4
+    "length": 4,
+    "sentence": "We ate some corn at the party."
   },
   {
     "id": "stop",
     "text": "stop",
     "grade": "1",
-    "length": 4
+    "length": 4,
+    "sentence": "Please stop and look at the sun."
   },
   {
     "id": "take",
     "text": "take",
     "grade": "1",
-    "length": 4
+    "length": 4,
+    "sentence": "I will take my toy home."
   },
   {
     "id": "thank",
     "text": "thank",
     "grade": "1",
-    "length": 5
+    "length": 5,
+    "sentence": "We thank you for the cake."
   },
   {
     "id": "them",
     "text": "them",
     "grade": "1",
-    "length": 4
+    "length": 4,
+    "sentence": "I will give them some water."
   },
   {
     "id": "then",
     "text": "then",
     "grade": "1",
-    "length": 4
+    "length": 4,
+    "sentence": "She ate corn, then went to play."
   },
   {
     "id": "think",
     "text": "think",
     "grade": "1",
-    "length": 5
+    "length": 5,
+    "sentence": "I think the fish is little."
   },
   {
     "id": "walk",
     "text": "walk",
     "grade": "1",
-    "length": 4
+    "length": 4,
+    "sentence": "We walk to school every morning."
   },
   {
     "id": "were",
     "text": "were",
     "grade": "1",
-    "length": 4
+    "length": 4,
+    "sentence": "They were good at the party."
   },
   {
     "id": "when",
     "text": "when",
     "grade": "1",
-    "length": 4
+    "length": 4,
+    "sentence": "This is when the sun goes down."
   },
   {
     "id": "always",
     "text": "always",
     "grade": "2",
-    "length": 6
+    "length": 6,
+    "sentence": "Our dog is always very good."
   },
   {
     "id": "around",
     "text": "around",
     "grade": "2",
-    "length": 6
+    "length": 6,
+    "sentence": "The children ran around the garden."
   },
   {
     "id": "because",
     "text": "because",
     "grade": "2",
-    "length": 7
+    "length": 7,
+    "sentence": "She was good because she got a toy."
   },
   {
     "id": "been",
     "text": "been",
     "grade": "2",
-    "length": 4
+    "length": 4,
+    "sentence": "We have been to the farm today."
   },
   {
     "id": "before",
     "text": "before",
     "grade": "2",
-    "length": 6
+    "length": 6,
+    "sentence": "Wash your hands before you eat."
   },
   {
     "id": "best",
     "text": "best",
     "grade": "2",
-    "length": 4
+    "length": 4,
+    "sentence": "This is the best cake we made."
   },
   {
     "id": "both",
     "text": "both",
     "grade": "2",
-    "length": 4
+    "length": 4,
+    "sentence": "We both like to sing songs."
   },
   {
     "id": "buy",
     "text": "buy",
     "grade": "2",
-    "length": 3
+    "length": 3,
+    "sentence": "We will buy eggs at the farm."
   },
   {
     "id": "call",
     "text": "call",
     "grade": "2",
-    "length": 4
+    "length": 4,
+    "sentence": "Please call the dog to come home."
   },
   {
     "id": "cold",
     "text": "cold",
     "grade": "2",
-    "length": 4
+    "length": 4,
+    "sentence": "The cold snow came down all morning."
   },
   {
     "id": "does",
     "text": "does",
     "grade": "2",
-    "length": 4
+    "length": 4,
+    "sentence": "She does like her new toy."
   },
   {
     "id": "dont",
     "text": "dont",
     "grade": "2",
-    "length": 4
+    "length": 4,
+    "sentence": "She said I dont want to go."
   },
   {
     "id": "fast",
     "text": "fast",
     "grade": "2",
-    "length": 4
+    "length": 4,
+    "sentence": "The fast horse can run well."
   },
   {
     "id": "first",
     "text": "first",
     "grade": "2",
-    "length": 5
+    "length": 5,
+    "sentence": "He was first to see the bird."
   },
   {
     "id": "five",
     "text": "five",
     "grade": "2",
-    "length": 4
+    "length": 4,
+    "sentence": "I have five apples in a box."
   },
   {
     "id": "found",
     "text": "found",
     "grade": "2",
-    "length": 5
+    "length": 5,
+    "sentence": "The boy found a little bird."
   },
   {
     "id": "gave",
     "text": "gave",
     "grade": "2",
-    "length": 4
+    "length": 4,
+    "sentence": "Father gave me a new toy."
   },
   {
     "id": "goes",
     "text": "goes",
     "grade": "2",
-    "length": 4
+    "length": 4,
+    "sentence": "She goes to school with her sister."
   },
   {
     "id": "green",
     "text": "green",
     "grade": "2",
-    "length": 5
+    "length": 5,
+    "sentence": "I like the green grass in our garden."
   },
   {
     "id": "its",
     "text": "its",
     "grade": "2",
-    "length": 3
+    "length": 3,
+    "sentence": "The bird sat in its nest."
   },
   {
     "id": "made",
     "text": "made",
     "grade": "2",
-    "length": 4
+    "length": 4,
+    "sentence": "Mother made a cake today."
   },
   {
     "id": "many",
     "text": "many",
     "grade": "2",
-    "length": 4
+    "length": 4,
+    "sentence": "We saw many sheep on the farm."
   },
   {
     "id": "off",
     "text": "off",
     "grade": "2",
-    "length": 3
+    "length": 3,
+    "sentence": "The cat jumped off the chair."
   },
   {
     "id": "or",
     "text": "or",
     "grade": "2",
-    "length": 2
+    "length": 2,
+    "sentence": "We will eat corn or bread."
   },
   {
     "id": "pull",
     "text": "pull",
     "grade": "2",
-    "length": 4
+    "length": 4,
+    "sentence": "Help me pull this box home."
   },
   {
     "id": "read",
     "text": "read",
     "grade": "2",
-    "length": 4
+    "length": 4,
+    "sentence": "We read about a little duck."
   },
   {
     "id": "right",
     "text": "right",
     "grade": "2",
-    "length": 5
+    "length": 5,
+    "sentence": "Put the box right by the door."
   },
   {
     "id": "sing",
     "text": "sing",
     "grade": "2",
-    "length": 4
+    "length": 4,
+    "sentence": "The children sing a good song."
   },
   {
     "id": "sit",
     "text": "sit",
     "grade": "2",
-    "length": 3
+    "length": 3,
+    "sentence": "Come sit with me at the table."
   },
   {
     "id": "sleep",
     "text": "sleep",
     "grade": "2",
-    "length": 5
+    "length": 5,
+    "sentence": "The baby will sleep in her bed."
   },
   {
     "id": "tell",
     "text": "tell",
     "grade": "2",
-    "length": 4
+    "length": 4,
+    "sentence": "Please tell me about your day."
   },
   {
     "id": "their",
     "text": "their",
     "grade": "2",
-    "length": 5
+    "length": 5,
+    "sentence": "The boys found their new ball."
   },
   {
     "id": "these",
     "text": "these",
     "grade": "2",
-    "length": 5
+    "length": 5,
+    "sentence": "We like these pretty yellow flowers."
   },
   {
     "id": "those",
     "text": "those",
     "grade": "2",
-    "length": 5
+    "length": 5,
+    "sentence": "Look at those birds in the tree."
   },
   {
     "id": "upon",
     "text": "upon",
     "grade": "2",
-    "length": 4
+    "length": 4,
+    "sentence": "A bird sat upon the nest."
   },
   {
     "id": "us",
     "text": "us",
     "grade": "2",
-    "length": 2
+    "length": 2,
+    "sentence": "Come and play with us today."
   },
   {
     "id": "use",
     "text": "use",
     "grade": "2",
-    "length": 3
+    "length": 3,
+    "sentence": "We use water to wash our hands."
   },
   {
     "id": "very",
     "text": "very",
     "grade": "2",
-    "length": 4
+    "length": 4,
+    "sentence": "He can run very fast at school."
   },
   {
     "id": "wash",
     "text": "wash",
     "grade": "2",
-    "length": 4
+    "length": 4,
+    "sentence": "Please wash your hands before you eat."
   },
   {
     "id": "which",
     "text": "which",
     "grade": "2",
-    "length": 5
+    "length": 5,
+    "sentence": "I know which toy she wants."
   },
   {
     "id": "why",
     "text": "why",
     "grade": "2",
-    "length": 3
+    "length": 3,
+    "sentence": "This is why she is so good."
   },
   {
     "id": "wish",
     "text": "wish",
     "grade": "2",
-    "length": 4
+    "length": 4,
+    "sentence": "I wish for a new toy."
   },
   {
     "id": "work",
     "text": "work",
     "grade": "2",
-    "length": 4
+    "length": 4,
+    "sentence": "Father goes to work every morning."
   },
   {
     "id": "would",
     "text": "would",
     "grade": "2",
-    "length": 5
+    "length": 5,
+    "sentence": "She would like some warm milk."
   },
   {
     "id": "write",
     "text": "write",
     "grade": "2",
-    "length": 5
+    "length": 5,
+    "sentence": "Please write your name on the paper."
   },
   {
     "id": "your",
     "text": "your",
     "grade": "2",
-    "length": 4
+    "length": 4,
+    "sentence": "Put your shoe by the door."
   },
   {
     "id": "about",
     "text": "about",
     "grade": "3",
-    "length": 5
+    "length": 5,
+    "sentence": "Please tell me about your day."
   },
   {
     "id": "better",
     "text": "better",
     "grade": "3",
-    "length": 6
+    "length": 6,
+    "sentence": "This cake is better today."
   },
   {
     "id": "bring",
     "text": "bring",
     "grade": "3",
-    "length": 5
+    "length": 5,
+    "sentence": "Please bring your toy here."
   },
   {
     "id": "carry",
     "text": "carry",
     "grade": "3",
-    "length": 5
+    "length": 5,
+    "sentence": "I can carry the box."
   },
   {
     "id": "clean",
     "text": "clean",
     "grade": "3",
-    "length": 5
+    "length": 5,
+    "sentence": "The clean coat is on the chair."
   },
   {
     "id": "cut",
     "text": "cut",
     "grade": "3",
-    "length": 3
+    "length": 3,
+    "sentence": "She will cut the bread."
   },
   {
     "id": "done",
     "text": "done",
     "grade": "3",
-    "length": 4
+    "length": 4,
+    "sentence": "He has done his work."
   },
   {
     "id": "draw",
     "text": "draw",
     "grade": "3",
-    "length": 4
+    "length": 4,
+    "sentence": "Let us draw a bird."
   },
   {
     "id": "drink",
     "text": "drink",
     "grade": "3",
-    "length": 5
+    "length": 5,
+    "sentence": "You can drink the milk."
   },
   {
     "id": "eight",
     "text": "eight",
     "grade": "3",
-    "length": 5
+    "length": 5,
+    "sentence": "I have eight red apples."
   },
   {
     "id": "fall",
     "text": "fall",
     "grade": "3",
-    "length": 4
+    "length": 4,
+    "sentence": "The rain will fall in the garden."
   },
   {
     "id": "far",
     "text": "far",
     "grade": "3",
-    "length": 3
+    "length": 3,
+    "sentence": "The farm is not far away."
   },
   {
     "id": "full",
     "text": "full",
     "grade": "3",
-    "length": 4
+    "length": 4,
+    "sentence": "This full box has many toys."
   },
   {
     "id": "got",
     "text": "got",
     "grade": "3",
-    "length": 3
+    "length": 3,
+    "sentence": "We got a new kitty."
   },
   {
     "id": "grow",
     "text": "grow",
     "grade": "3",
-    "length": 4
+    "length": 4,
+    "sentence": "Flowers grow in our garden."
   },
   {
     "id": "hold",
     "text": "hold",
     "grade": "3",
-    "length": 4
+    "length": 4,
+    "sentence": "Please hold my hand now."
   },
   {
     "id": "hot",
     "text": "hot",
     "grade": "3",
-    "length": 3
+    "length": 3,
+    "sentence": "This hot corn is good to eat."
   },
   {
     "id": "hurt",
     "text": "hurt",
     "grade": "3",
-    "length": 4
+    "length": 4,
+    "sentence": "She did hurt her feet at play."
   },
   {
     "id": "if",
     "text": "if",
     "grade": "3",
-    "length": 2
+    "length": 2,
+    "sentence": "Ask if you want some cake."
   },
   {
     "id": "keep",
     "text": "keep",
     "grade": "3",
-    "length": 4
+    "length": 4,
+    "sentence": "You may keep the doll."
   },
   {
     "id": "kind",
     "text": "kind",
     "grade": "3",
-    "length": 4
+    "length": 4,
+    "sentence": "This kind girl helps her father."
   },
   {
     "id": "laugh",
     "text": "laugh",
     "grade": "3",
-    "length": 5
+    "length": 5,
+    "sentence": "We laugh at the funny dog."
   },
   {
     "id": "light",
     "text": "light",
     "grade": "3",
-    "length": 5
+    "length": 5,
+    "sentence": "She will light the paper for us."
   },
   {
     "id": "long",
     "text": "long",
     "grade": "3",
-    "length": 4
+    "length": 4,
+    "sentence": "That is a long street."
   },
   {
     "id": "much",
     "text": "much",
     "grade": "3",
-    "length": 4
+    "length": 4,
+    "sentence": "Thank you very much today."
   },
   {
     "id": "myself",
     "text": "myself",
     "grade": "3",
-    "length": 6
+    "length": 6,
+    "sentence": "I made myself a little cake."
   },
   {
     "id": "never",
     "text": "never",
     "grade": "3",
-    "length": 5
+    "length": 5,
+    "sentence": "I will never run away."
   },
   {
     "id": "only",
     "text": "only",
     "grade": "3",
-    "length": 4
+    "length": 4,
+    "sentence": "She has only one apple."
   },
   {
     "id": "own",
     "text": "own",
     "grade": "3",
-    "length": 3
+    "length": 3,
+    "sentence": "He has his own chair."
   },
   {
     "id": "pick",
     "text": "pick",
     "grade": "3",
-    "length": 4
+    "length": 4,
+    "sentence": "Let us pick some corn."
   },
   {
     "id": "seven",
     "text": "seven",
     "grade": "3",
-    "length": 5
+    "length": 5,
+    "sentence": "We saw seven little ducks."
   },
   {
     "id": "shall",
     "text": "shall",
     "grade": "3",
-    "length": 5
+    "length": 5,
+    "sentence": "We shall go to school."
   },
   {
     "id": "show",
     "text": "show",
     "grade": "3",
-    "length": 4
+    "length": 4,
+    "sentence": "Please show me your picture."
   },
   {
     "id": "six",
     "text": "six",
     "grade": "3",
-    "length": 3
+    "length": 3,
+    "sentence": "The farmer has six cows."
   },
   {
     "id": "small",
     "text": "small",
     "grade": "3",
-    "length": 5
+    "length": 5,
+    "sentence": "This small kitty likes to play."
   },
   {
     "id": "start",
     "text": "start",
     "grade": "3",
-    "length": 5
+    "length": 5,
+    "sentence": "We will start the game."
   },
   {
     "id": "ten",
     "text": "ten",
     "grade": "3",
-    "length": 3
+    "length": 3,
+    "sentence": "She has ten little ducks."
   },
   {
     "id": "today",
     "text": "today",
     "grade": "3",
-    "length": 5
+    "length": 5,
+    "sentence": "She said today is a good day."
   },
   {
     "id": "together",
     "text": "together",
     "grade": "3",
-    "length": 8
+    "length": 8,
+    "sentence": "We can play together now."
   },
   {
     "id": "try",
     "text": "try",
     "grade": "3",
-    "length": 3
+    "length": 3,
+    "sentence": "Please try to eat some corn."
   },
   {
     "id": "warm",
     "text": "warm",
     "grade": "3",
-    "length": 4
+    "length": 4,
+    "sentence": "I like this warm bread."
   },
   {
     "id": "a",
     "text": "a",
     "grade": "preK",
-    "length": 1
+    "length": 1,
+    "sentence": "We can see a bird."
   },
   {
     "id": "and",
     "text": "and",
     "grade": "preK",
-    "length": 3
+    "length": 3,
+    "sentence": "I like cake and milk."
   },
   {
     "id": "away",
     "text": "away",
     "grade": "preK",
-    "length": 4
+    "length": 4,
+    "sentence": "The cat ran away fast."
   },
   {
     "id": "big",
     "text": "big",
     "grade": "preK",
-    "length": 3
+    "length": 3,
+    "sentence": "She has a big dog."
   },
   {
     "id": "blue",
     "text": "blue",
     "grade": "preK",
-    "length": 4
+    "length": 4,
+    "sentence": "I have a blue ball."
   },
   {
     "id": "can",
     "text": "can",
     "grade": "preK",
-    "length": 3
+    "length": 3,
+    "sentence": "You can play with me."
   },
   {
     "id": "come",
     "text": "come",
     "grade": "preK",
-    "length": 4
+    "length": 4,
+    "sentence": "Please come here now."
   },
   {
     "id": "down",
     "text": "down",
     "grade": "preK",
-    "length": 4
+    "length": 4,
+    "sentence": "We sat down to eat."
   },
   {
     "id": "find",
     "text": "find",
     "grade": "preK",
-    "length": 4
+    "length": 4,
+    "sentence": "Help me find my toy."
   },
   {
     "id": "for",
     "text": "for",
     "grade": "preK",
-    "length": 3
+    "length": 3,
+    "sentence": "This cake is for you."
   },
   {
     "id": "funny",
     "text": "funny",
     "grade": "preK",
-    "length": 5
+    "length": 5,
+    "sentence": "That funny pig can jump."
   },
   {
     "id": "go",
     "text": "go",
     "grade": "preK",
-    "length": 2
+    "length": 2,
+    "sentence": "We will go to school."
   },
   {
     "id": "help",
     "text": "help",
     "grade": "preK",
-    "length": 4
+    "length": 4,
+    "sentence": "You can help my sister."
   },
   {
     "id": "here",
     "text": "here",
     "grade": "preK",
-    "length": 4
+    "length": 4,
+    "sentence": "Come here and play with us."
   },
   {
     "id": "i",
     "text": "i",
     "grade": "preK",
-    "length": 1
+    "length": 1,
+    "sentence": "Look, I can jump up and down."
   },
   {
     "id": "in",
     "text": "in",
     "grade": "preK",
-    "length": 2
+    "length": 2,
+    "sentence": "The fish are in the water."
   },
   {
     "id": "is",
     "text": "is",
     "grade": "preK",
-    "length": 2
+    "length": 2,
+    "sentence": "This is my new game today."
   },
   {
     "id": "it",
     "text": "it",
     "grade": "preK",
-    "length": 2
+    "length": 2,
+    "sentence": "We will make it today."
   },
   {
     "id": "jump",
     "text": "jump",
     "grade": "preK",
-    "length": 4
+    "length": 4,
+    "sentence": "The little dog can jump far."
   },
   {
     "id": "little",
     "text": "little",
     "grade": "preK",
-    "length": 6
+    "length": 6,
+    "sentence": "A little bird sat there."
   },
   {
     "id": "look",
     "text": "look",
     "grade": "preK",
-    "length": 4
+    "length": 4,
+    "sentence": "Please look at this picture."
   },
   {
     "id": "make",
     "text": "make",
     "grade": "preK",
-    "length": 4
+    "length": 4,
+    "sentence": "Let us make a cake."
   },
   {
     "id": "me",
     "text": "me",
     "grade": "preK",
-    "length": 2
+    "length": 2,
+    "sentence": "Please give me the toy."
   },
   {
     "id": "my",
     "text": "my",
     "grade": "preK",
-    "length": 2
+    "length": 2,
+    "sentence": "I found my little shoe."
   },
   {
     "id": "not",
     "text": "not",
     "grade": "preK",
-    "length": 3
+    "length": 3,
+    "sentence": "This is not my coat."
   },
   {
     "id": "one",
     "text": "one",
     "grade": "preK",
-    "length": 3
+    "length": 3,
+    "sentence": "She has one red apple."
   },
   {
     "id": "play",
     "text": "play",
     "grade": "preK",
-    "length": 4
+    "length": 4,
+    "sentence": "We will play in the garden."
   },
   {
     "id": "red",
     "text": "red",
     "grade": "preK",
-    "length": 3
+    "length": 3,
+    "sentence": "I want a red apple."
   },
   {
     "id": "run",
     "text": "run",
     "grade": "preK",
-    "length": 3
+    "length": 3,
+    "sentence": "The dog will run fast."
   },
   {
     "id": "said",
     "text": "said",
     "grade": "preK",
-    "length": 4
+    "length": 4,
+    "sentence": "She said thank you today."
   },
   {
     "id": "see",
     "text": "see",
     "grade": "preK",
-    "length": 3
+    "length": 3,
+    "sentence": "Look, we can see the tree."
   },
   {
     "id": "the",
     "text": "the",
     "grade": "preK",
-    "length": 3
+    "length": 3,
+    "sentence": "We went to the farm."
   },
   {
     "id": "three",
     "text": "three",
     "grade": "preK",
-    "length": 5
+    "length": 5,
+    "sentence": "I have three little birds."
   },
   {
     "id": "to",
     "text": "to",
     "grade": "preK",
-    "length": 2
+    "length": 2,
+    "sentence": "We want to go home."
   },
   {
     "id": "two",
     "text": "two",
     "grade": "preK",
-    "length": 3
+    "length": 3,
+    "sentence": "She has two brothers."
   },
   {
     "id": "up",
     "text": "up",
     "grade": "preK",
-    "length": 2
+    "length": 2,
+    "sentence": "The sun will come up soon."
   },
   {
     "id": "we",
     "text": "we",
     "grade": "preK",
-    "length": 2
+    "length": 2,
+    "sentence": "Now we can play together."
   },
   {
     "id": "where",
     "text": "where",
     "grade": "preK",
-    "length": 5
+    "length": 5,
+    "sentence": "This is where you live."
   },
   {
     "id": "yellow",
     "text": "yellow",
     "grade": "preK",
-    "length": 6
+    "length": 6,
+    "sentence": "The sun is yellow and warm."
   },
   {
     "id": "you",
     "text": "you",
     "grade": "preK",
-    "length": 3
+    "length": 3,
+    "sentence": "Thank you for the cake."
   },
   {
     "id": "all",
     "text": "all",
     "grade": "K",
-    "length": 3
+    "length": 3,
+    "sentence": "We all like to sing."
   },
   {
     "id": "am",
     "text": "am",
     "grade": "K",
-    "length": 2
+    "length": 2,
+    "sentence": "I am going home now."
   },
   {
     "id": "are",
     "text": "are",
     "grade": "K",
-    "length": 3
+    "length": 3,
+    "sentence": "We are very good today."
   },
   {
     "id": "at",
     "text": "at",
     "grade": "K",
-    "length": 2
+    "length": 2,
+    "sentence": "The dog sat at the door."
   },
   {
     "id": "ate",
     "text": "ate",
     "grade": "K",
-    "length": 3
+    "length": 3,
+    "sentence": "The boy ate an apple."
   },
   {
     "id": "be",
     "text": "be",
     "grade": "K",
-    "length": 2
+    "length": 2,
+    "sentence": "Please be good at school."
   },
   {
     "id": "black",
     "text": "black",
     "grade": "K",
-    "length": 5
+    "length": 5,
+    "sentence": "I saw a black cat."
   },
   {
     "id": "brown",
     "text": "brown",
     "grade": "K",
-    "length": 5
+    "length": 5,
+    "sentence": "The brown horse can run."
   },
   {
     "id": "but",
     "text": "but",
     "grade": "K",
-    "length": 3
+    "length": 3,
+    "sentence": "I like cake but not milk."
   },
   {
     "id": "came",
     "text": "came",
     "grade": "K",
-    "length": 4
+    "length": 4,
+    "sentence": "A robin came to the nest."
   },
   {
     "id": "did",
     "text": "did",
     "grade": "K",
-    "length": 3
+    "length": 3,
+    "sentence": "She did want to make a cake."
   },
   {
     "id": "do",
     "text": "do",
     "grade": "K",
-    "length": 2
+    "length": 2,
+    "sentence": "We do want to go now."
   },
   {
     "id": "eat",
     "text": "eat",
     "grade": "K",
-    "length": 3
+    "length": 3,
+    "sentence": "We eat bread every morning."
   },
   {
     "id": "four",
     "text": "four",
     "grade": "K",
-    "length": 4
+    "length": 4,
+    "sentence": "She has four little ducks."
   },
   {
     "id": "get",
     "text": "get",
     "grade": "K",
-    "length": 3
+    "length": 3,
+    "sentence": "Please get my red shoe."
   },
   {
     "id": "good",
     "text": "good",
     "grade": "K",
-    "length": 4
+    "length": 4,
+    "sentence": "That was a good game."
   },
   {
     "id": "have",
     "text": "have",
     "grade": "K",
-    "length": 4
+    "length": 4,
+    "sentence": "I have a new toy."
   },
   {
     "id": "he",
     "text": "he",
     "grade": "K",
-    "length": 2
+    "length": 2,
+    "sentence": "She said he can ride well."
   },
   {
     "id": "into",
     "text": "into",
     "grade": "K",
-    "length": 4
+    "length": 4,
+    "sentence": "The duck ran into the water."
   },
   {
     "id": "like",
     "text": "like",
     "grade": "K",
-    "length": 4
+    "length": 4,
+    "sentence": "I like to sing songs."
   },
   {
     "id": "must",
     "text": "must",
     "grade": "K",
-    "length": 4
+    "length": 4,
+    "sentence": "You must clean your coat."
   },
   {
     "id": "new",
     "text": "new",
     "grade": "K",
-    "length": 3
+    "length": 3,
+    "sentence": "She got a new doll."
   },
   {
     "id": "no",
     "text": "no",
     "grade": "K",
-    "length": 2
+    "length": 2,
+    "sentence": "There is no rain today."
   },
   {
     "id": "now",
     "text": "now",
     "grade": "K",
-    "length": 3
+    "length": 3,
+    "sentence": "Right now we must go home."
   },
   {
     "id": "on",
     "text": "on",
     "grade": "K",
-    "length": 2
+    "length": 2,
+    "sentence": "The cat sat on a chair."
   },
   {
     "id": "our",
     "text": "our",
     "grade": "K",
-    "length": 3
+    "length": 3,
+    "sentence": "This is our little house."
   },
   {
     "id": "out",
     "text": "out",
     "grade": "K",
-    "length": 3
+    "length": 3,
+    "sentence": "The dog went out to play."
   },
   {
     "id": "please",
     "text": "please",
     "grade": "K",
-    "length": 6
+    "length": 6,
+    "sentence": "She said please and thank you."
   },
   {
     "id": "pretty",
     "text": "pretty",
     "grade": "K",
-    "length": 6
+    "length": 6,
+    "sentence": "That is a pretty flower."
   },
   {
     "id": "ran",
     "text": "ran",
     "grade": "K",
-    "length": 3
+    "length": 3,
+    "sentence": "The boy ran to school."
   },
   {
     "id": "ride",
     "text": "ride",
     "grade": "K",
-    "length": 4
+    "length": 4,
+    "sentence": "We can ride the horse today."
   },
   {
     "id": "saw",
     "text": "saw",
     "grade": "K",
-    "length": 3
+    "length": 3,
+    "sentence": "I saw a squirrel today."
   },
   {
     "id": "say",
     "text": "say",
     "grade": "K",
-    "length": 3
+    "length": 3,
+    "sentence": "She will say it to you."
   },
   {
     "id": "she",
     "text": "she",
     "grade": "K",
-    "length": 3
+    "length": 3,
+    "sentence": "My sister said she likes it."
   },
   {
     "id": "so",
     "text": "so",
     "grade": "K",
-    "length": 2
+    "length": 2,
+    "sentence": "He was so good today."
   },
   {
     "id": "soon",
     "text": "soon",
     "grade": "K",
-    "length": 4
+    "length": 4,
+    "sentence": "We will soon eat some cake."
   },
   {
     "id": "that",
     "text": "that",
     "grade": "K",
-    "length": 4
+    "length": 4,
+    "sentence": "I like that little song."
   },
   {
     "id": "there",
     "text": "there",
     "grade": "K",
-    "length": 5
+    "length": 5,
+    "sentence": "A bird was sitting there today."
   },
   {
     "id": "they",
     "text": "they",
     "grade": "K",
-    "length": 4
+    "length": 4,
+    "sentence": "She said they went to the farm."
   },
   {
     "id": "this",
     "text": "this",
     "grade": "K",
-    "length": 4
+    "length": 4,
+    "sentence": "We like this good cake."
   },
   {
     "id": "too",
     "text": "too",
     "grade": "K",
-    "length": 3
+    "length": 3,
+    "sentence": "I want cake too, and milk."
   },
   {
     "id": "under",
     "text": "under",
     "grade": "K",
-    "length": 5
+    "length": 5,
+    "sentence": "The kitty sat under the table."
   },
   {
     "id": "want",
     "text": "want",
     "grade": "K",
-    "length": 4
+    "length": 4,
+    "sentence": "I want some milk now."
   },
   {
     "id": "was",
     "text": "was",
     "grade": "K",
-    "length": 3
+    "length": 3,
+    "sentence": "It was a funny game."
   },
   {
     "id": "well",
     "text": "well",
     "grade": "K",
-    "length": 4
+    "length": 4,
+    "sentence": "She sings very well today."
   },
   {
     "id": "went",
     "text": "went",
     "grade": "K",
-    "length": 4
+    "length": 4,
+    "sentence": "We went to the garden."
   },
   {
     "id": "what",
     "text": "what",
     "grade": "K",
-    "length": 4
+    "length": 4,
+    "sentence": "She found what she wanted."
   },
   {
     "id": "white",
     "text": "white",
     "grade": "K",
-    "length": 5
+    "length": 5,
+    "sentence": "I saw a white rabbit."
   },
   {
     "id": "who",
     "text": "who",
     "grade": "K",
-    "length": 3
+    "length": 3,
+    "sentence": "I know who will help me now."
   },
   {
     "id": "will",
     "text": "will",
     "grade": "K",
-    "length": 4
+    "length": 4,
+    "sentence": "She will come home soon."
   },
   {
     "id": "with",
     "text": "with",
     "grade": "K",
-    "length": 4
+    "length": 4,
+    "sentence": "I will play with you."
   },
   {
     "id": "yes",
     "text": "yes",
     "grade": "K",
-    "length": 3
+    "length": 3,
+    "sentence": "She said yes to the game."
+  },
+  {
+    "id": "apple",
+    "text": "apple",
+    "grade": "1",
+    "length": 5,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "She ate a red apple with milk."
+  },
+  {
+    "id": "baby",
+    "text": "baby",
+    "grade": "K",
+    "length": 4,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "The baby likes to laugh."
+  },
+  {
+    "id": "back",
+    "text": "back",
+    "grade": "K",
+    "length": 4,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "Come back to the house."
+  },
+  {
+    "id": "ball",
+    "text": "ball",
+    "grade": "K",
+    "length": 4,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "This ball is red and round."
+  },
+  {
+    "id": "bear",
+    "text": "bear",
+    "grade": "K",
+    "length": 4,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "A brown bear sat down."
+  },
+  {
+    "id": "bed",
+    "text": "bed",
+    "grade": "preK",
+    "length": 3,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "She put her doll on the bed now."
+  },
+  {
+    "id": "bell",
+    "text": "bell",
+    "grade": "K",
+    "length": 4,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "This bell rings very well."
+  },
+  {
+    "id": "bird",
+    "text": "bird",
+    "grade": "K",
+    "length": 4,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "A little bird can fly."
+  },
+  {
+    "id": "birthday",
+    "text": "birthday",
+    "grade": "3",
+    "length": 8,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "Today is my birthday party."
+  },
+  {
+    "id": "boat",
+    "text": "boat",
+    "grade": "K",
+    "length": 4,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "The old boat goes fast."
+  },
+  {
+    "id": "box",
+    "text": "box",
+    "grade": "preK",
+    "length": 3,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "This small box has a red toy."
+  },
+  {
+    "id": "boy",
+    "text": "boy",
+    "grade": "preK",
+    "length": 3,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "The boy likes to run."
+  },
+  {
+    "id": "bread",
+    "text": "bread",
+    "grade": "1",
+    "length": 5,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "Father cut the bread for us."
+  },
+  {
+    "id": "brother",
+    "text": "brother",
+    "grade": "3",
+    "length": 7,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "My brother can carry it."
+  },
+  {
+    "id": "cake",
+    "text": "cake",
+    "grade": "K",
+    "length": 4,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "We will eat cake today."
+  },
+  {
+    "id": "car",
+    "text": "car",
+    "grade": "preK",
+    "length": 3,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "This car is red and fast."
+  },
+  {
+    "id": "cat",
+    "text": "cat",
+    "grade": "preK",
+    "length": 3,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "The cat sat on the chair."
+  },
+  {
+    "id": "chair",
+    "text": "chair",
+    "grade": "1",
+    "length": 5,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "She will sit on the chair now."
+  },
+  {
+    "id": "chicken",
+    "text": "chicken",
+    "grade": "3",
+    "length": 7,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "The chicken is in the garden."
+  },
+  {
+    "id": "children",
+    "text": "children",
+    "grade": "3",
+    "length": 8,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "The children like to play."
+  },
+  {
+    "id": "christmas",
+    "text": "christmas",
+    "grade": "3",
+    "length": 9,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "This Christmas we got new toys."
+  },
+  {
+    "id": "coat",
+    "text": "coat",
+    "grade": "K",
+    "length": 4,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "Put your coat on before school."
+  },
+  {
+    "id": "corn",
+    "text": "corn",
+    "grade": "K",
+    "length": 4,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "The farmer will pick some corn soon."
+  },
+  {
+    "id": "cow",
+    "text": "cow",
+    "grade": "preK",
+    "length": 3,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "The cow is on the farm."
+  },
+  {
+    "id": "day",
+    "text": "day",
+    "grade": "preK",
+    "length": 3,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "It is a warm day today."
+  },
+  {
+    "id": "dog",
+    "text": "dog",
+    "grade": "preK",
+    "length": 3,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "The dog ran to me."
+  },
+  {
+    "id": "doll",
+    "text": "doll",
+    "grade": "K",
+    "length": 4,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "My sister got a new doll for Christmas."
+  },
+  {
+    "id": "door",
+    "text": "door",
+    "grade": "K",
+    "length": 4,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "Open the door for me."
+  },
+  {
+    "id": "duck",
+    "text": "duck",
+    "grade": "K",
+    "length": 4,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "The little duck ran to the farm."
+  },
+  {
+    "id": "egg",
+    "text": "egg",
+    "grade": "preK",
+    "length": 3,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "We ate an egg today."
+  },
+  {
+    "id": "eye",
+    "text": "eye",
+    "grade": "preK",
+    "length": 3,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "She has one blue eye open."
+  },
+  {
+    "id": "farm",
+    "text": "farm",
+    "grade": "K",
+    "length": 4,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "This farm has many cows."
+  },
+  {
+    "id": "farmer",
+    "text": "farmer",
+    "grade": "2",
+    "length": 6,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "The farmer will help his cow."
+  },
+  {
+    "id": "father",
+    "text": "father",
+    "grade": "2",
+    "length": 6,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "My father can carry it."
+  },
+  {
+    "id": "feet",
+    "text": "feet",
+    "grade": "K",
+    "length": 4,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "Wash your feet before bed."
+  },
+  {
+    "id": "fire",
+    "text": "fire",
+    "grade": "K",
+    "length": 4,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "The fire keeps us warm."
+  },
+  {
+    "id": "fish",
+    "text": "fish",
+    "grade": "K",
+    "length": 4,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "The little fish live in water."
+  },
+  {
+    "id": "floor",
+    "text": "floor",
+    "grade": "1",
+    "length": 5,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "We sit on the clean floor to play."
+  },
+  {
+    "id": "flower",
+    "text": "flower",
+    "grade": "2",
+    "length": 6,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "She gave her mother a pretty flower today."
+  },
+  {
+    "id": "game",
+    "text": "game",
+    "grade": "K",
+    "length": 4,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "We will play this game together."
+  },
+  {
+    "id": "garden",
+    "text": "garden",
+    "grade": "2",
+    "length": 6,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "This garden has pretty flowers."
+  },
+  {
+    "id": "girl",
+    "text": "girl",
+    "grade": "K",
+    "length": 4,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "The girl can sing well."
+  },
+  {
+    "id": "grass",
+    "text": "grass",
+    "grade": "1",
+    "length": 5,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "This grass is green and long."
+  },
+  {
+    "id": "ground",
+    "text": "ground",
+    "grade": "2",
+    "length": 6,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "On the warm ground we sat down."
+  },
+  {
+    "id": "hand",
+    "text": "hand",
+    "grade": "K",
+    "length": 4,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "Take my hand and go."
+  },
+  {
+    "id": "head",
+    "text": "head",
+    "grade": "K",
+    "length": 4,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "Put your head down and sleep."
+  },
+  {
+    "id": "hill",
+    "text": "hill",
+    "grade": "K",
+    "length": 4,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "We saw a hill by the farm."
+  },
+  {
+    "id": "home",
+    "text": "home",
+    "grade": "K",
+    "length": 4,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "We go home after school."
+  },
+  {
+    "id": "horse",
+    "text": "horse",
+    "grade": "1",
+    "length": 5,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "The little horse can run."
+  },
+  {
+    "id": "house",
+    "text": "house",
+    "grade": "1",
+    "length": 5,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "This big house has a red door."
+  },
+  {
+    "id": "kitty",
+    "text": "kitty",
+    "grade": "1",
+    "length": 5,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "The kitty likes warm milk."
+  },
+  {
+    "id": "leg",
+    "text": "leg",
+    "grade": "preK",
+    "length": 3,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "He hurt his leg at play."
+  },
+  {
+    "id": "letter",
+    "text": "letter",
+    "grade": "2",
+    "length": 6,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "She got a letter today."
+  },
+  {
+    "id": "man",
+    "text": "man",
+    "grade": "preK",
+    "length": 3,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "The old man can sing."
+  },
+  {
+    "id": "men",
+    "text": "men",
+    "grade": "preK",
+    "length": 3,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "Two men came to help."
+  },
+  {
+    "id": "milk",
+    "text": "milk",
+    "grade": "K",
+    "length": 4,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "Please drink your milk now."
+  },
+  {
+    "id": "money",
+    "text": "money",
+    "grade": "1",
+    "length": 5,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "He put money in a box."
+  },
+  {
+    "id": "morning",
+    "text": "morning",
+    "grade": "3",
+    "length": 7,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "This morning we ate eggs."
+  },
+  {
+    "id": "mother",
+    "text": "mother",
+    "grade": "2",
+    "length": 6,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "My mother made a cake."
+  },
+  {
+    "id": "name",
+    "text": "name",
+    "grade": "K",
+    "length": 4,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "She will write her name on paper."
+  },
+  {
+    "id": "nest",
+    "text": "nest",
+    "grade": "K",
+    "length": 4,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "Look, the nest has a little egg."
+  },
+  {
+    "id": "night",
+    "text": "night",
+    "grade": "1",
+    "length": 5,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "We sleep at night now."
+  },
+  {
+    "id": "paper",
+    "text": "paper",
+    "grade": "1",
+    "length": 5,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "This paper has a pretty picture."
+  },
+  {
+    "id": "party",
+    "text": "party",
+    "grade": "1",
+    "length": 5,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "At the party we ate cake and corn."
+  },
+  {
+    "id": "picture",
+    "text": "picture",
+    "grade": "3",
+    "length": 7,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "Look at this picture of my dog."
+  },
+  {
+    "id": "pig",
+    "text": "pig",
+    "grade": "preK",
+    "length": 3,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "The pig ran to the farm."
+  },
+  {
+    "id": "rabbit",
+    "text": "rabbit",
+    "grade": "2",
+    "length": 6,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "A rabbit sat in the grass."
+  },
+  {
+    "id": "rain",
+    "text": "rain",
+    "grade": "K",
+    "length": 4,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "The rain came down all morning."
+  },
+  {
+    "id": "ring",
+    "text": "ring",
+    "grade": "K",
+    "length": 4,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "Mother has a pretty ring on her hand."
+  },
+  {
+    "id": "robin",
+    "text": "robin",
+    "grade": "1",
+    "length": 5,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "A robin sat by the nest."
+  },
+  {
+    "id": "school",
+    "text": "school",
+    "grade": "2",
+    "length": 6,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "We walk to school today."
+  },
+  {
+    "id": "seed",
+    "text": "seed",
+    "grade": "K",
+    "length": 4,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "Father put a seed in the ground."
+  },
+  {
+    "id": "sheep",
+    "text": "sheep",
+    "grade": "1",
+    "length": 5,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "The sheep ran to the hill."
+  },
+  {
+    "id": "shoe",
+    "text": "shoe",
+    "grade": "K",
+    "length": 4,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "Get your shoe and coat for school."
+  },
+  {
+    "id": "sister",
+    "text": "sister",
+    "grade": "2",
+    "length": 6,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "My sister can read well."
+  },
+  {
+    "id": "snow",
+    "text": "snow",
+    "grade": "K",
+    "length": 4,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "We saw snow fall on the hill."
+  },
+  {
+    "id": "song",
+    "text": "song",
+    "grade": "K",
+    "length": 4,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "This little song makes us laugh."
+  },
+  {
+    "id": "squirrel",
+    "text": "squirrel",
+    "grade": "3",
+    "length": 8,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "A squirrel ran up the tree."
+  },
+  {
+    "id": "stick",
+    "text": "stick",
+    "grade": "1",
+    "length": 5,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "The dog will carry a stick home."
+  },
+  {
+    "id": "street",
+    "text": "street",
+    "grade": "2",
+    "length": 6,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "Down this street we saw a cow."
+  },
+  {
+    "id": "sun",
+    "text": "sun",
+    "grade": "preK",
+    "length": 3,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "Today the sun came up over the hill."
+  },
+  {
+    "id": "table",
+    "text": "table",
+    "grade": "1",
+    "length": 5,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "Put the cake on the table now."
+  },
+  {
+    "id": "thing",
+    "text": "thing",
+    "grade": "1",
+    "length": 5,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "That funny thing made us laugh."
+  },
+  {
+    "id": "time",
+    "text": "time",
+    "grade": "K",
+    "length": 4,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "It is time to eat."
+  },
+  {
+    "id": "top",
+    "text": "top",
+    "grade": "preK",
+    "length": 3,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "On top of the hill we sat."
+  },
+  {
+    "id": "toy",
+    "text": "toy",
+    "grade": "preK",
+    "length": 3,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "He gave his toy to the baby."
+  },
+  {
+    "id": "tree",
+    "text": "tree",
+    "grade": "K",
+    "length": 4,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "The tree by our house is old."
+  },
+  {
+    "id": "watch",
+    "text": "watch",
+    "grade": "1",
+    "length": 5,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "Father will watch the game with us."
+  },
+  {
+    "id": "water",
+    "text": "water",
+    "grade": "1",
+    "length": 5,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "We drink water before we eat."
+  },
+  {
+    "id": "way",
+    "text": "way",
+    "grade": "preK",
+    "length": 3,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "This is the way home."
+  },
+  {
+    "id": "wind",
+    "text": "wind",
+    "grade": "K",
+    "length": 4,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "A cold wind came down the hill."
+  },
+  {
+    "id": "window",
+    "text": "window",
+    "grade": "2",
+    "length": 6,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "A bird sat by the window to sing."
+  },
+  {
+    "id": "wood",
+    "text": "wood",
+    "grade": "K",
+    "length": 4,
+    "tags": [
+      "noun"
+    ],
+    "sentence": "Father will cut this wood for the fire."
   }
 ]

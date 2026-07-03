@@ -5,6 +5,7 @@ export interface Word {
   text: string;
   grade: Grade;
   length: number;
+  sentence: string; // spoken context sentence, e.g. "The red dog sat."
   tags?: string[];
 }
 

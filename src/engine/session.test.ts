@@ -2,7 +2,7 @@ import { orderedWords, introduceIfNeeded, DEFAULT_SESSION_CONFIG } from './sessi
 import { createProfile } from './profiles';
 import type { Word } from './types';
 
-const W = (id: string, grade: Word['grade'], length: number): Word => ({ id, text: id, grade, length });
+const W = (id: string, grade: Word['grade'], length: number): Word => ({ id, text: id, grade, length, sentence: `We can see the ${id} now.` });
 
 const WORDS: Word[] = [
   W('go', 'preK', 2), W('the', 'preK', 3), W('look', 'preK', 4),

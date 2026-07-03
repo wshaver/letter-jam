@@ -1,5 +1,6 @@
 export interface Speaker {
-  speak(text: string): void;
+  speak(text: string): void; // interrupts whatever is playing or queued
+  queue(text: string): void; // speaks after the current utterance finishes
   cancel(): void;
 }
 
@@ -9,6 +10,12 @@ export interface Speaker {
 export function wordPrompt(word: string, sentence: string): string {
   const cap = word.charAt(0).toUpperCase() + word.slice(1);
   return `${cap}. ${sentence} ${cap}.`;
+}
+
+// A word spoken by itself, e.g. after a wrong tap ("Together.").
+export function wordAlone(word: string): string {
+  const cap = word.charAt(0).toUpperCase() + word.slice(1);
+  return `${cap}.`;
 }
 
 export function pickVoice(
@@ -26,7 +33,7 @@ export function createSpeaker(preferredName = 'Google US English'): Speaker {
   const synth = typeof window !== 'undefined' ? window.speechSynthesis : undefined;
   // Environments without SpeechSynthesis (e.g. jsdom, older browsers) get a no-op.
   if (!synth) {
-    return { speak() {}, cancel() {} };
+    return { speak() {}, queue() {}, cancel() {} };
   }
   let voice: SpeechSynthesisVoice | null = null;
   const refresh = () => {
@@ -36,14 +43,21 @@ export function createSpeaker(preferredName = 'Google US English'): Speaker {
   if (typeof synth.addEventListener === 'function') {
     synth.addEventListener('voiceschanged', refresh);
   }
+  const utter = (text: string) => {
+    if (!voice) refresh();
+    const u = new SpeechSynthesisUtterance(text);
+    if (voice) u.voice = voice;
+    u.rate = 0.9;
+    synth.speak(u);
+  };
   return {
     speak(text: string) {
       synth.cancel();
-      if (!voice) refresh();
-      const u = new SpeechSynthesisUtterance(text);
-      if (voice) u.voice = voice;
-      u.rate = 0.9;
-      synth.speak(u);
+      utter(text);
+    },
+    queue(text: string) {
+      // SpeechSynthesis queues natively when we don't cancel first.
+      utter(text);
     },
     cancel() {
       synth.cancel();

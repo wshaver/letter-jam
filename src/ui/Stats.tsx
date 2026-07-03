@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import type { Profile, Word } from '../engine/types';
 
 interface StatsProps {
@@ -6,17 +7,46 @@ interface StatsProps {
 }
 
 export function Stats({ profile, words }: StatsProps) {
+  const [tip, setTip] = useState<number | null>(null);
+
+  // A tapped tooltip lingers briefly, then clears itself.
+  useEffect(() => {
+    if (tip === null) return;
+    const id = setTimeout(() => setTip(null), 2500);
+    return () => clearTimeout(id);
+  }, [tip]);
+
   const { stats } = profile.progress;
   const poolStates = words.map((w) => profile.progress.words[w.id]).filter((s) => s?.introduced);
   const mastered = poolStates.filter((s) => s.box >= 4).length; // box >= 4 = mastered
+  const kind = words[0]?.tags?.includes('letter') ? 'Letters' : 'Words';
+
+  const chips = [
+    { emoji: '🔥', value: stats.streak, label: 'Correct answers in a row' },
+    { emoji: '⭐', value: stats.correctFirstTry, label: 'First-try wins, all time' },
+    { emoji: '📚', value: poolStates.length, label: `${kind} in the learning pile` },
+    { emoji: '🏆', value: mastered, label: `${kind} known really well` },
+    { emoji: '🎲', value: stats.rounds, label: 'Rounds played' },
+  ];
 
   return (
     <div className="stats">
-      <span className="stat" title="Correct in a row">🔥 {stats.streak}</span>
-      <span className="stat" title="First-try wins">⭐ {stats.correctFirstTry}</span>
-      <span className="stat" title="Words in the pool">📚 {poolStates.length}</span>
-      <span className="stat" title="Mastered">🏆 {mastered}</span>
-      <span className="stat" title="Rounds played">🎲 {stats.rounds}</span>
+      {chips.map((c, i) => (
+        <button
+          type="button"
+          key={c.emoji}
+          className="stat"
+          title={c.label}
+          onClick={() => setTip(tip === i ? null : i)}
+        >
+          {c.emoji} {c.value}
+          {tip === i && (
+            <span className="stat-tip" role="tooltip">
+              {c.label}
+            </span>
+          )}
+        </button>
+      ))}
     </div>
   );
 }

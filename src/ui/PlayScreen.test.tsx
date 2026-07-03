@@ -30,7 +30,7 @@ function makeProfile(mode: Profile['settings']['wrongAnswerMode'] = 'keepTrying'
 
 function fakeSpeaker() {
   const spoken: string[] = [];
-  return { spoken, speaker: { speak: (t: string) => spoken.push(t), cancel: () => {} } };
+  return { spoken, speaker: { speak: (t: string) => spoken.push(t), queue: (t: string) => spoken.push(t), cancel: () => {} } };
 }
 
 // The game speaks "Dog. The red dog sat. Dog." — the leading token is the target.
@@ -170,3 +170,16 @@ it('resets the countdown after an auto-advance (no instant skip on the next win)
   }
 });
 
+
+it('speaks the wrong pick and then the prompt again on a wrong tap', async () => {
+  const user = userEvent.setup();
+  const { spoken, speaker } = fakeSpeaker();
+  render(<PlayScreen profile={makeProfile()} onProfileChange={() => {}} words={WORDS} speaker={speaker} rng={seeded(2)} />);
+  const target = lastSpokenTarget(spoken);
+  const wrongBtn = renderedWrongCard(target);
+  const wrongText = wrongBtn.textContent ?? '';
+  await user.click(wrongBtn);
+  const cap = wrongText.charAt(0).toUpperCase() + wrongText.slice(1);
+  expect(spoken[spoken.length - 2]).toBe(`${cap}.`); // names the wrong pick
+  expect(spoken[spoken.length - 1]).toMatch(/^([A-Z]\w*)\. .+\. \1\.$/); // re-prompts
+});

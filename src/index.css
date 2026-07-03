@@ -87,3 +87,22 @@ body { touch-action: manipulation; }
 @media (pointer: coarse) {
   .topbar .stat { font-size: 1.25rem; }
 }
+
+/* --- stat tooltip on tap --- */
+.stat { position: relative; border: none; cursor: pointer; font-family: inherit; }
+.stat-tip {
+  position: absolute; top: calc(100% + 6px); left: 50%; transform: translateX(-50%);
+  background: #334; color: #fff; padding: 0.4rem 0.8rem; border-radius: 0.5rem;
+  font-size: 0.95rem; white-space: nowrap; z-index: 20;
+}
+.topbar .stats .stat-tip { left: auto; right: 0; transform: none; }
+
+/* --- floating celebration emoji --- */
+.floaters { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 5; }
+.floater { position: absolute; bottom: -3rem; font-size: 2.6rem; animation: floatup 2s linear forwards; }
+@keyframes floatup {
+  to { transform: translateY(-115vh) rotate(25deg); opacity: 0.85; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .floater { display: none; }
+}

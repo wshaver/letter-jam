@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import type { Profile, Round, Word } from '../engine/types';
 import type { Rng } from '../engine/random';
-import { wordPrompt, type Speaker } from '../engine/speech';
+import { wordAlone, wordPrompt, type Speaker } from '../engine/speech';
 import { introduceIfNeeded } from '../engine/session';
 import { buildRound } from '../engine/roundBuilder';
 import { applyResult } from '../engine/profiles';
@@ -66,6 +66,10 @@ export function useGame(opts: UseGameOpts) {
       setStatus('won');
     } else {
       hadWrong.current = true;
+      // Name the wrong pick out loud, then repeat the prompt so the child
+      // re-anchors on what they are actually listening for.
+      speaker.speak(wordAlone(word.text));
+      speaker.queue(wordPrompt(round.target.text, round.target.sentence));
       setWrongIds((prev) => new Set(prev).add(word.id));
       if (profileRef.current.settings.wrongAnswerMode === 'oneAndDone') {
         const updated = applyResult(profileRef.current, round.target.id, false);

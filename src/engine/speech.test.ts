@@ -1,4 +1,4 @@
-import { pickVoice, wordPrompt } from './speech';
+import { pickVoice, wordAlone, wordPrompt } from './speech';
 
 const v = (name: string, lang: string) => ({ name, lang }) as SpeechSynthesisVoice;
 
@@ -18,4 +18,9 @@ it('returns null when there are no voices', () => {
 
 it('brackets the sentence with the capitalized word', () => {
   expect(wordPrompt('dog', 'The red dog sat.')).toBe('Dog. The red dog sat. Dog.');
+});
+
+it('speaks a word alone with capitalization and a period', () => {
+  expect(wordAlone('together')).toBe('Together.');
+  expect(wordAlone('a')).toBe('A.');
 });

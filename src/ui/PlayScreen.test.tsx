@@ -30,7 +30,15 @@ function makeProfile(mode: Profile['settings']['wrongAnswerMode'] = 'keepTrying'
 
 function fakeSpeaker() {
   const spoken: string[] = [];
-  return { spoken, speaker: { speak: (t: string) => spoken.push(t), queue: (t: string) => spoken.push(t), cancel: () => {} } };
+  let cancels = 0;
+  const speaker = {
+    speak: (t: string) => spoken.push(t),
+    queue: (t: string) => spoken.push(t),
+    cancel: () => {
+      cancels += 1;
+    },
+  };
+  return { spoken, speaker, cancels: () => cancels };
 }
 
 // The game speaks "Dog. The red dog sat. Dog." — the leading token is the target.
@@ -182,4 +190,14 @@ it('speaks the wrong pick and then the prompt again on a wrong tap', async () =>
   const cap = wrongText.charAt(0).toUpperCase() + wrongText.slice(1);
   expect(spoken[spoken.length - 2]).toBe(`${cap}.`); // names the wrong pick
   expect(spoken[spoken.length - 1]).toMatch(/^([A-Z]\w*)\. .+\. \1\.$/); // re-prompts
+});
+
+it('stops speech on a correct answer so the chime is not ducked', async () => {
+  const user = userEvent.setup();
+  const { spoken, speaker, cancels } = fakeSpeaker();
+  render(<PlayScreen profile={makeProfile()} onProfileChange={() => {}} words={WORDS} speaker={speaker} rng={seeded(1)} />);
+  const target = lastSpokenTarget(spoken);
+  const before = cancels();
+  await user.click(screen.getByRole('button', { name: target }));
+  expect(cancels()).toBeGreaterThan(before);
 });

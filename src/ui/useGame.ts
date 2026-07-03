@@ -58,6 +58,9 @@ export function useGame(opts: UseGameOpts) {
     if (Date.now() < inputLockedUntil.current) return; // brief input lock after auto-advance
     if (status !== 'playing' || !round) return;
     if (word.id === round.target.id) {
+      // Stop the prompt: they got it, and on iOS an active speech session
+      // ducks the celebration chime to near-silence.
+      speaker.cancel();
       const firstTry = !hadWrong.current;
       const updated = applyResult(profileRef.current, round.target.id, firstTry);
       profileRef.current = updated;

@@ -38,9 +38,12 @@ it('near difficulty picks confusable decoys, far picks different ones', () => {
   const far: Difficulty = { choiceCount: 4, decoyNearness: 0 };
   const nearIds = pickDecoys(target, WORDS, near, seeded(1)).map((w) => w.id);
   const farIds = pickDecoys(target, WORDS, far, seeded(1)).map((w) => w.id);
-  // near decoys are the short, cat-like words; far decoys are the long ones
+  // near decoys are the short, cat-like words
   expect(nearIds.every((id) => id.length === 3)).toBe(true);
-  expect(farIds.every((id) => id.length >= 5)).toBe(true);
+  // far decoys are the dissimilar (long) words — except the first-letter bias
+  // guarantees exactly one same-first-letter ('c') decoy.
+  expect(farIds.filter((id) => id[0] === 'c')).toHaveLength(1);
+  expect(farIds.filter((id) => id[0] !== 'c').every((id) => id.length >= 5)).toBe(true);
 });
 
 it('decoys never include homophones of the target', () => {
@@ -130,4 +133,24 @@ it('homophone pairs never co-appear as decoys', () => {
       }
     }
   }
+});
+
+it('always includes a same-first-letter decoy for multi-letter targets', () => {
+  const target = W('cat');
+  const pool = ['cat', 'car', 'can', 'dog', 'sun', 'box', 'pig', 'hen', 'mud', 'tub', 'fan', 'log', 'rug'].map(W);
+  for (let seed = 0; seed < 30; seed++) {
+    const decoys = pickDecoys(target, pool, { choiceCount: 4, decoyNearness: 0 }, seeded(seed));
+    expect(
+      decoys.some((d) => d.text[0] === 'c'),
+      `seed ${seed}: ${decoys.map((d) => d.text).join(',')}`,
+    ).toBe(true);
+  }
+});
+
+it('does not force a same-glyph decoy for single-letter (letter mode) targets', () => {
+  const target: Word = { id: 'letter-a-uc', text: 'A', grade: 'lettersUpper', length: 1, sentence: 'A is for apple.', tags: ['letter', 'upper'] };
+  const pool: Word[] = ['A', 'B', 'C', 'D', 'E'].map((t) => ({ id: `letter-${t.toLowerCase()}-uc`, text: t, grade: 'lettersUpper' as const, length: 1, sentence: `${t} is for x.`, tags: ['letter', 'upper'] }));
+  const decoys = pickDecoys(target, pool, { choiceCount: 3, decoyNearness: 0 }, seeded(1));
+  expect(decoys.every((d) => d.text.toLowerCase() !== 'a')).toBe(true); // target/case still excluded
+  expect(decoys.length).toBeGreaterThan(0);
 });

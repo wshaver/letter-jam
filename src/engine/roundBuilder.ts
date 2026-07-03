@@ -47,7 +47,46 @@ export function pickDecoys(target: Word, words: Word[], difficulty: Difficulty, 
     );
     if (!clashes) picked.push(w);
   }
+
+  biasSharedFirstLetter(target, picked, scored.map((x) => x.w), count, rng);
   return picked;
+}
+
+const firstLetter = (w: Word): string => w.text[0]?.toLowerCase() ?? '';
+
+// Guarantee at least one decoy shares the target's first letter (for
+// multi-letter targets), so a child must read past the first letter rather
+// than matching on it alone. Skipped for single glyphs (letters mode), where
+// the "first letter" is the whole card and its match would be the target.
+function biasSharedFirstLetter(
+  target: Word,
+  picked: Word[],
+  filtered: Word[],
+  count: number,
+  rng: Rng,
+): void {
+  if (target.text.length < 2 || picked.length < count) return;
+  const tf = firstLetter(target);
+  if (picked.some((w) => firstLetter(w) === tf)) return; // already satisfied
+
+  const chosen = new Set(picked.map((w) => w.id));
+  const sameFirst = shuffle(
+    filtered.filter((w) => firstLetter(w) === tf && !chosen.has(w.id)),
+    rng,
+  );
+  for (const cand of sameFirst) {
+    // Replace a decoy that does NOT share the first letter.
+    const idx = picked.findIndex((w) => firstLetter(w) !== tf);
+    if (idx === -1) return;
+    const others = picked.filter((_, i) => i !== idx);
+    const clash = others.some(
+      (o) => o.text.toLowerCase() === cand.text.toLowerCase() || areHomophones(o.text, cand.text),
+    );
+    if (!clash) {
+      picked[idx] = cand;
+      return;
+    }
+  }
 }
 
 export function buildRound(

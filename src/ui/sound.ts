@@ -49,22 +49,6 @@ export function resumeAudio(): void {
   if (c && c.state === 'suspended') void c.resume();
 }
 
-// Diagnostic: play the chime inside a direct gesture and report the context
-// state, so we can tell "Web Audio dead on this device" from "chime fired
-// outside a gesture on a re-suspended context."
-export function soundDiagnostic(): string {
-  const c = getCtx();
-  if (!c) return 'no AudioContext on this browser';
-  const before = c.state;
-  try {
-    void c.resume();
-    playChime('big');
-    return `ctx ${before}→${c.state} · ${Math.round(c.sampleRate)}Hz · played ok`;
-  } catch (err) {
-    return `ctx ${before} · error: ${(err as Error).message}`;
-  }
-}
-
 export function playChime(level: 'big' | 'small'): void {
   try {
     const c = getCtx();

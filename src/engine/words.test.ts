@@ -1,4 +1,4 @@
-import { allWords, wordsByGrade, wordById } from './words';
+import { allWords, wordsByGrade, wordById, wordsForMode } from './words';
 
 it('loads a substantial word list', () => {
   expect(allWords().length).toBeGreaterThanOrEqual(200);
@@ -17,7 +17,7 @@ it('looks up a word by id with computed length', () => {
 });
 
 it('includes Dolch nouns with length-banded grades and the noun tag', () => {
-  expect(allWords().length).toBe(313);
+  expect(allWords().length).toBe(365);
   expect(wordById('dog')).toMatchObject({ grade: 'preK', tags: ['noun'] });
   expect(wordById('ball')).toMatchObject({ grade: 'K', tags: ['noun'] });
   expect(wordById('house')).toMatchObject({ grade: '1', tags: ['noun'] });
@@ -30,6 +30,30 @@ it('every word carries a capitalized, period-terminated sentence containing it',
   for (const w of allWords()) {
     expect(w.sentence, w.id).toMatch(/^[A-Z].*\.$/);
     // Smoke check only — the authoritative word-boundary validation runs in build-words.mjs.
-    expect(w.sentence.toLowerCase(), w.id).toContain(w.text);
+    expect(w.sentence.toLowerCase(), w.id).toContain(w.text.toLowerCase());
   }
+});
+
+it('includes 52 letter entries with letter grades and template sentences', () => {
+  expect(wordById('letter-a-uc')).toMatchObject({
+    text: 'A',
+    grade: 'lettersUpper',
+    length: 1,
+    tags: ['letter', 'upper'],
+    sentence: 'A is for apple.',
+  });
+  expect(wordById('letter-a-lc')).toMatchObject({
+    text: 'a',
+    grade: 'lettersLower',
+    tags: ['letter', 'lower'],
+    sentence: 'A is for apple.',
+  });
+  expect(wordById('letter-x-uc')?.sentence).toBe('We find x in fox.');
+});
+
+it('wordsForMode splits letters from words', () => {
+  expect(wordsForMode('letters')).toHaveLength(52);
+  expect(wordsForMode('words')).toHaveLength(313);
+  expect(wordsForMode('letters').every((w) => w.tags?.includes('letter'))).toBe(true);
+  expect(wordsForMode('words').some((w) => w.tags?.includes('letter'))).toBe(false);
 });

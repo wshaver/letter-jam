@@ -2468,5 +2468,577 @@
       "noun"
     ],
     "sentence": "Father will cut this wood for the fire."
+  },
+  {
+    "id": "letter-a-uc",
+    "text": "A",
+    "grade": "lettersUpper",
+    "length": 1,
+    "tags": [
+      "letter",
+      "upper"
+    ],
+    "sentence": "A is for apple."
+  },
+  {
+    "id": "letter-a-lc",
+    "text": "a",
+    "grade": "lettersLower",
+    "length": 1,
+    "tags": [
+      "letter",
+      "lower"
+    ],
+    "sentence": "A is for apple."
+  },
+  {
+    "id": "letter-b-uc",
+    "text": "B",
+    "grade": "lettersUpper",
+    "length": 1,
+    "tags": [
+      "letter",
+      "upper"
+    ],
+    "sentence": "B is for ball."
+  },
+  {
+    "id": "letter-b-lc",
+    "text": "b",
+    "grade": "lettersLower",
+    "length": 1,
+    "tags": [
+      "letter",
+      "lower"
+    ],
+    "sentence": "B is for ball."
+  },
+  {
+    "id": "letter-c-uc",
+    "text": "C",
+    "grade": "lettersUpper",
+    "length": 1,
+    "tags": [
+      "letter",
+      "upper"
+    ],
+    "sentence": "C is for cat."
+  },
+  {
+    "id": "letter-c-lc",
+    "text": "c",
+    "grade": "lettersLower",
+    "length": 1,
+    "tags": [
+      "letter",
+      "lower"
+    ],
+    "sentence": "C is for cat."
+  },
+  {
+    "id": "letter-d-uc",
+    "text": "D",
+    "grade": "lettersUpper",
+    "length": 1,
+    "tags": [
+      "letter",
+      "upper"
+    ],
+    "sentence": "D is for dog."
+  },
+  {
+    "id": "letter-d-lc",
+    "text": "d",
+    "grade": "lettersLower",
+    "length": 1,
+    "tags": [
+      "letter",
+      "lower"
+    ],
+    "sentence": "D is for dog."
+  },
+  {
+    "id": "letter-e-uc",
+    "text": "E",
+    "grade": "lettersUpper",
+    "length": 1,
+    "tags": [
+      "letter",
+      "upper"
+    ],
+    "sentence": "E is for egg."
+  },
+  {
+    "id": "letter-e-lc",
+    "text": "e",
+    "grade": "lettersLower",
+    "length": 1,
+    "tags": [
+      "letter",
+      "lower"
+    ],
+    "sentence": "E is for egg."
+  },
+  {
+    "id": "letter-f-uc",
+    "text": "F",
+    "grade": "lettersUpper",
+    "length": 1,
+    "tags": [
+      "letter",
+      "upper"
+    ],
+    "sentence": "F is for fish."
+  },
+  {
+    "id": "letter-f-lc",
+    "text": "f",
+    "grade": "lettersLower",
+    "length": 1,
+    "tags": [
+      "letter",
+      "lower"
+    ],
+    "sentence": "F is for fish."
+  },
+  {
+    "id": "letter-g-uc",
+    "text": "G",
+    "grade": "lettersUpper",
+    "length": 1,
+    "tags": [
+      "letter",
+      "upper"
+    ],
+    "sentence": "G is for garden."
+  },
+  {
+    "id": "letter-g-lc",
+    "text": "g",
+    "grade": "lettersLower",
+    "length": 1,
+    "tags": [
+      "letter",
+      "lower"
+    ],
+    "sentence": "G is for garden."
+  },
+  {
+    "id": "letter-h-uc",
+    "text": "H",
+    "grade": "lettersUpper",
+    "length": 1,
+    "tags": [
+      "letter",
+      "upper"
+    ],
+    "sentence": "H is for house."
+  },
+  {
+    "id": "letter-h-lc",
+    "text": "h",
+    "grade": "lettersLower",
+    "length": 1,
+    "tags": [
+      "letter",
+      "lower"
+    ],
+    "sentence": "H is for house."
+  },
+  {
+    "id": "letter-i-uc",
+    "text": "I",
+    "grade": "lettersUpper",
+    "length": 1,
+    "tags": [
+      "letter",
+      "upper"
+    ],
+    "sentence": "I is for ice."
+  },
+  {
+    "id": "letter-i-lc",
+    "text": "i",
+    "grade": "lettersLower",
+    "length": 1,
+    "tags": [
+      "letter",
+      "lower"
+    ],
+    "sentence": "I is for ice."
+  },
+  {
+    "id": "letter-j-uc",
+    "text": "J",
+    "grade": "lettersUpper",
+    "length": 1,
+    "tags": [
+      "letter",
+      "upper"
+    ],
+    "sentence": "J is for jump."
+  },
+  {
+    "id": "letter-j-lc",
+    "text": "j",
+    "grade": "lettersLower",
+    "length": 1,
+    "tags": [
+      "letter",
+      "lower"
+    ],
+    "sentence": "J is for jump."
+  },
+  {
+    "id": "letter-k-uc",
+    "text": "K",
+    "grade": "lettersUpper",
+    "length": 1,
+    "tags": [
+      "letter",
+      "upper"
+    ],
+    "sentence": "K is for kitty."
+  },
+  {
+    "id": "letter-k-lc",
+    "text": "k",
+    "grade": "lettersLower",
+    "length": 1,
+    "tags": [
+      "letter",
+      "lower"
+    ],
+    "sentence": "K is for kitty."
+  },
+  {
+    "id": "letter-l-uc",
+    "text": "L",
+    "grade": "lettersUpper",
+    "length": 1,
+    "tags": [
+      "letter",
+      "upper"
+    ],
+    "sentence": "L is for letter."
+  },
+  {
+    "id": "letter-l-lc",
+    "text": "l",
+    "grade": "lettersLower",
+    "length": 1,
+    "tags": [
+      "letter",
+      "lower"
+    ],
+    "sentence": "L is for letter."
+  },
+  {
+    "id": "letter-m-uc",
+    "text": "M",
+    "grade": "lettersUpper",
+    "length": 1,
+    "tags": [
+      "letter",
+      "upper"
+    ],
+    "sentence": "M is for milk."
+  },
+  {
+    "id": "letter-m-lc",
+    "text": "m",
+    "grade": "lettersLower",
+    "length": 1,
+    "tags": [
+      "letter",
+      "lower"
+    ],
+    "sentence": "M is for milk."
+  },
+  {
+    "id": "letter-n-uc",
+    "text": "N",
+    "grade": "lettersUpper",
+    "length": 1,
+    "tags": [
+      "letter",
+      "upper"
+    ],
+    "sentence": "N is for nest."
+  },
+  {
+    "id": "letter-n-lc",
+    "text": "n",
+    "grade": "lettersLower",
+    "length": 1,
+    "tags": [
+      "letter",
+      "lower"
+    ],
+    "sentence": "N is for nest."
+  },
+  {
+    "id": "letter-o-uc",
+    "text": "O",
+    "grade": "lettersUpper",
+    "length": 1,
+    "tags": [
+      "letter",
+      "upper"
+    ],
+    "sentence": "O is for open."
+  },
+  {
+    "id": "letter-o-lc",
+    "text": "o",
+    "grade": "lettersLower",
+    "length": 1,
+    "tags": [
+      "letter",
+      "lower"
+    ],
+    "sentence": "O is for open."
+  },
+  {
+    "id": "letter-p-uc",
+    "text": "P",
+    "grade": "lettersUpper",
+    "length": 1,
+    "tags": [
+      "letter",
+      "upper"
+    ],
+    "sentence": "P is for pig."
+  },
+  {
+    "id": "letter-p-lc",
+    "text": "p",
+    "grade": "lettersLower",
+    "length": 1,
+    "tags": [
+      "letter",
+      "lower"
+    ],
+    "sentence": "P is for pig."
+  },
+  {
+    "id": "letter-q-uc",
+    "text": "Q",
+    "grade": "lettersUpper",
+    "length": 1,
+    "tags": [
+      "letter",
+      "upper"
+    ],
+    "sentence": "Q is for queen."
+  },
+  {
+    "id": "letter-q-lc",
+    "text": "q",
+    "grade": "lettersLower",
+    "length": 1,
+    "tags": [
+      "letter",
+      "lower"
+    ],
+    "sentence": "Q is for queen."
+  },
+  {
+    "id": "letter-r-uc",
+    "text": "R",
+    "grade": "lettersUpper",
+    "length": 1,
+    "tags": [
+      "letter",
+      "upper"
+    ],
+    "sentence": "R is for rabbit."
+  },
+  {
+    "id": "letter-r-lc",
+    "text": "r",
+    "grade": "lettersLower",
+    "length": 1,
+    "tags": [
+      "letter",
+      "lower"
+    ],
+    "sentence": "R is for rabbit."
+  },
+  {
+    "id": "letter-s-uc",
+    "text": "S",
+    "grade": "lettersUpper",
+    "length": 1,
+    "tags": [
+      "letter",
+      "upper"
+    ],
+    "sentence": "S is for sun."
+  },
+  {
+    "id": "letter-s-lc",
+    "text": "s",
+    "grade": "lettersLower",
+    "length": 1,
+    "tags": [
+      "letter",
+      "lower"
+    ],
+    "sentence": "S is for sun."
+  },
+  {
+    "id": "letter-t-uc",
+    "text": "T",
+    "grade": "lettersUpper",
+    "length": 1,
+    "tags": [
+      "letter",
+      "upper"
+    ],
+    "sentence": "T is for tree."
+  },
+  {
+    "id": "letter-t-lc",
+    "text": "t",
+    "grade": "lettersLower",
+    "length": 1,
+    "tags": [
+      "letter",
+      "lower"
+    ],
+    "sentence": "T is for tree."
+  },
+  {
+    "id": "letter-u-uc",
+    "text": "U",
+    "grade": "lettersUpper",
+    "length": 1,
+    "tags": [
+      "letter",
+      "upper"
+    ],
+    "sentence": "U is for up."
+  },
+  {
+    "id": "letter-u-lc",
+    "text": "u",
+    "grade": "lettersLower",
+    "length": 1,
+    "tags": [
+      "letter",
+      "lower"
+    ],
+    "sentence": "U is for up."
+  },
+  {
+    "id": "letter-v-uc",
+    "text": "V",
+    "grade": "lettersUpper",
+    "length": 1,
+    "tags": [
+      "letter",
+      "upper"
+    ],
+    "sentence": "V is for very."
+  },
+  {
+    "id": "letter-v-lc",
+    "text": "v",
+    "grade": "lettersLower",
+    "length": 1,
+    "tags": [
+      "letter",
+      "lower"
+    ],
+    "sentence": "V is for very."
+  },
+  {
+    "id": "letter-w-uc",
+    "text": "W",
+    "grade": "lettersUpper",
+    "length": 1,
+    "tags": [
+      "letter",
+      "upper"
+    ],
+    "sentence": "W is for water."
+  },
+  {
+    "id": "letter-w-lc",
+    "text": "w",
+    "grade": "lettersLower",
+    "length": 1,
+    "tags": [
+      "letter",
+      "lower"
+    ],
+    "sentence": "W is for water."
+  },
+  {
+    "id": "letter-x-uc",
+    "text": "X",
+    "grade": "lettersUpper",
+    "length": 1,
+    "tags": [
+      "letter",
+      "upper"
+    ],
+    "sentence": "We find x in fox."
+  },
+  {
+    "id": "letter-x-lc",
+    "text": "x",
+    "grade": "lettersLower",
+    "length": 1,
+    "tags": [
+      "letter",
+      "lower"
+    ],
+    "sentence": "We find x in fox."
+  },
+  {
+    "id": "letter-y-uc",
+    "text": "Y",
+    "grade": "lettersUpper",
+    "length": 1,
+    "tags": [
+      "letter",
+      "upper"
+    ],
+    "sentence": "Y is for yellow."
+  },
+  {
+    "id": "letter-y-lc",
+    "text": "y",
+    "grade": "lettersLower",
+    "length": 1,
+    "tags": [
+      "letter",
+      "lower"
+    ],
+    "sentence": "Y is for yellow."
+  },
+  {
+    "id": "letter-z-uc",
+    "text": "Z",
+    "grade": "lettersUpper",
+    "length": 1,
+    "tags": [
+      "letter",
+      "upper"
+    ],
+    "sentence": "Z is for zoo."
+  },
+  {
+    "id": "letter-z-lc",
+    "text": "z",
+    "grade": "lettersLower",
+    "length": 1,
+    "tags": [
+      "letter",
+      "lower"
+    ],
+    "sentence": "Z is for zoo."
   }
 ]

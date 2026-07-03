@@ -1,7 +1,7 @@
 import type { Box, Grade, Profile, Word } from './types';
 import { newWordState } from './leitner';
 
-export const GRADES: Grade[] = ['preK', 'K', '1', '2', '3'];
+export const GRADES: Grade[] = ['lettersUpper', 'lettersLower', 'preK', 'K', '1', '2', '3'];
 
 export interface SessionConfig {
   initialBatch: number;

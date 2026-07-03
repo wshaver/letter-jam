@@ -1,4 +1,4 @@
-export type Grade = 'preK' | 'K' | '1' | '2' | '3';
+export type Grade = 'lettersUpper' | 'lettersLower' | 'preK' | 'K' | '1' | '2' | '3';
 
 export interface Word {
   id: string;

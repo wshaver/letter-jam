@@ -34,12 +34,6 @@ for (const text of NOUNS) {
   words.push({ id: text, text, grade: nounGrade(text), length: text.length, tags: ['noun'] });
 }
 
-const ids = new Set(words.map((w) => w.id));
-if (ids.size !== words.length) {
-  console.error('Duplicate word ids across DOLCH and NOUNS lists');
-  process.exit(1);
-}
-
 // --- sentence validation -----------------------------------------------
 // Every allowed token form: the vocabulary itself plus simple inflections.
 function allowedForms(vocab) {
@@ -102,6 +96,44 @@ function validateSentences(words) {
 
 validateSentences(words);
 for (const w of words) w.sentence = SENTENCES[w.text];
+
+// --- letters ------------------------------------------------------------
+// 52 letter entries for letter-recognition mode. Uppercase is the first
+// band a letters-mode profile meets; lowercase trickles in after mastery.
+// Sentences use the "X is for <flagship>." template; both cases share one.
+const LETTER_FLAGSHIPS = {
+  a: 'apple', b: 'ball', c: 'cat', d: 'dog', e: 'egg', f: 'fish', g: 'garden',
+  h: 'house', i: 'ice', j: 'jump', k: 'kitty', l: 'letter', m: 'milk',
+  n: 'nest', o: 'open', p: 'pig', q: 'queen', r: 'rabbit', s: 'sun',
+  t: 'tree', u: 'up', v: 'very', w: 'water', x: 'fox', y: 'yellow', z: 'zoo',
+};
+// Flagship words that are not dictionary entries; letter sentences only.
+const FLAGSHIP_EXTRAS = ['ice', 'queen', 'fox', 'zoo'];
+
+const vocabSet = new Set(words.map((w) => w.text));
+for (const [letter, flagship] of Object.entries(LETTER_FLAGSHIPS)) {
+  if (!vocabSet.has(flagship) && !FLAGSHIP_EXTRAS.includes(flagship)) {
+    console.error(`Letter flagship "${flagship}" (for "${letter}") is not a dictionary word or a listed extra`);
+    process.exit(1);
+  }
+}
+
+function letterSentence(letter) {
+  if (letter === 'x') return 'We find x in fox.';
+  return `${letter.toUpperCase()} is for ${LETTER_FLAGSHIPS[letter]}.`;
+}
+
+for (const letter of 'abcdefghijklmnopqrstuvwxyz') {
+  const sentence = letterSentence(letter);
+  words.push({ id: `letter-${letter}-uc`, text: letter.toUpperCase(), grade: 'lettersUpper', length: 1, tags: ['letter', 'upper'], sentence });
+  words.push({ id: `letter-${letter}-lc`, text: letter, grade: 'lettersLower', length: 1, tags: ['letter', 'lower'], sentence });
+}
+
+const ids = new Set(words.map((w) => w.id));
+if (ids.size !== words.length) {
+  console.error('Duplicate word ids across DOLCH, NOUNS, and letters lists');
+  process.exit(1);
+}
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const outPath = `${__dirname}/../src/data/words.json`;

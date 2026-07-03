@@ -65,7 +65,7 @@ every round should be able to end in celebration.
    - **Wrong tap (keepTrying mode, default) →** the tapped card fades out, the
      others remain, and the child keeps trying until correct. The correct word
      triggers a minor celebration, but Leitner marks the word a **miss** 
-     (back to box 1).
+     (down two boxes).
    - **Wrong tap (oneAndDone mode, optional) →** a gentle "aw," the correct
      card is briefly highlighted so the child still learns the answer, the
      round ends with no confetti, Leitner marks a miss, and play moves on.
@@ -116,7 +116,11 @@ length and grade rarity still provide the coarse spine (via the grade lists).
 
 - **5 boxes.** New words enter **box 1**.
 - **Correct on first try → up one box** (seen less often).
-- **Any wrong tap → back to box 1** (seen soon).
+- **Any wrong tap → down two boxes** (floor box 1), so the word comes back
+  sooner. This distinguishes a slip from real unfamiliarity: a box-5 word
+  missed once lands in box 3 (moderately more frequent) rather than being
+  drilled; a second consecutive miss lands it in box 1 — the same moment its
+  per-word difficulty steps down.
 - The round builder draws targets by **weighted random**, heavily favoring low
   boxes (box 1 ≫ box 5), so struggling words return quickly and mastered words
   appear only occasionally.
@@ -259,7 +263,8 @@ interface WordState {
 
 - **Vitest** for the pure engine — `leitner`, `similarity`, `roundBuilder`,
   `session`, and the store. This is where TDD pays off:
-  - Leitner transitions (correct → up, wrong → box 1, box clamping).
+  - Leitner transitions (correct → up one, wrong → down two with floor, box
+    clamping).
   - Per-word difficulty steps up at box ≥ 4 and down after 2 consecutive misses,
     with caps and floors respected.
   - Box-weighted selection favors low boxes.

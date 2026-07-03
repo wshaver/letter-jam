@@ -13,7 +13,7 @@
 - **TypeScript strict mode** on for all source.
 - **No backend, no accounts.** All state persists locally as one JSON blob behind the `ProfileStore` interface.
 - **Not a dexterity game.** No tap timers; motion is decorative only.
-- **Leitner rules:** 5 boxes; new word enters box 1; correct-on-first-try → up one box (max 5); any wrong tap → box 1.
+- **Leitner rules:** 5 boxes; new word enters box 1; correct-on-first-try → up one box (max 5); any wrong tap → down two boxes (floor 1).
 - **Per-word difficulty:** each word stores `choiceCount` (3–5, start 3), `decoyNearness` (0–0.8, start 0), and `missStreak` (start 0). Step UP (`choiceCount +1` cap 5, `nearness +0.4` cap 0.8) on a correct-first-try that lands the word in box ≥ 4. Step DOWN (`−1` / `−0.4`, floors 3 / 0) after 2 consecutive misses, which also resets the streak; a correct answer resets the streak too. A round's difficulty = the target word's stored difficulty.
 - **Decoys must never be homophones of the target** (to/too/two, ate/eight, …) — a homophone decoy makes the round unanswerable.
 - **The previous round's target is never the next round's target** (unless it is the only introduced word).
@@ -429,7 +429,7 @@ git commit -m "feat: add domain types, Dolch word data, and word loader"
 **Interfaces:**
 - Consumes: `WordState`, `Box` from `./types`.
 - Produces:
-  - `NUM_BOXES = 5`, `MIN_CHOICES = 3`, `MAX_CHOICES = 5`, `NEARNESS_STEP = 0.4`, `MAX_NEARNESS = 0.8`, `HARDER_BOX = 4`, `MISSES_TO_EASE = 2`
+  - `NUM_BOXES = 5`, `MISS_DROP = 2`, `MIN_CHOICES = 3`, `MAX_CHOICES = 5`, `NEARNESS_STEP = 0.4`, `MAX_NEARNESS = 0.8`, `HARDER_BOX = 4`, `MISSES_TO_EASE = 2`
   - `newWordState(): WordState` (box 1, introduced true, seen/correct 0, choiceCount 3, decoyNearness 0, missStreak 0)
   - `recordResult(state: WordState, correctFirstTry: boolean): WordState` (box transitions + per-word difficulty stepping)
   - `boxWeight(box: Box): number` (box 1 heaviest)
@@ -466,11 +466,15 @@ it('correct first try moves up one box, clamped at max', () => {
   expect(s.correct).toBeGreaterThan(0);
 });
 
-it('any wrong tap drops back to box 1', () => {
-  let s = { ...newWordState(), box: 4 as const, seen: 3, correct: 3 };
+it('a miss drops two boxes, with a floor at box 1', () => {
+  let s = { ...newWordState(), box: 5 as const, seen: 4, correct: 4 };
   s = recordResult(s, false);
-  expect(s.box).toBe(1);
-  expect(s.seen).toBe(4);
+  expect(s.box).toBe(3); // a slip on a known word: moderate comeback
+  s = recordResult(s, false);
+  expect(s.box).toBe(1); // second consecutive miss: full attention
+  s = recordResult(s, false);
+  expect(s.box).toBe(1); // floor
+  expect(s.seen).toBe(7);
 });
 
 it('difficulty steps up on reaching box 4 and again at box 5, then caps', () => {
@@ -532,6 +536,7 @@ Expected: FAIL (module not found).
 import type { Box, WordState } from './types';
 
 export const NUM_BOXES = 5;
+export const MISS_DROP = 2; // a miss drops this many boxes (floor 1)
 export const MIN_CHOICES = 3;
 export const MAX_CHOICES = 5;
 export const NEARNESS_STEP = 0.4;
@@ -571,7 +576,7 @@ export function recordResult(state: WordState, correctFirstTry: boolean): WordSt
   const missStreak = state.missStreak + 1;
   const ease = missStreak >= MISSES_TO_EASE;
   return {
-    box: 1,
+    box: Math.max(1, state.box - MISS_DROP) as Box,
     seen,
     correct: state.correct,
     introduced: true,
@@ -2189,7 +2194,7 @@ Run `npm run dev`, open the app in **Chrome**, and confirm:
 - **Carrier phrase "Find the word, …!":** Tasks 9 (`wordPrompt`), 10 (`useGame` speaks it).
 - **Dolch grade lists, lowercased:** Task 2.
 - **Auto-advance + trickle:** Task 7 (`introduceIfNeeded`).
-- **Leitner 5 boxes, correct→+1, wrong→box1, weighted low-box draw:** Tasks 3, 8.
+- **Leitner 5 boxes, correct→+1, wrong→−2 (floor 1), weighted low-box draw:** Tasks 3, 8.
 - **Multiple local profiles, single JSON blob behind `ProfileStore`, stable list order:** Tasks 6, 12.
 - **Celebration tiers (big / small / none) + oneAndDone answer reveal:** Task 10 (`useGame`, `Feedback`, `reveal` class).
 - **keepTrying default, oneAndDone opt-in:** Tasks 10, 12.

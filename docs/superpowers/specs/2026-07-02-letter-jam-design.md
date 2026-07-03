@@ -59,8 +59,9 @@ every round should be able to end in celebration.
    - **Correct on first try →** confetti + balloons + happy chime; Leitner moves
      the word up one box.
    - **Wrong tap (keepTrying mode, default) →** the tapped card fades out, the
-     others remain, and the child keeps trying until correct. The round still
-     ends in celebration, but Leitner marks the word a **miss** (back to box 1).
+     others remain, and the child keeps trying until correct. The correct word
+     triggers a minor celebration, but Leitner marks the word a **miss** 
+     (back to box 1).
    - **Wrong tap (oneAndDone mode, optional) →** a gentle "aw," the round ends
      with no confetti, Leitner marks a miss, and play moves on.
 5. Progress is autosaved. Sessions are **endless** — the child plays until they
@@ -131,6 +132,7 @@ decoy similarity and choice count are the fine-grained knobs.
 ## Feedback & "Juice"
 
 - **Correct:** `canvas-confetti`, floating balloons, a happy chime.
+- **Correct after Wrong:** minor confetti, no baloons, a softer but still happy chime
 - **Wrong:** a soft fade — no punishment, no scary sounds.
 - Assets kept light.
 

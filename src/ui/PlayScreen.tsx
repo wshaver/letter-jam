@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import type { Profile, Word } from '../engine/types';
 import type { Rng } from '../engine/random';
 import type { Speaker } from '../engine/speech';
@@ -14,6 +15,20 @@ interface PlayScreenProps {
 
 export function PlayScreen(props: PlayScreenProps) {
   const { round, status, celebration, wrongIds, choose, replay, next } = useGame(props);
+
+  const [countdown, setCountdown] = useState(3);
+
+  useEffect(() => {
+    if (status === 'playing') return;
+    setCountdown(3);
+    const id = setInterval(() => setCountdown((c) => c - 1), 1000);
+    return () => clearInterval(id);
+  }, [status]);
+
+  useEffect(() => {
+    if (status !== 'playing' && countdown <= 0) next();
+  }, [countdown, status, next]);
+
   if (!round) return null;
 
   return (
@@ -42,7 +57,7 @@ export function PlayScreen(props: PlayScreenProps) {
           {status === 'won' && celebration && <Feedback level={celebration} />}
           {status === 'missed' && <p className="aw">aw…</p>}
           <button className="next" onClick={next}>
-            Next
+            Next ({Math.max(countdown, 0)})
           </button>
         </div>
       )}

@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { vi } from 'vitest';
 import { PlayScreen } from './PlayScreen';
@@ -101,4 +101,22 @@ it('gives long words the long class for smaller text', () => {
   const cards = [...document.querySelectorAll('.card')];
   expect(cards.length).toBeGreaterThan(0);
   expect(cards.every((c) => c.className.includes('long'))).toBe(true);
+});
+
+it('auto-advances three seconds after a round resolves', async () => {
+  vi.useFakeTimers();
+  try {
+    const user = userEvent.setup({ advanceTimers: vi.advanceTimersByTime });
+    const { spoken, speaker } = fakeSpeaker();
+    render(<PlayScreen profile={makeProfile()} onProfileChange={() => {}} words={WORDS} speaker={speaker} rng={seeded(1)} />);
+    const target = lastSpokenTarget(spoken);
+    await user.click(screen.getByRole('button', { name: target }));
+    expect(screen.getByRole('button', { name: /next \(3\)/i })).toBeInTheDocument();
+    await act(async () => { vi.advanceTimersByTime(1000); });
+    expect(screen.getByRole('button', { name: /next \(2\)/i })).toBeInTheDocument();
+    await act(async () => { vi.advanceTimersByTime(2100); });
+    expect(spoken.length).toBe(2); // next round spoke automatically
+  } finally {
+    vi.useRealTimers();
+  }
 });

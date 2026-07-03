@@ -24,7 +24,18 @@ function getCtx(): AudioContext | null {
 // from effects, outside a gesture — actually play on iOS.
 export function unlockAudio(): void {
   const c = getCtx();
-  if (c && c.state === 'suspended') void c.resume();
+  if (!c) return;
+  if (c.state === 'suspended') void c.resume();
+  // iOS fully unlocks Web Audio only once a buffer has actually played inside
+  // a gesture; resume() alone can leave later scheduled sounds silent.
+  try {
+    const src = c.createBufferSource();
+    src.buffer = c.createBuffer(1, 1, 22050);
+    src.connect(c.destination);
+    src.start(0);
+  } catch {
+    // buffer play not supported here — resume() above is the fallback
+  }
 }
 
 export function playChime(level: 'big' | 'small'): void {

@@ -16,6 +16,8 @@ export function pickDecoys(target: Word, words: Word[], difficulty: Difficulty, 
     .map((w) => ({ w, s: similarity(target.text, w.text) }))
     .sort((a, b) => a.s - b.s); // ascending: least similar first
   const n = scored.length;
+  // If the pool is smaller than requested, return all candidates — callers must not
+  // assume a fixed choice count when the candidate pool is small.
   if (n <= count) return scored.map((x) => x.w);
 
   const center = Math.round(difficulty.decoyNearness * (n - 1));

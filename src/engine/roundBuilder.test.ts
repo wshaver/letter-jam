@@ -76,3 +76,10 @@ it('allows a repeat when the previous target is the only introduced word', () =>
   const p = profileWith(['cat']);
   expect(buildRound(p, WORDS, seeded(5), 'cat').target.id).toBe('cat');
 });
+
+it('returns all candidates when the pool is smaller than requested', () => {
+  const target = W('cat');
+  const words = [W('cat'), W('cot'), W('can')];
+  const decoys = pickDecoys(target, words, { choiceCount: 5, decoyNearness: 0.5 }, seeded(1));
+  expect(decoys.map((w) => w.id).sort()).toEqual(['can', 'cot']);
+});

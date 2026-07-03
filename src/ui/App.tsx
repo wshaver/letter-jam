@@ -7,6 +7,7 @@ import { createProfile, upsertProfile } from '../engine/profiles';
 import { newId } from '../engine/id';
 import { ProfileSelect } from './ProfileSelect';
 import { PlayScreen } from './PlayScreen';
+import { Stats } from './Stats';
 import { Settings } from './Settings';
 
 const store = new LocalStorageProfileStore();
@@ -66,6 +67,7 @@ export function App() {
         <span className="who">
           {active.avatar} {active.name}
         </span>
+        <Stats profile={active} words={wordsForMode(active.settings.gameMode)} />
         <span className="spacer" />
         <button aria-label="Settings" onClick={() => setScreen('settings')}>
           ⚙️

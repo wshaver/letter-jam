@@ -71,3 +71,19 @@ body { touch-action: manipulation; }
 @media (pointer: coarse) {
   .stat { font-size: 1.6rem; }
 }
+
+/* --- stats in the title bar; wraps to its own line when tight --- */
+.topbar { flex-wrap: wrap; }
+.topbar .stats { gap: 0.5rem; }
+.topbar .stat { font-size: 1.05rem; padding: 0.2rem 0.7rem; background: #fff; }
+@media (max-width: 820px) {
+  .topbar .stats {
+    flex-basis: 100%;
+    order: 10;
+    justify-content: center;
+    margin-top: 0.35rem;
+  }
+}
+@media (pointer: coarse) {
+  .topbar .stat { font-size: 1.25rem; }
+}

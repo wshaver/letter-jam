@@ -38,21 +38,8 @@ export function PlayScreen(props: PlayScreenProps) {
   const maxLen = Math.max(...round.choices.map((w) => w.text.length));
   const size = maxLen === 1 ? 'glyph' : maxLen >= 7 ? 'long' : '';
 
-  const { stats } = props.profile.progress;
-  const poolStates = props.words
-    .map((w) => props.profile.progress.words[w.id])
-    .filter((s) => s?.introduced);
-  const mastered = poolStates.filter((s) => s.box >= 4).length; // box >= 4 = mastered
-
   return (
     <div className="play">
-      <div className="stats">
-        <span className="stat" title="Correct in a row">🔥 {stats.streak}</span>
-        <span className="stat" title="First-try wins">⭐ {stats.correctFirstTry}</span>
-        <span className="stat" title="Words in the pool">📚 {poolStates.length}</span>
-        <span className="stat" title="Mastered">🏆 {mastered}</span>
-        <span className="stat" title="Rounds played">🎲 {stats.rounds}</span>
-      </div>
       <button className="speaker" aria-label="Hear the word again" onClick={replay}>
         🔊
       </button>

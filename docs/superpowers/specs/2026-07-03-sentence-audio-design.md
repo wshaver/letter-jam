@@ -51,6 +51,12 @@ Two coupled changes:
 
 - One sentence per dictionary word — **313 authored sentences** — stored as a
   `{ word: sentence }` map in `scripts/sentences.mjs`.
+- **Provenance:** sentences are drafted at implementation time by parallel
+  content-authoring subagents (batches of ~80 words each, given the full
+  allowed vocabulary and rules), assembled by the coordinator, then gated by
+  the build-time validator (mechanical rules) and a dedicated
+  grammar/naturalness review pass. The final file is a single readable
+  artifact (~313 lines) for human review after assembly.
 - **Authoring rules:**
   - Grammatically correct, kid-simple, roughly 3–8 words.
   - Contains the target word exactly (word-boundary match).

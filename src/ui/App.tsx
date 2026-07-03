@@ -4,6 +4,7 @@ import { LocalStorageProfileStore } from '../store/LocalStorageProfileStore';
 import { createSpeaker } from '../engine/speech';
 import { allWords } from '../engine/words';
 import { createProfile, upsertProfile } from '../engine/profiles';
+import { newId } from '../engine/id';
 import { ProfileSelect } from './ProfileSelect';
 import { PlayScreen } from './PlayScreen';
 import { Settings } from './Settings';
@@ -45,7 +46,7 @@ export function App() {
           setScreen('play');
         }}
         onCreate={(name, avatar) => {
-          const p = createProfile(crypto.randomUUID(), name, avatar);
+          const p = createProfile(newId(), name, avatar);
           update((prev) => upsertProfile({ ...prev, activeProfileId: p.id }, p));
           setScreen('play');
         }}

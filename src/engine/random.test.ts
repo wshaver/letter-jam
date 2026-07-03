@@ -24,6 +24,10 @@ it('weightedPick favors heavier items over many draws', () => {
   expect(counts.a).toBeGreaterThan(counts.b * 3);
 });
 
+it('weightedPick throws on an empty array', () => {
+  expect(() => weightedPick([], () => 1, seeded(1))).toThrow('weightedPick on empty array');
+});
+
 it('shuffle preserves all elements without mutating input', () => {
   const input = [1, 2, 3, 4, 5];
   const out = shuffle(input, seeded(7));

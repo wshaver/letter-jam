@@ -3,9 +3,9 @@
 Letter Jam is Coeus-only by explicit product decision. All entry paths, including
 bare `/letterjam/` and `/`, require authorized Coeus launch context. Missing or
 incomplete selectors show a link to Coeus selection. There is no standalone fallback.
-Existing local profiles/backups are not read or migrated. Connected gameplay is
-the next migration slice; keep Letter Jam disabled in the Coeus registry until
-that work is complete. Deploy this bootstrap slice only with the completed migration.
+Existing local profiles/backups are not read or migrated. Connected rounds now use
+Coeus challenges and outcomes. Keep Letter Jam disabled in the production registry
+until settings/statistics, media delivery and full migration acceptance are complete.
 
 Launch selectors are `student`, `lesson` (version ID), and `game=letter-jam`.
 The client initializes `/coeus/sanctum/csrf-cookie`, then retrieves
@@ -16,6 +16,55 @@ sign-in in another tab and a retry that revalidates the original per-tab selecto
 Network/access failures never start local play.
 Availability failures show Coeus's specific 409 reason as plain text, with a generic
 fallback for malformed responses. Authentication failures retain sign-in guidance.
+
+## Connected rounds
+
+`POST /coeus/api/challenges/next` issues or resumes a question. Cards and speech use
+its typed letter/word payload and recommended distractors, including content absent
+from the bundled dictionary. Letter Jam shuffles cards, uses Andika, and displays
+at most five choices. Device speech reads the supplied text and sentence directly;
+published Coeus recordings remain a separate migration step.
+
+Keep trying is the default; Show the answer ends the round on a miss. First-try
+success sends `known: true`; any miss makes the finished round `known: false`.
+The client sends no per-guess events, metrics, hints or skip requests. Celebrations
+and the three-second Next countdown start only after confirmed server completion.
+
+A small localStorage record, scoped by student, lesson version and enrollment,
+holds the challenge UUID, wrong choice IDs and exact pending submission UUID/boolean.
+It contains no mastery, profile, counters or legacy saves. Wrong guesses and completed
+answers are saved synchronously before further play or submission. Refresh retrieves
+the saved challenge first. An active pending answer is retried exactly; completed
+questions use the server receipt. Conflicts trigger retrieval and an explicit notice
+when another submission completed the question. Recovery is retained during network,
+session, access and availability errors; Retry connection renews CSRF, revalidates
+context, and resumes. Only a successful next-question response replaces the record.
+Storage failures pause play. Clearing site storage or using a different browser
+does not transfer this local unfinished-guess record.
+
+A damaged record stays intact and shows a distinct error: reconnecting cannot
+repair damaged data. It may contain an uncertain completed answer, so replacing
+it with a new UUID or an assumed miss would violate exact outcome recovery. A 404
+also preserves the record: Coeus uses 404 for missing launch resources as well as
+an unknown challenge, not as a definitive deletion acknowledgement. Automated
+repair after destructive development resets is outside this client contract.
+
+Recovery is separate for each lesson. Leaving or returning to Coeus preserves the
+unresolved server question. There are no local progression or mastery writes.
+The answer-mode control is session-only; connected settings/statistics remain separate.
+
+## Verification
+
+The client tests execute new-content letter/word rounds, wrong-guess refresh,
+one-and-done, delayed/lost receipts, exact retries, conflicts, unavailable context,
+storage failure, StrictMode, rapid clicks and three-second advancement. The request
+tests verify selector scope, same-origin credentials and decoded CSRF headers.
+Test discovery is restricted to `src` so retained worktrees are excluded.
+
+2026-09-13: 148 tests and the production build passed. A real Chromium browser
+using an isolated API fixture verified five-card layout at 1280×720 and 390×650,
+wrong-choice refresh and recovered-success feedback. This is not a live Coeus
+login/launch or physical iPad acceptance test. Those remain migration gates.
 
 ## Local development
 

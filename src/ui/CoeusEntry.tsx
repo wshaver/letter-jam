@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { bootstrap, ContextError, type Context } from '../coeus/client';
+import { CoeusPlay } from './CoeusPlay';
 
 export function CoeusEntry() {
   const [context, setContext] = useState<Context | null>(null);
@@ -17,8 +18,12 @@ export function CoeusEntry() {
     return () => controller.abort();
   }, [retry]);
   return <main className="app">
-    <h1>Letter Jam</h1>
+    <header className="topbar">
+    <strong>Letter Jam</strong>
     <a href={context?.return_path ?? '/coeus/games'}>Back to Coeus</a>
+    {context && <><span className="who">{context.student.name}</span>
+      <span>{context.lesson.title} · Version {context.lesson.version}</span></>}
+    </header>
     {!context && !error && <p role="status">Connecting to Coeus…</p>}
     {error && <>
       <p role="alert">{error.message}</p>
@@ -26,10 +31,8 @@ export function CoeusEntry() {
         <p><a href="/coeus/login" target="_blank" rel="noopener noreferrer">Sign in to Coeus</a></p>}
       <button onClick={() => setRetry(value => value + 1)}>Retry connection</button>
     </>}
-    {context && <>
-      <h2>{context.student.name}</h2>
-      <p>{context.lesson.title} · Version {context.lesson.version}</p>
-      <p role="status">Connected. Coeus gameplay is coming next; return to the catalog to choose another game.</p>
+    {context && !error && <>
+      <CoeusPlay context={context} onError={setError} />
     </>}
   </main>;
 }

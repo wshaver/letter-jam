@@ -31,7 +31,7 @@ export function pickVoice(
   return en ?? voices[0];
 }
 
-export function createSpeaker(preferredName = 'Google US English'): Speaker {
+export function createSpeaker(preferredName = 'Google US English', recordings = true): Speaker {
   const synth = typeof window !== 'undefined' ? window.speechSynthesis : undefined;
   let pending: { text: string; id?: string }[] = [];
   let active = false;
@@ -85,11 +85,11 @@ export function createSpeaker(preferredName = 'Google US English'): Speaker {
   return {
     speak(text, mode = 'words') {
       cancel();
-      pending.push(...speechParts(text, mode));
+      pending.push(...(recordings ? speechParts(text, mode) : [{ text }]));
       next();
     },
     queue(text, mode = 'words') {
-      pending.push(...speechParts(text, mode));
+      pending.push(...(recordings ? speechParts(text, mode) : [{ text }]));
       next();
     },
     cancel,

@@ -42,6 +42,13 @@ context, and resumes. Only a successful next-question response replaces the reco
 Storage failures pause play. Clearing site storage or using a different browser
 does not transfer this local unfinished-guess record.
 
+A damaged record stays intact and shows a distinct error: reconnecting cannot
+repair damaged data. It may contain an uncertain completed answer, so replacing
+it with a new UUID or an assumed miss would violate exact outcome recovery. A 404
+also preserves the record: Coeus uses 404 for missing launch resources as well as
+an unknown challenge, not as a definitive deletion acknowledgement. Automated
+repair after destructive development resets is outside this client contract.
+
 Recovery is separate for each lesson. Leaving or returning to Coeus preserves the
 unresolved server question. There are no local progression or mastery writes.
 The answer-mode control is session-only; connected settings/statistics remain separate.

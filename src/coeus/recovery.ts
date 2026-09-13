@@ -15,9 +15,14 @@ export class RecoveryStore {
   }
 
   read(): Recovery | null {
+    let raw: string | null;
     try {
-      const raw = (this.storage ?? localStorage).getItem(this.key);
-      if (raw === null) return null;
+      raw = (this.storage ?? localStorage).getItem(this.key);
+    } catch {
+      throw new Error('Your saved round could not be read. Restore browser storage access, then retry.');
+    }
+    if (raw === null) return null;
+    try {
       const value = JSON.parse(raw) as Recovery;
       if (!value || typeof value.challengeId !== 'string' || !/^[0-9a-f-]{36}$/i.test(value.challengeId)
         || !Array.isArray(value.wrongIds) || !value.wrongIds.every(Number.isSafeInteger)
@@ -25,7 +30,7 @@ export class RecoveryStore {
           || (value.wrongIds.length > 0 && value.pending.known)))) throw new Error();
       return value;
     } catch {
-      throw new Error('Your saved round could not be read. Restore browser storage access, then retry.');
+      throw new Error('Your saved round is damaged. Play is paused to protect your answer. Retrying cannot repair the saved data.');
     }
   }
 

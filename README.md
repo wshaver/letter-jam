@@ -30,7 +30,7 @@ progress backup/restore UI. Clearing browser data can lose unfinished guesses,
 pending-answer recovery and presentation preferences; it does not erase saved
 Coeus outcomes. See [recovery details](docs/coeus.md).
 
-Home Screen launches open `/letterjam/` and direct to Coeus selection. They do
+Home Screen launches open the installation root (`/letterjam/` in production) and direct to Coeus selection. They do
 not pin a student's identity into the installation. A bookmarked launch with
 selectors must still pass current Coeus authorization.
 
@@ -57,8 +57,9 @@ npm run build
 ```
 
 React, TypeScript and Vite provide the client. `src/coeus` handles authenticated
-requests and durable round recovery; `src/ui` presents connected play. Retained
-engine/content tools are not authorities for connected learning.
+requests and durable round recovery; `src/ui` presents connected play. Unused local learning and profile storage code has been removed. Content-generation
+tools and source snapshots remain for lesson/audio migration; they do not select
+connected questions or store learning progress.
 
 ## Deployment
 

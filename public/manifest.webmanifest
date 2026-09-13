@@ -2,7 +2,7 @@
   "name": "Letter Jam",
   "short_name": "Letter Jam",
   "id": "./",
-  "start_url": "/letterjam/",
+  "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "background_color": "#ffffff",

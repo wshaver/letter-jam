@@ -60,7 +60,7 @@ Answer mode, card font and celebration effects/chimes are saved per student and
 lesson version on this browser in a separate `letter-jam-coeus-preferences-v1`
 key. No old profiles or progress are imported or deleted. Storage failures leave
 preferences usable for the session and display a notice in Settings. Coeus owns
-student/lesson selection. Home Screen starts at `/letterjam/` and directs to Coeus.
+student/lesson selection. Home Screen uses a relative installation-root start URL (`/letterjam/` in production), matching its relative scope and identity, and directs to Coeus.
 This panel requires the retrieval API in Coeus PR #13.
 
 ## Verification

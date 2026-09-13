@@ -32,7 +32,7 @@ export function CoeusEntry() {
       <button onClick={() => setRetry(value => value + 1)}>Retry connection</button>
     </>}
     {context && !error && <>
-      <CoeusPlay context={context} onError={setError} />
+      <CoeusPlay key={`${context.student.id}:${context.lesson.version_id}:${context.enrollment.id}`} context={context} onError={setError} />
     </>}
   </main>;
 }

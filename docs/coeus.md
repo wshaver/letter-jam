@@ -5,7 +5,7 @@ bare `/letterjam/` and `/`, require authorized Coeus launch context. Missing or
 incomplete selectors show a link to Coeus selection. There is no standalone fallback.
 Existing local profiles/backups are not read or migrated. Connected rounds now use
 Coeus challenges and outcomes. Keep Letter Jam disabled in the production registry
-until settings/statistics, media delivery and full migration acceptance are complete.
+until media delivery and full migration acceptance are complete.
 
 Launch selectors are `student`, `lesson` (version ID), and `game=letter-jam`.
 The client initializes `/coeus/sanctum/csrf-cookie`, then retrieves
@@ -21,7 +21,7 @@ fallback for malformed responses. Authentication failures retain sign-in guidanc
 
 `POST /coeus/api/challenges/next` issues or resumes a question. Cards and speech use
 its typed letter/word payload and recommended distractors, including content absent
-from the bundled dictionary. Letter Jam shuffles cards, uses Andika, and displays
+from the bundled dictionary. Letter Jam shuffles cards, defaults to Andika, and displays
 at most five choices. Device speech reads the supplied text and sentence directly;
 published Coeus recordings remain a separate migration step.
 
@@ -51,7 +51,17 @@ repair after destructive development resets is outside this client contract.
 
 Recovery is separate for each lesson. Leaving or returning to Coeus preserves the
 unresolved server question. There are no local progression or mastery writes.
-The answer-mode control is session-only; connected settings/statistics remain separate.
+Settings & progress pauses the active round and retrieves current Coeus summaries
+on opening, refresh, or window focus. It never calculates mastery locally. Session
+expiry or revoked access uses the same connection recovery flow as gameplay;
+other statistics failures offer a retry without showing stale counts.
+
+Answer mode, card font and celebration effects/chimes are saved per student and
+lesson version on this browser in a separate `letter-jam-coeus-preferences-v1`
+key. No old profiles or progress are imported or deleted. Storage failures leave
+preferences usable for the session and display a notice in Settings. Coeus owns
+student/lesson selection. Home Screen uses a relative installation-root start URL (`/letterjam/` in production), matching its relative scope and identity, and directs to Coeus.
+This panel requires the retrieval API in Coeus PR #13.
 
 ## Verification
 

@@ -19,6 +19,9 @@ function serve(server: GameServer) {
       return new Response(null, { status: 204 });
     }
     if (url.includes('game-context')) return Response.json(context);
+    if (url.includes('/progress/')) return Response.json({ enrollment_id: context.enrollment.id,
+      lesson_version_id: context.lesson.version_id, total_items: 8,
+      summary: { introduced: 6, mastered: server.outcomes.size, complete: false } });
     const body = options?.body ? JSON.parse(options.body as string) : undefined;
     try {
       const result = await server.request(search, url.split('?')[0].replace('/coeus/api', ''), body?.submission_id ? { submission_id: body.submission_id, known: body.known } : undefined);
@@ -118,4 +121,36 @@ it('plays a typed letter question without a word dictionary or audio reference',
   fireEvent.click(await screen.findByRole('button', { name: 'a' }));
   expect(await screen.findByText('Celebration big')).toBeInTheDocument();
   expect([...server.outcomes.values()][0].known).toBe(true);
+});
+
+it('pauses the same round for settings, retains preferences and leaves legacy data untouched', async () => {
+  const server = new GameServer();
+  serve(server);
+  localStorage.setItem('letter-jam-save-v1', 'legacy-data');
+  const view = render(<CoeusEntry />);
+  fireEvent.click(await screen.findByRole('button', { name: 'numbat' }));
+  fireEvent.click(screen.getByRole('button', { name: 'Settings & progress' }));
+  expect(await screen.findByText('Introduced: 6 · Mastered: 0 · Total: 8')).toBeInTheDocument();
+  expect(screen.queryByRole('button', { name: 'quokka' })).not.toBeInTheDocument();
+  expect(server.outcomes.size).toBe(0);
+  fireEvent.change(screen.getByRole('combobox', { name: 'Card font' }), { target: { value: 'lora' } });
+  fireEvent.change(screen.getByRole('combobox', { name: 'After a wrong answer' }), { target: { value: 'oneAndDone' } });
+  fireEvent.click(screen.getByRole('checkbox', { name: 'Celebration effects and chimes' }));
+  fireEvent.click(screen.getByRole('button', { name: 'Back to round' }));
+  expect(screen.getByRole('button', { name: 'numbat' })).toBeDisabled();
+  expect(screen.getByRole('button', { name: 'quokka' }).parentElement).toHaveStyle('--round-font: "Lora", serif');
+  view.unmount();
+  render(<CoeusEntry />);
+  const correct = await screen.findByRole('button', { name: 'quokka' });
+  expect(screen.getByRole('combobox', { name: 'After a wrong answer' })).toHaveValue('oneAndDone');
+  expect(correct.parentElement).toHaveStyle('--round-font: "Lora", serif');
+  fireEvent.click(correct);
+  expect(await screen.findByText('Nice!')).toBeInTheDocument();
+  expect(screen.queryByText('Celebration small')).not.toBeInTheDocument();
+  expect(localStorage.getItem('letter-jam-save-v1')).toBe('legacy-data');
+  expect([...server.outcomes.values()][0].known).toBe(false);
+  fireEvent.click(screen.getByRole('button', { name: 'Next (3)' }));
+  await screen.findByRole('button', { name: 'quokka' });
+  fireEvent.click(screen.getByRole('button', { name: 'Settings & progress' }));
+  expect(await screen.findByText('Introduced: 6 · Mastered: 1 · Total: 8')).toBeInTheDocument();
 });

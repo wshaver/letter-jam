@@ -5,6 +5,9 @@ import { RoundSession, type RoundState } from '../coeus/roundSession';
 import { createSpeaker, wordAlone, wordPrompt, type Speaker } from '../engine/speech';
 import { Feedback } from './Feedback';
 import { resumeAudio } from './sound';
+import { readPreferences, savePreferences, type Preferences } from '../coeus/preferences';
+import { roundFont } from '../engine/fonts';
+import { CoeusSettings } from './CoeusSettings';
 
 export function CoeusPlay({ context, onError, speaker: suppliedSpeaker }: {
   context: Context; onError: (error: Error) => void; speaker?: Speaker;
@@ -12,7 +15,15 @@ export function CoeusPlay({ context, onError, speaker: suppliedSpeaker }: {
   const [speaker] = useState(() => suppliedSpeaker ?? createSpeaker(undefined, false));
   const session = useRef<RoundSession | null>(null);
   const [state, setState] = useState<RoundState>({ phase: 'loading', choices: [], wrongIds: [] });
-  const [mode, setMode] = useState<'keepTrying' | 'oneAndDone'>('keepTrying');
+  const [preferences, setPreferences] = useState(() => readPreferences(context));
+  const [storageWarning, setStorageWarning] = useState(false);
+  const [settingsOpen, setSettingsOpen] = useState(false);
+  const mode = preferences.mode;
+  const font = roundFont(preferences.font);
+  const updatePreferences = (value: Preferences) => {
+    setPreferences(value);
+    setStorageWarning(!savePreferences(context, value));
+  };
   const [countdown, setCountdown] = useState(3);
   useEffect(() => {
     const game = new RoundSession(context, window.location.search, new RecoveryStore(context), setState);
@@ -24,19 +35,22 @@ export function CoeusPlay({ context, onError, speaker: suppliedSpeaker }: {
   const target = state.challenge?.target;
   const prompt = target ? wordPrompt(target.payload.text, target.payload.sentence ?? '') : '';
   useEffect(() => {
-    if (state.phase !== 'playing' || !prompt) { speaker.cancel(); return; }
+    if (settingsOpen || state.phase !== 'playing' || !prompt) { speaker.cancel(); return; }
     speaker.speak(prompt);
     return () => speaker.cancel();
-  }, [state.phase, state.challenge?.id, prompt, speaker]);
+  }, [state.phase, state.challenge?.id, prompt, speaker, settingsOpen]);
   useEffect(() => {
     setCountdown(3);
-    if (state.phase !== 'completed') return;
+    if (state.phase !== 'completed' || settingsOpen) return;
     const timer = setInterval(() => setCountdown(value => Math.max(0, value - 1)), 1000);
     return () => clearInterval(timer);
-  }, [state.phase, state.challenge?.id]);
+  }, [state.phase, state.challenge?.id, settingsOpen]);
   useEffect(() => {
-    if (state.phase === 'completed' && countdown === 0) void session.current?.next(true);
-  }, [countdown, state.phase]);
+    if (!settingsOpen && state.phase === 'completed' && countdown === 0) void session.current?.next(true);
+  }, [countdown, state.phase, settingsOpen]);
+
+  if (settingsOpen) return <CoeusSettings context={context} preferences={preferences} onChange={updatePreferences}
+    onBack={() => setSettingsOpen(false)} onError={onError} storageWarning={storageWarning} />;
 
   if (state.phase === 'loading') return <p role="status">Loading your round…</p>;
   if (state.phase === 'empty') return <p role="status">There are no questions available for this lesson.</p>;
@@ -47,15 +61,16 @@ export function CoeusPlay({ context, onError, speaker: suppliedSpeaker }: {
     <div className="coeus-controls">
     <label className="coeus-answer-mode">After a wrong answer{' '}
       <select aria-label="After a wrong answer" value={mode} disabled={state.phase !== 'playing'}
-        onChange={event => setMode(event.target.value as typeof mode)}>
+        onChange={event => updatePreferences({ ...preferences, mode: event.target.value as typeof mode })}>
         <option value="keepTrying">Keep trying</option>
         <option value="oneAndDone">Show the answer</option>
       </select>
     </label>
+    <button disabled={state.phase !== 'playing'} onClick={() => setSettingsOpen(true)}>Settings & progress</button>
     <button className="speaker" aria-label="Hear the word again" onClick={() => speaker.speak(prompt)}>🔊</button>
     </div>
-    <div className="cards" key={state.challenge!.id} data-count={state.choices.length} data-font="andika"
-      style={{ '--round-font': '"Andika", sans-serif' } as CSSProperties}>
+    <div className="cards" key={state.challenge!.id} data-count={state.choices.length} data-font={font.id}
+      style={{ '--round-font': `"${font.family}", ${font.kind}` } as CSSProperties}>
       {state.choices.map(item => <button key={item.id}
         className={`card ${size} ${state.wrongIds.includes(item.id) ? 'faded' : ''} ${state.ending === 'missed' && item.id === target.id ? 'reveal' : ''}`}
         disabled={state.phase !== 'playing' || state.wrongIds.includes(item.id)}
@@ -76,7 +91,7 @@ export function CoeusPlay({ context, onError, speaker: suppliedSpeaker }: {
     {state.phase === 'saving' && <p role="status">Saving your answer…</p>}
     {state.phase === 'completed' && <div className="round-end">
       {state.notice && <p role="status">{state.notice}</p>}
-      {state.ending === 'won' ? <Feedback level={state.known ? 'big' : 'small'} /> : <p className="aw">aw…</p>}
+      {state.ending === 'won' ? preferences.effects ? <Feedback level={state.known ? 'big' : 'small'} /> : <p role="status">Nice!</p> : <p className="aw">aw…</p>}
       <button className="next" onClick={() => void session.current?.next()}>Next ({countdown})</button>
     </div>}
   </div>;

@@ -147,6 +147,9 @@ body { touch-action: manipulation; }
 .cards[data-count="1"] .card { grid-column: 3 / span 2; }
 .cards[data-count="2"] .card:first-child { grid-column: 2 / span 2; }
 .coeus-controls { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px; }
+.coeus-settings { flex: 1; min-height: 0; overflow-y: auto; width: min(100%, 680px); margin: auto; padding: 16px; box-sizing: border-box; }
+.coeus-settings label { display: block; margin: 16px 0; }
+.coeus-settings select { min-height: 44px; max-width: 100%; }
 .coeus-answer-mode { font-size: 0.9rem; }
 .coeus-answer-mode select { min-height: 44px; max-width: 100%; }
 .app > [role="alert"], .app > [role="status"] { padding: 12px; }

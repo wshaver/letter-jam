@@ -12,6 +12,8 @@ import { Settings } from './Settings';
 import { ProgressBackup } from './ProgressBackup';
 import { EMPTY_BLOB } from '../store/ProfileStore';
 import { mergeProgress, protectProgress } from '../store/progressBackup';
+import { CoeusEntry } from './CoeusEntry';
+import { isConnected } from '../coeus/client';
 
 const store = new LocalStorageProfileStore();
 const speaker = createSpeaker();
@@ -19,6 +21,10 @@ const speaker = createSpeaker();
 type Screen = 'select' | 'play' | 'settings';
 
 export function App() {
+  return isConnected(window.location) ? <CoeusEntry /> : <LocalApp />;
+}
+
+function LocalApp() {
   const [blob, setBlob] = useState<SaveBlob | null>(null);
   const [screen, setScreen] = useState<Screen>('select');
   const [saveError, setSaveError] = useState('');

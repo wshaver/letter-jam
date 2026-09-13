@@ -19,6 +19,12 @@ export default defineConfig({
   // Relative base so bundled assets load correctly whether the app is served
   // from the domain root or a subdirectory (e.g. willshaver.com/letterjam).
   base: './',
+  server: {
+    host: 'localhost',
+    port: 8000,
+    strictPort: true,
+    proxy: { '/coeus': { target: 'http://127.0.0.1:8001', changeOrigin: false } },
+  },
   define: {
     __APP_VERSION__: JSON.stringify(buildVersion()),
   },

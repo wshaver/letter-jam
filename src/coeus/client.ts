@@ -51,8 +51,3 @@ export async function bootstrap(search: string, signal?: AbortSignal): Promise<C
   }
   return context;
 }
-
-export function isConnected(location: Pick<Location, 'pathname' | 'search'>): boolean {
-  return ['student', 'lesson', 'game']
-    .some(key => new URLSearchParams(location.search).has(key));
-}

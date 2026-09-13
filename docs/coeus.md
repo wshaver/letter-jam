@@ -1,11 +1,11 @@
 # Coeus migration
 
-Branch includes authorized launch bootstrap only. URLs carrying any `student`,
-`lesson` or `game` selector open the connected screen, including incomplete launches.
-Bare `/letterjam/` and the root without selectors retain standalone play so routine
-publishing remains safe. Existing local profiles/backups are not read or migrated
-by the connected entry. Connected gameplay is the next migration slice; keep
-Letter Jam disabled in the Coeus registry until that work is complete.
+Letter Jam is Coeus-only by explicit product decision. All entry paths, including
+bare `/letterjam/` and `/`, require authorized Coeus launch context. Missing or
+incomplete selectors show a link to Coeus selection. There is no standalone fallback.
+Existing local profiles/backups are not read or migrated. Connected gameplay is
+the next migration slice; keep Letter Jam disabled in the Coeus registry until
+that work is complete. Deploy this bootstrap slice only with the completed migration.
 
 Launch selectors are `student`, `lesson` (version ID), and `game=letter-jam`.
 The client initializes `/coeus/sanctum/csrf-cookie`, then retrieves

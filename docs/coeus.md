@@ -1,10 +1,11 @@
 # Coeus migration
 
-Branch includes authorized launch bootstrap only. `/letterjam/` and URLs carrying
-Coeus selectors open the connected screen. The standalone root without selectors
-retains local play. Existing local profiles/backups are not read or migrated by
-the connected entry. Connected gameplay is the next migration slice; keep Letter
-Jam disabled in the Coeus registry and do not deploy this slice by itself.
+Branch includes authorized launch bootstrap only. URLs carrying any `student`,
+`lesson` or `game` selector open the connected screen, including incomplete launches.
+Bare `/letterjam/` and the root without selectors retain standalone play so routine
+publishing remains safe. Existing local profiles/backups are not read or migrated
+by the connected entry. Connected gameplay is the next migration slice; keep
+Letter Jam disabled in the Coeus registry until that work is complete.
 
 Launch selectors are `student`, `lesson` (version ID), and `game=letter-jam`.
 The client initializes `/coeus/sanctum/csrf-cookie`, then retrieves
@@ -13,6 +14,8 @@ authorized student, lesson version and canonical Back to Coeus link. URL `return
 is ignored. Invalid/missing selectors show a catalog link; session expiry provides
 sign-in in another tab and a retry that revalidates the original per-tab selectors.
 Network/access failures never start local play.
+Availability failures show Coeus's specific 409 reason as plain text, with a generic
+fallback for malformed responses. Authentication failures retain sign-in guidance.
 
 ## Local development
 

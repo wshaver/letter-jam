@@ -34,9 +34,15 @@ export async function bootstrap(search: string, signal?: AbortSignal): Promise<C
   if (!csrf.ok) throw new ContextError(csrf.status, 'Could not initialize your Coeus session.');
   const response = await fetch(`/coeus/api/game-context?${query}`, options);
   if (!response.ok) {
+    let reason = 'This student or lesson is no longer available. Choose again in Coeus.';
+    if (response.status === 409) {
+      const body: unknown = await response.json().catch(() => null);
+      if (body && typeof body === 'object' && 'message' in body
+        && typeof body.message === 'string' && body.message.trim()) reason = body.message.slice(0, 500);
+    }
     throw new ContextError(response.status, response.status === 401 || response.status === 419
       ? 'Your Coeus session expired. Sign in, then retry.'
-      : 'This student or lesson is no longer available. Choose again in Coeus.');
+      : reason);
   }
   const context: Context = await response.json();
   if (String(context.student.id) !== query.get('student') || String(context.lesson.version_id) !== query.get('lesson')
@@ -47,6 +53,6 @@ export async function bootstrap(search: string, signal?: AbortSignal): Promise<C
 }
 
 export function isConnected(location: Pick<Location, 'pathname' | 'search'>): boolean {
-  return location.pathname.startsWith('/letterjam') || ['student', 'lesson', 'game', 'return']
+  return ['student', 'lesson', 'game']
     .some(key => new URLSearchParams(location.search).has(key));
 }

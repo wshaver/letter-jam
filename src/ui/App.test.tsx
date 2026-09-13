@@ -1,13 +1,15 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { vi, beforeEach } from 'vitest';
+import { vi, beforeEach, afterEach } from 'vitest';
 import { App } from './App';
 
 vi.mock('canvas-confetti', () => ({ default: vi.fn() }));
 
 beforeEach(() => localStorage.clear());
+afterEach(() => window.history.replaceState({}, '', '/'));
 
-it('creates a player and lands in the game', async () => {
+it('creates a player and plays at the bare public Letter Jam path', async () => {
+  window.history.replaceState({}, '', '/letterjam/');
   const user = userEvent.setup();
   render(<App />);
   await user.type(await screen.findByLabelText('New player name'), 'Bo');

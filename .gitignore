@@ -2,3 +2,7 @@ node_modules
 dist
 *.local
 *.tsbuildinfo
+.env.deploy.json
+.deploy/
+.deploy-tools/
+__pycache__/

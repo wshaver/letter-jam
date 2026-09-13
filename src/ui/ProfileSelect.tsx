@@ -1,15 +1,16 @@
-import { useState } from 'react';
+import { useState, type ReactNode } from 'react';
 import type { SaveBlob } from '../engine/types';
 
 const AVATARS = ['🦄', '🐯', '🐸', '🐙', '🦊', '🐝'];
 
 interface ProfileSelectProps {
+  children?: ReactNode;
   blob: SaveBlob;
   onPick: (id: string) => void;
   onCreate: (name: string, avatar: string) => void;
 }
 
-export function ProfileSelect({ blob, onPick, onCreate }: ProfileSelectProps) {
+export function ProfileSelect({ blob, onPick, onCreate, children }: ProfileSelectProps) {
   const [name, setName] = useState('');
   const [avatar, setAvatar] = useState(AVATARS[0]);
 
@@ -52,6 +53,7 @@ export function ProfileSelect({ blob, onPick, onCreate }: ProfileSelectProps) {
         />
         <button type="submit">Add player</button>
       </form>
+      {children}
       {/* Rendered from the JS bundle, so seeing it confirms the JS loaded and
           the stamp confirms which build is deployed. */}
       <p className="version" data-testid="version">

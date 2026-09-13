@@ -1,7 +1,12 @@
 import raw from '../data/words.json';
 import type { Grade, Word } from './types';
+import audio from '../data/audio.json';
 
-const words = raw as Word[];
+const phrases: Record<string, { text: string }> = audio.clips;
+const words: Word[] = (raw as Word[]).map(word => {
+  const phrase = word.tags?.includes('letter') && phrases[`pair-${word.text.toLowerCase()}`];
+  return phrase ? { ...word, sentence: phrase.text } : word;
+});
 
 export function allWords(): Word[] {
   return words;

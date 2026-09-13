@@ -1,12 +1,14 @@
 import type { Profile } from '../engine/types';
+import type { ReactNode } from 'react';
 
 interface SettingsProps {
+  children?: ReactNode;
   profile: Profile;
   onChange: (p: Profile) => void;
   onBack: () => void;
 }
 
-export function Settings({ profile, onChange, onBack }: SettingsProps) {
+export function Settings({ profile, onChange, onBack, children }: SettingsProps) {
   const mode = profile.settings.wrongAnswerMode;
   return (
     <div className="settings">
@@ -44,6 +46,7 @@ export function Settings({ profile, onChange, onBack }: SettingsProps) {
         Letter mode (letter recognition for little ones)
       </label>
       <button onClick={onBack}>Done</button>
+      {children}
     </div>
   );
 }

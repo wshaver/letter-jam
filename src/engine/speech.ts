@@ -1,6 +1,8 @@
+import { playRecording, speechParts, type SpeechMode } from './recordedAudio';
+
 export interface Speaker {
-  speak(text: string): void; // interrupts whatever is playing or queued
-  queue(text: string): void; // speaks after the current utterance finishes
+  speak(text: string, mode?: SpeechMode): void; // interrupts whatever is playing or queued
+  queue(text: string, mode?: SpeechMode): void; // speaks after the current utterance finishes
   cancel(): void;
 }
 
@@ -31,36 +33,65 @@ export function pickVoice(
 
 export function createSpeaker(preferredName = 'Google US English'): Speaker {
   const synth = typeof window !== 'undefined' ? window.speechSynthesis : undefined;
-  // Environments without SpeechSynthesis (e.g. jsdom, older browsers) get a no-op.
-  if (!synth) {
-    return { speak() {}, queue() {}, cancel() {} };
-  }
-  let voice: SpeechSynthesisVoice | null = null;
-  const refresh = () => {
-    voice = pickVoice(synth.getVoices(), preferredName);
+  let pending: { text: string; id?: string }[] = [];
+  let active = false;
+  let generation = 0;
+  let stop: (() => void) | undefined;
+  const next = () => {
+    if (active) return;
+    const part = pending.shift();
+    if (!part) return;
+    active = true;
+    const ticket = generation;
+    let finished = false;
+    let usingFallback = false;
+    const done = () => {
+      if (ticket !== generation || finished) return;
+      finished = true;
+      active = false; stop = undefined; next();
+    };
+    const fallback = () => {
+      if (ticket !== generation) return;
+      usingFallback = true;
+      if (!synth) { done(); return; }
+      utter(part.text, done);
+    };
+    if (part.id) {
+      try {
+        const cancelRecording = playRecording(part.id, done, fallback);
+        if (!finished && !usingFallback) stop = cancelRecording;
+      }
+      catch { fallback(); }
+    } else fallback();
   };
-  refresh();
-  if (typeof synth.addEventListener === 'function') {
-    synth.addEventListener('voiceschanged', refresh);
-  }
-  const utter = (text: string) => {
-    if (!voice) refresh();
+  const utter = (text: string, done: () => void) => {
+    if (!synth) { done(); return; }
     const u = new SpeechSynthesisUtterance(text);
+    const voice = pickVoice(synth.getVoices(), preferredName);
     if (voice) u.voice = voice;
     u.rate = 0.9;
-    synth.speak(u);
+    u.onend = done;
+    u.onerror = done;
+    stop = () => { u.onend = null; u.onerror = null; };
+    try { synth.speak(u); } catch { done(); }
+  };
+  const cancel = () => {
+    generation++;
+    pending = [];
+    stop?.(); stop = undefined;
+    active = false;
+    synth?.cancel();
   };
   return {
-    speak(text: string) {
-      synth.cancel();
-      utter(text);
+    speak(text, mode = 'words') {
+      cancel();
+      pending.push(...speechParts(text, mode));
+      next();
     },
-    queue(text: string) {
-      // SpeechSynthesis queues natively when we don't cancel first.
-      utter(text);
+    queue(text, mode = 'words') {
+      pending.push(...speechParts(text, mode));
+      next();
     },
-    cancel() {
-      synth.cancel();
-    },
+    cancel,
   };
 }

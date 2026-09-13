@@ -1,3 +1,5 @@
+import type { FontId } from './fonts';
+
 export type Grade = 'lettersUpper' | 'lettersLower' | 'preK' | 'K' | '1' | '2' | '3';
 
 export interface Word {
@@ -55,6 +57,7 @@ export interface Difficulty {
 }
 
 export interface Round {
+  fontId: FontId;
   target: Word;
   choices: Word[]; // includes target, shuffled
 }

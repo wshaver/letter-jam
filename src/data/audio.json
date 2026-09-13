@@ -1,0 +1,2056 @@
+{
+  "source": "dopamine-learning-machine approved Studio takes",
+  "clips": {
+    "word-am": {
+      "file": "audio/pack-20e5cd216d257af2fe01.mp3",
+      "start": 10.575333333333333,
+      "duration": 0.46441666666666664,
+      "text": "am",
+      "takeId": "422848d1-9c60-4975-a08e-28fcd86112ec"
+    },
+    "word-at": {
+      "file": "audio/pack-20e5cd216d257af2fe01.mp3",
+      "start": 11.28975,
+      "duration": 0.4179583333333333,
+      "text": "at",
+      "takeId": "9e49200d-c529-4223-bfd9-aefa647fa65a"
+    },
+    "word-mat": {
+      "file": "audio/pack-20e5cd216d257af2fe01.mp3",
+      "start": 11.957708333333333,
+      "duration": 0.6501666666666667,
+      "text": "mat",
+      "takeId": "9e6edc50-61ed-4ad3-9c08-44ab7e77942a"
+    },
+    "word-sat": {
+      "file": "audio/pack-20e5cd216d257af2fe01.mp3",
+      "start": 12.857875,
+      "duration": 0.5572916666666666,
+      "text": "sat",
+      "takeId": "d522cbeb-f5a9-49c3-9e22-c2159a6502d0"
+    },
+    "word-sit": {
+      "file": "audio/pack-20e5cd216d257af2fe01.mp3",
+      "start": 13.665166666666666,
+      "duration": 0.6501666666666667,
+      "text": "sit",
+      "takeId": "0743ba72-3853-4a6d-8498-1842ce22d044"
+    },
+    "word-fit": {
+      "file": "audio/pack-20e5cd216d257af2fe01.mp3",
+      "start": 14.565333333333333,
+      "duration": 0.6037083333333333,
+      "text": "fit",
+      "takeId": "55993c77-8762-413b-84cb-24aadb672d86"
+    },
+    "word-did": {
+      "file": "audio/pack-20e5cd216d257af2fe01.mp3",
+      "start": 15.419041666666667,
+      "duration": 0.5108333333333334,
+      "text": "did",
+      "takeId": "efbc2cbf-8062-455a-a7c1-37c1cf5e9e14"
+    },
+    "word-dim": {
+      "file": "audio/pack-20e5cd216d257af2fe01.mp3",
+      "start": 16.179875,
+      "duration": 0.5572916666666666,
+      "text": "dim",
+      "takeId": "0552c1f8-4dc5-4f26-a2cb-a9e540936f13"
+    },
+    "word-mad": {
+      "file": "audio/pack-20e5cd216d257af2fe01.mp3",
+      "start": 16.987166666666667,
+      "duration": 0.5572916666666666,
+      "text": "mad",
+      "takeId": "7a05c31e-c775-4643-bef2-4b769b802039"
+    },
+    "word-sad": {
+      "file": "audio/pack-20e5cd216d257af2fe01.mp3",
+      "start": 17.794458333333335,
+      "duration": 0.6965833333333333,
+      "text": "sad",
+      "takeId": "bd080988-1ec9-49c7-8d30-1fbc92549365"
+    },
+    "word-dot": {
+      "file": "audio/pack-20e5cd216d257af2fe01.mp3",
+      "start": 18.741041666666668,
+      "duration": 0.5108333333333334,
+      "text": "dot",
+      "takeId": "c539cdd0-d34e-4ecd-a79a-0499a9f92bf4"
+    },
+    "word-map": {
+      "file": "audio/pack-20e5cd216d257af2fe01.mp3",
+      "start": 19.501875,
+      "duration": 0.6037083333333333,
+      "text": "map",
+      "takeId": "4c540874-5bec-470c-83d1-227dabd145fc"
+    },
+    "word-cat": {
+      "file": "audio/pack-20e5cd216d257af2fe01.mp3",
+      "start": 20.355583333333332,
+      "duration": 0.5572916666666666,
+      "text": "cat",
+      "takeId": "af8c1bbb-5f36-4f33-8d64-f76b7cb339dc"
+    },
+    "word-cup": {
+      "file": "audio/pack-20e5cd216d257af2fe01.mp3",
+      "start": 21.162875,
+      "duration": 0.5108333333333334,
+      "text": "cup",
+      "takeId": "3fdf5c96-8338-42a2-b3c8-dceba35ee6a3"
+    },
+    "word-bug": {
+      "file": "audio/pack-20e5cd216d257af2fe01.mp3",
+      "start": 21.923708333333334,
+      "duration": 0.5572916666666666,
+      "text": "bug",
+      "takeId": "f0ddcc5c-4662-437e-953a-1c6075bb06e4"
+    },
+    "word-bed": {
+      "file": "audio/pack-20e5cd216d257af2fe01.mp3",
+      "start": 22.731,
+      "duration": 0.5572916666666666,
+      "text": "bed",
+      "takeId": "76e1a64d-d17a-4aec-96e4-60566faab02b"
+    },
+    "word-pet": {
+      "file": "audio/pack-20e5cd216d257af2fe01.mp3",
+      "start": 23.538291666666666,
+      "duration": 0.6501666666666667,
+      "text": "pet",
+      "takeId": "3884c1bb-863e-48d4-b942-aae176472662"
+    },
+    "word-pig": {
+      "file": "audio/pack-20e5cd216d257af2fe01.mp3",
+      "start": 24.438458333333333,
+      "duration": 0.5572916666666666,
+      "text": "pig",
+      "takeId": "5399d939-d048-4909-b8da-5853b9ce27c1"
+    },
+    "word-top": {
+      "file": "audio/pack-20e5cd216d257af2fe01.mp3",
+      "start": 25.24575,
+      "duration": 0.5572916666666666,
+      "text": "top",
+      "takeId": "76d42d44-ca94-4915-8f5f-d42557da51c1"
+    },
+    "word-sun": {
+      "file": "audio/pack-20e5cd216d257af2fe01.mp3",
+      "start": 26.053041666666665,
+      "duration": 0.6037083333333333,
+      "text": "sun",
+      "takeId": "bf0958ac-f132-487d-a7a7-a3d7d168038f"
+    },
+    "word-hen": {
+      "file": "audio/pack-20e5cd216d257af2fe01.mp3",
+      "start": 26.90675,
+      "duration": 0.5108333333333334,
+      "text": "hen",
+      "takeId": "7258440b-a006-45c2-8962-088949fa0214"
+    },
+    "word-red": {
+      "file": "audio/pack-20e5cd216d257af2fe01.mp3",
+      "start": 27.667583333333333,
+      "duration": 0.5108333333333334,
+      "text": "red",
+      "takeId": "226c356d-60da-45d2-9ff6-921358a19359"
+    },
+    "word-log": {
+      "file": "audio/pack-20e5cd216d257af2fe01.mp3",
+      "start": 28.428416666666667,
+      "duration": 0.6037083333333333,
+      "text": "log",
+      "takeId": "0ddf1cff-de84-4c52-bafd-faf9fa25afc1"
+    },
+    "word-kit": {
+      "file": "audio/pack-20e5cd216d257af2fe01.mp3",
+      "start": 29.282125,
+      "duration": 0.6037083333333333,
+      "text": "kit",
+      "takeId": "4b9d9c08-06bd-46a4-a7a8-4092159a225e"
+    },
+    "word-run": {
+      "file": "audio/pack-20e5cd216d257af2fe01.mp3",
+      "start": 30.135833333333334,
+      "duration": 0.4179583333333333,
+      "text": "run",
+      "takeId": "369a8fb7-f26d-4534-afe0-ba953f87f417"
+    },
+    "word-hat": {
+      "file": "audio/pack-20e5cd216d257af2fe01.mp3",
+      "start": 30.803791666666665,
+      "duration": 0.5108333333333334,
+      "text": "hat",
+      "takeId": "b3ca619d-edfe-4f79-8a7e-3e30c1f94d79"
+    },
+    "word-leg": {
+      "file": "audio/pack-20e5cd216d257af2fe01.mp3",
+      "start": 31.564625,
+      "duration": 0.5108333333333334,
+      "text": "leg",
+      "takeId": "71c5d6bd-d50b-441a-b9bb-7ea82d3cd6f7"
+    },
+    "name-a": {
+      "file": "audio/pack-20e5cd216d257af2fe01.mp3",
+      "start": 58.874375,
+      "duration": 0.32508333333333334,
+      "text": "A",
+      "takeId": "a3dc155a-c354-4f1d-a012-f918356274b3"
+    },
+    "name-b": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 0,
+      "duration": 0.5108333333333334,
+      "text": "B",
+      "takeId": "6d6c4591-0e3c-47d5-a8c5-fb641d68ebfb"
+    },
+    "name-c": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 0.7608333333333334,
+      "duration": 0.4179583333333333,
+      "text": "C",
+      "takeId": "a99cf695-0a12-459d-9cb2-5d58300cbfe1"
+    },
+    "name-d": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 1.4287916666666667,
+      "duration": 0.4179583333333333,
+      "text": "D",
+      "takeId": "96bba02d-90aa-41fe-ab1a-030e3ddbc952"
+    },
+    "name-e": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 2.09675,
+      "duration": 0.3715,
+      "text": "E",
+      "takeId": "8bd36fee-7930-4a71-b267-6b78ab469062"
+    },
+    "name-f": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 2.71825,
+      "duration": 0.4179583333333333,
+      "text": "F",
+      "takeId": "4e65c621-e57b-4ffd-8bcb-eb9c59ef931e"
+    },
+    "name-g": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 3.3862083333333333,
+      "duration": 0.4179583333333333,
+      "text": "G",
+      "takeId": "6355addd-474a-47d6-8d00-86fc712638a7"
+    },
+    "name-h": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 4.054166666666666,
+      "duration": 0.3715,
+      "text": "H",
+      "takeId": "798b8311-70d6-4512-987a-632350c3737f"
+    },
+    "name-i": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 4.675666666666666,
+      "duration": 0.32508333333333334,
+      "text": "I",
+      "takeId": "29cb0599-5610-4365-97b4-6eaf5934ffe3"
+    },
+    "name-j": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 5.25075,
+      "duration": 0.3715,
+      "text": "J",
+      "takeId": "56c187e0-e35b-49b0-a2da-692d894ba72c"
+    },
+    "name-k": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 5.87225,
+      "duration": 0.46441666666666664,
+      "text": "K",
+      "takeId": "8f7ec718-072f-4bf0-a1a9-adf3cd212c2b"
+    },
+    "name-l": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 6.586666666666667,
+      "duration": 0.32508333333333334,
+      "text": "L",
+      "takeId": "f026e487-e262-40a3-84e1-0cfe1ab01814"
+    },
+    "name-m": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 7.16175,
+      "duration": 0.4179583333333333,
+      "text": "M",
+      "takeId": "e6d98b54-df4a-4ece-ba8e-71ad56a9e923"
+    },
+    "name-n": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 7.8297083333333335,
+      "duration": 0.3715,
+      "text": "N",
+      "takeId": "ef8a2266-5639-422d-9896-4fc23e7f6af0"
+    },
+    "name-o": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 8.451208333333334,
+      "duration": 0.278625,
+      "text": "O",
+      "takeId": "5cf2a868-d325-4438-a288-d8e6f2340874"
+    },
+    "name-p": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 8.979833333333334,
+      "duration": 0.5108333333333334,
+      "text": "P",
+      "takeId": "bed07edf-74ac-45d0-a9ef-765c4dd3dcad"
+    },
+    "name-q": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 9.740666666666666,
+      "duration": 0.46441666666666664,
+      "text": "Q",
+      "takeId": "9c82b57e-db29-423d-b594-4a902f297937"
+    },
+    "name-r": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 10.455083333333333,
+      "duration": 0.32508333333333334,
+      "text": "R",
+      "takeId": "bace6a3e-d395-4a57-8f1d-1e28b5314c66"
+    },
+    "name-t": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 11.030166666666666,
+      "duration": 0.46441666666666664,
+      "text": "T",
+      "takeId": "cfd41877-922d-4758-81a4-83489a1ffe88"
+    },
+    "name-u": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 11.744583333333333,
+      "duration": 0.3715,
+      "text": "U",
+      "takeId": "71eef7da-7175-4b24-955b-62012dd5c784"
+    },
+    "name-s": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 12.366083333333334,
+      "duration": 0.32508333333333334,
+      "text": "S",
+      "takeId": "d2b1a8f5-c3f6-4515-aeda-6895b64c1673"
+    },
+    "name-v": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 12.941166666666666,
+      "duration": 0.4179583333333333,
+      "text": "V",
+      "takeId": "b2fa9bc9-7602-4e17-a7af-6b5cac2a1ae3"
+    },
+    "name-w": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 13.609125,
+      "duration": 0.6965833333333333,
+      "text": "W",
+      "takeId": "e3223041-c285-4570-9435-26bca21c2282"
+    },
+    "name-x": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 14.555708333333333,
+      "duration": 0.5108333333333334,
+      "text": "X",
+      "takeId": "62f945dc-db29-4415-9ad0-59a3b5f19d9d"
+    },
+    "name-y": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 15.316541666666666,
+      "duration": 0.32508333333333334,
+      "text": "Y",
+      "takeId": "ca4beb85-143c-4318-9edd-67115a1d4420"
+    },
+    "name-z": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 15.891625,
+      "duration": 0.46441666666666664,
+      "text": "Z",
+      "takeId": "6d1121f4-f94b-476b-ad69-22ef6b1db222"
+    },
+    "pair-a": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 16.606041666666666,
+      "duration": 1.34675,
+      "text": "A is for apple.",
+      "takeId": "6edf7320-39ae-494f-9b48-af46775905b3"
+    },
+    "pair-b": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 18.202791666666666,
+      "duration": 1.2074583333333333,
+      "text": "B is for ball.",
+      "takeId": "bbc0663e-a1d9-4b96-b298-fc4e7be392e4"
+    },
+    "pair-c": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 19.66025,
+      "duration": 1.2074583333333333,
+      "text": "C is for cat.",
+      "takeId": "8c6975e5-0f33-48da-8637-10770231ba77"
+    },
+    "pair-d": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 21.117708333333333,
+      "duration": 1.161,
+      "text": "D is for dog.",
+      "takeId": "420e108b-7dc7-4fd8-bed1-6b121c33b3f6"
+    },
+    "pair-e": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 22.528708333333334,
+      "duration": 1.161,
+      "text": "E is for egg.",
+      "takeId": "98e1badf-c77d-4ed6-9ace-6f200040e0da"
+    },
+    "pair-f": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 23.939708333333332,
+      "duration": 1.2074583333333333,
+      "text": "F is for fish.",
+      "takeId": "5e4a8eb4-9ac5-48fe-b6ef-df90249b67d2"
+    },
+    "pair-g": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 25.397166666666667,
+      "duration": 1.2074583333333333,
+      "text": "G is for goat.",
+      "takeId": "30f018ca-f307-41b2-87e0-168742794685"
+    },
+    "pair-h": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 26.854625,
+      "duration": 1.2074583333333333,
+      "text": "H is for hat.",
+      "takeId": "d638c2b1-14be-47d2-835e-e2fed3ff8b57"
+    },
+    "pair-i": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 28.312083333333334,
+      "duration": 1.3932083333333334,
+      "text": "I is for insect.",
+      "takeId": "27e17eed-43e1-4d30-85af-d1742c4ca01c"
+    },
+    "pair-j": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 29.955291666666668,
+      "duration": 1.2074583333333333,
+      "text": "J is for jam.",
+      "takeId": "7d436da3-2ffc-4d9c-a8d9-b4505031310d"
+    },
+    "pair-k": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 31.41275,
+      "duration": 1.161,
+      "text": "K is for kite.",
+      "takeId": "9554e1ea-ea34-4415-b93c-1529cbfc2c46"
+    },
+    "pair-l": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 32.82375,
+      "duration": 1.253875,
+      "text": "L is for leaf.",
+      "takeId": "0401dc4f-9bbb-4836-b250-5fcb3224f12c"
+    },
+    "pair-m": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 34.327625,
+      "duration": 1.253875,
+      "text": "M is for moon.",
+      "takeId": "0bc6c5e2-82ae-40e5-a142-3c35cdcd31b1"
+    },
+    "pair-n": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 35.8315,
+      "duration": 1.3003333333333333,
+      "text": "N is for nest.",
+      "takeId": "426abebe-a0b5-4a07-aa81-70a371419d5d"
+    },
+    "pair-o": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 37.38183333333333,
+      "duration": 1.5325,
+      "text": "O is for octopus.",
+      "takeId": "79878043-6d60-4424-98c4-6f7551875afb"
+    },
+    "pair-p": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 39.16433333333333,
+      "duration": 1.1145416666666668,
+      "text": "P is for pig.",
+      "takeId": "16fc6a80-3a55-446f-acdc-d49a5c7b991e"
+    },
+    "pair-q": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 40.528875,
+      "duration": 1.2074583333333333,
+      "text": "Q is for queen.",
+      "takeId": "3a918167-f64f-4617-9832-bc97673eadf1"
+    },
+    "pair-r": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 41.986333333333334,
+      "duration": 1.253875,
+      "text": "R is for rabbit.",
+      "takeId": "4eb822e3-b7db-421a-8c39-d58a66b762cc"
+    },
+    "pair-s": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 43.490208333333335,
+      "duration": 1.253875,
+      "text": "S is for sun.",
+      "takeId": "67f13bd5-3fa7-46f7-9d5b-5c4cb99334b1"
+    },
+    "pair-t": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 44.994083333333336,
+      "duration": 1.3003333333333333,
+      "text": "T is for turtle.",
+      "takeId": "a3690079-6486-4f53-9d61-985c457b5001"
+    },
+    "pair-u": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 46.54441666666666,
+      "duration": 1.3003333333333333,
+      "text": "U is for umbrella.",
+      "takeId": "357fe687-6be3-4205-82a9-afdcdeb054ba"
+    },
+    "pair-v": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 48.09475,
+      "duration": 1.161,
+      "text": "V is for van.",
+      "takeId": "2165a450-7ee6-4101-b798-715a9554111a"
+    },
+    "pair-w": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 49.50575,
+      "duration": 1.5325,
+      "text": "W is for web.",
+      "takeId": "05325bf4-03be-427b-ae58-8bf1f270eee0"
+    },
+    "pair-x": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 51.28825,
+      "duration": 1.5789583333333332,
+      "text": "X is for xylophone.",
+      "takeId": "d6f1a6eb-37f0-43ac-997a-a6b648ad65a0"
+    },
+    "pair-y": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 53.11720833333333,
+      "duration": 1.3932083333333334,
+      "text": "Y is for yellow.",
+      "takeId": "28a56a9b-0ee3-4168-8687-1303aa151f1a"
+    },
+    "pair-z": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 54.760416666666664,
+      "duration": 1.3003333333333333,
+      "text": "Z is for zebra.",
+      "takeId": "71f19a88-8572-40b1-8a90-52eca62fd058"
+    },
+    "word-and": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 56.31075,
+      "duration": 0.46441666666666664,
+      "text": "and",
+      "takeId": "c3766134-d15a-44c3-b2f2-a46f172d5c64"
+    },
+    "word-away": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 57.025166666666664,
+      "duration": 0.6501666666666667,
+      "text": "away",
+      "takeId": "b4fc697b-a1ba-4447-bf1a-4d9a44cf9797"
+    },
+    "word-big": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 57.925333333333334,
+      "duration": 0.6037083333333333,
+      "text": "big",
+      "takeId": "91d62b8c-24b7-46a2-98ea-10c15d343d3a"
+    },
+    "word-blue": {
+      "file": "audio/pack-b95f25075e398e0d17aa.mp3",
+      "start": 58.779041666666664,
+      "duration": 0.5108333333333334,
+      "text": "blue",
+      "takeId": "b3daf0ab-c4fb-460e-93e3-9a366d820b05"
+    },
+    "word-can": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 0,
+      "duration": 0.5108333333333334,
+      "text": "can",
+      "takeId": "f4de46d1-f290-4e3f-b8ca-4159c811bacf"
+    },
+    "word-come": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 0.7608333333333334,
+      "duration": 0.6501666666666667,
+      "text": "come",
+      "takeId": "2d159d8c-c217-4aa9-bdce-a0654a3c6aea"
+    },
+    "word-down": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 1.661,
+      "duration": 0.6037083333333333,
+      "text": "down",
+      "takeId": "254d1866-79eb-4cac-88f1-ed7515477f99"
+    },
+    "word-find": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 2.5147083333333335,
+      "duration": 0.7430416666666667,
+      "text": "find",
+      "takeId": "24f7db03-48fc-4982-8e45-2b4f21515faf"
+    },
+    "word-for": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 3.50775,
+      "duration": 0.46441666666666664,
+      "text": "for",
+      "takeId": "a58598a4-e998-442b-85e5-c0a0fd7dd784"
+    },
+    "word-funny": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 4.222166666666666,
+      "duration": 0.6037083333333333,
+      "text": "funny",
+      "takeId": "b016b93a-ef25-4f0c-988f-e4e28f31be43"
+    },
+    "word-go": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 5.075875,
+      "duration": 0.32508333333333334,
+      "text": "go",
+      "takeId": "68ed82f6-32d2-4b63-996d-d80b556fbf4c"
+    },
+    "word-help": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 5.6509583333333335,
+      "duration": 0.5572916666666666,
+      "text": "help",
+      "takeId": "b6f63258-2022-4b30-a52b-09f1a5ee1118"
+    },
+    "word-here": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 6.45825,
+      "duration": 0.5108333333333334,
+      "text": "here",
+      "takeId": "9ded0721-49c4-4aff-b828-4a8ebb362312"
+    },
+    "word-jump": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 7.219083333333334,
+      "duration": 0.46441666666666664,
+      "text": "jump",
+      "takeId": "ab847053-b86b-457a-ae6c-cc4b6ce23644"
+    },
+    "word-little": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 7.9335,
+      "duration": 0.6037083333333333,
+      "text": "little",
+      "takeId": "7a181da8-b2a0-4182-a677-0ad25acaed63"
+    },
+    "word-make": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 8.787208333333334,
+      "duration": 0.4179583333333333,
+      "text": "make",
+      "takeId": "38de1602-aab0-440d-893e-98843c70cb06"
+    },
+    "word-me": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 9.455166666666667,
+      "duration": 0.46441666666666664,
+      "text": "me",
+      "takeId": "6408ef40-0c20-498d-b04a-dc5c113a70fd"
+    },
+    "word-my": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 10.169583333333334,
+      "duration": 0.46441666666666664,
+      "text": "my",
+      "takeId": "1dd9f3a8-98e0-4566-b7b1-1b120f32f9b2"
+    },
+    "word-not": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 10.884,
+      "duration": 0.5108333333333334,
+      "text": "not",
+      "takeId": "7167a0ca-7bac-475b-859f-778575f13280"
+    },
+    "word-play": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 11.644833333333333,
+      "duration": 0.5108333333333334,
+      "text": "play",
+      "takeId": "92477ebe-e34e-4f05-8923-3f2fa6a72018"
+    },
+    "word-said": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 12.405666666666667,
+      "duration": 0.5572916666666666,
+      "text": "said",
+      "takeId": "5ba2ed47-6025-4886-9bba-1f8171c41544"
+    },
+    "word-see": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 13.212958333333333,
+      "duration": 0.46441666666666664,
+      "text": "see",
+      "takeId": "1468b612-aa86-498d-bc03-68b10b260e37"
+    },
+    "word-the": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 13.927375,
+      "duration": 0.46441666666666664,
+      "text": "the",
+      "takeId": "4d76c0a8-188a-48b2-a454-8f1092f90487"
+    },
+    "word-three": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 14.641791666666666,
+      "duration": 0.5572916666666666,
+      "text": "three",
+      "takeId": "627cd1ff-a0b7-41a6-9a32-e5cf91406eea"
+    },
+    "word-to": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 15.449083333333334,
+      "duration": 0.4179583333333333,
+      "text": "to",
+      "takeId": "dc0ee57b-f0fc-4f15-a791-d09c6afab171"
+    },
+    "word-two": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 16.117041666666665,
+      "duration": 0.4179583333333333,
+      "text": "two",
+      "takeId": "a55599ee-499e-48cb-afb6-d6996a6bf019"
+    },
+    "word-up": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 16.785,
+      "duration": 0.46441666666666664,
+      "text": "up",
+      "takeId": "04679214-9874-4731-80f0-8171bf32d446"
+    },
+    "word-where": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 17.499416666666665,
+      "duration": 0.6501666666666667,
+      "text": "where",
+      "takeId": "c4d82bcf-959c-42b8-b87b-7305852d0fc6"
+    },
+    "word-yellow": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 18.399583333333332,
+      "duration": 0.6501666666666667,
+      "text": "yellow",
+      "takeId": "efd09d0c-50ac-4e87-b86a-e6da285da812"
+    },
+    "word-you": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 19.29975,
+      "duration": 0.3715,
+      "text": "you",
+      "takeId": "561a7395-655e-47e5-827c-2738d0b6719d"
+    },
+    "word-all": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 19.92125,
+      "duration": 0.4179583333333333,
+      "text": "all",
+      "takeId": "7ebece39-d1e7-40b0-b855-2b5cf8603c22"
+    },
+    "word-are": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 20.589208333333332,
+      "duration": 0.5108333333333334,
+      "text": "are",
+      "takeId": "aa1898df-440d-45dc-9e4a-0618166c1fd2"
+    },
+    "word-ate": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 21.350041666666666,
+      "duration": 0.5572916666666666,
+      "text": "ate",
+      "takeId": "431af469-0fd4-45b7-90a5-86feb08e5055"
+    },
+    "word-black": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 22.157333333333334,
+      "duration": 0.6037083333333333,
+      "text": "black",
+      "takeId": "1e01a862-ad41-4a5c-812e-c78d1c28b87b"
+    },
+    "word-brown": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 23.011041666666667,
+      "duration": 0.6965833333333333,
+      "text": "brown",
+      "takeId": "10ab36fa-1c49-40b5-a101-1aef1a9c69fb"
+    },
+    "word-but": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 23.957625,
+      "duration": 0.46441666666666664,
+      "text": "but",
+      "takeId": "780f7b58-0f73-4659-a317-e8981b85ede8"
+    },
+    "word-came": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 24.672041666666665,
+      "duration": 0.6037083333333333,
+      "text": "came",
+      "takeId": "0159c1cb-f5a2-4ceb-8d2f-b3320c3e22ad"
+    },
+    "word-do": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 25.52575,
+      "duration": 0.3715,
+      "text": "do",
+      "takeId": "17508dd3-d1d7-4de6-a8c0-41488ab385c8"
+    },
+    "word-eat": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 26.14725,
+      "duration": 0.46441666666666664,
+      "text": "eat",
+      "takeId": "a3dd3787-e391-4f33-85e3-93a5faa24779"
+    },
+    "word-a": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 26.861666666666668,
+      "duration": 0.4179583333333333,
+      "text": "a",
+      "takeId": "8a62f0e3-16fa-451a-bec0-454caf193397"
+    },
+    "word-i": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 27.529625,
+      "duration": 0.4179583333333333,
+      "text": "I",
+      "takeId": "3375b683-cdd3-4772-8db6-f9001b4d5813"
+    },
+    "word-in": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 28.197583333333334,
+      "duration": 0.46441666666666664,
+      "text": "in",
+      "takeId": "12a43a46-cefa-4d9a-a56d-55cf4a64d199"
+    },
+    "word-is": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 28.912,
+      "duration": 0.3715,
+      "text": "is",
+      "takeId": "498a9727-9cd5-4f55-ba9e-b49b32c2880c"
+    },
+    "word-it": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 29.5335,
+      "duration": 0.3715,
+      "text": "it",
+      "takeId": "2be45591-71b0-4ccf-b3ff-3c0ce9725211"
+    },
+    "word-look": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 30.155,
+      "duration": 0.6037083333333333,
+      "text": "look",
+      "takeId": "bc716f4f-8393-44ce-9d2e-75745dc13801"
+    },
+    "word-one": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 31.008708333333335,
+      "duration": 0.5572916666666666,
+      "text": "one",
+      "takeId": "75f7c27a-22d3-400a-b1fc-23599c5b9fa8"
+    },
+    "word-we": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 31.816,
+      "duration": 0.46441666666666664,
+      "text": "we",
+      "takeId": "2f7c7412-cee9-4eac-9fb3-066bcaeaca37"
+    },
+    "word-be": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 32.53041666666667,
+      "duration": 0.5108333333333334,
+      "text": "be",
+      "takeId": "c05a4b91-085a-43f4-8667-5816e6fd3024"
+    },
+    "word-four": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 33.29125,
+      "duration": 0.6501666666666667,
+      "text": "four",
+      "takeId": "4ca18a61-d4aa-4540-8209-51dfeb7bfd56"
+    },
+    "word-get": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 34.19141666666667,
+      "duration": 0.46441666666666664,
+      "text": "get",
+      "takeId": "4994535a-a2ba-4af5-a7df-f130f7989e0f"
+    },
+    "word-good": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 34.905833333333334,
+      "duration": 0.5572916666666666,
+      "text": "good",
+      "takeId": "b56d769f-ed22-4077-b03d-400eb7d60506"
+    },
+    "word-have": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 35.713125,
+      "duration": 0.6501666666666667,
+      "text": "have",
+      "takeId": "d8c7de7c-47b7-4adf-adbf-852c255c5e83"
+    },
+    "word-he": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 36.61329166666667,
+      "duration": 0.5108333333333334,
+      "text": "he",
+      "takeId": "92eb4ba2-ac9c-439e-b729-de84ce82f402"
+    },
+    "word-into": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 37.374125,
+      "duration": 0.6501666666666667,
+      "text": "into",
+      "takeId": "353f3cd9-4bf4-429e-a691-fbb55c1d1b12"
+    },
+    "word-like": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 38.27429166666667,
+      "duration": 0.5572916666666666,
+      "text": "like",
+      "takeId": "c36adeb9-80a4-48d0-aaba-ce187c70206e"
+    },
+    "word-must": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 39.081583333333334,
+      "duration": 0.5572916666666666,
+      "text": "must",
+      "takeId": "5ee69946-b1df-4d04-81fa-f7efef53f1c3"
+    },
+    "word-new": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 39.888875,
+      "duration": 0.4179583333333333,
+      "text": "new",
+      "takeId": "5de5d7c6-3359-41e5-aa30-72addbd71abe"
+    },
+    "word-no": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 40.55683333333333,
+      "duration": 0.4179583333333333,
+      "text": "no",
+      "takeId": "2a07cd88-3db1-4092-9196-5b7864be0002"
+    },
+    "word-now": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 41.22479166666667,
+      "duration": 0.46441666666666664,
+      "text": "now",
+      "takeId": "efaa1761-23dd-41b0-9fa2-271657252667"
+    },
+    "word-on": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 41.93920833333333,
+      "duration": 0.46441666666666664,
+      "text": "on",
+      "takeId": "befdf8bd-5349-410e-a17a-d85fa78a66f0"
+    },
+    "word-our": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 42.653625,
+      "duration": 0.5108333333333334,
+      "text": "our",
+      "takeId": "f010c04b-d2b8-4a52-b286-e99cf9e7f25b"
+    },
+    "word-out": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 43.414458333333336,
+      "duration": 0.5572916666666666,
+      "text": "out",
+      "takeId": "23c04304-1d76-4002-9ce0-5d69d23d60d9"
+    },
+    "word-please": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 44.22175,
+      "duration": 0.6965833333333333,
+      "text": "please",
+      "takeId": "e96617ed-37c2-4b99-a90b-56d33bfc85b0"
+    },
+    "word-pretty": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 45.16833333333334,
+      "duration": 0.5572916666666666,
+      "text": "pretty",
+      "takeId": "058f5fe8-f7fe-49de-8632-a11cb9f56832"
+    },
+    "word-ran": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 45.975625,
+      "duration": 0.5572916666666666,
+      "text": "ran",
+      "takeId": "4a4e8e35-dcd3-46ea-8da7-e6d5a44eb9de"
+    },
+    "word-ride": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 46.782916666666665,
+      "duration": 0.8359166666666666,
+      "text": "ride",
+      "takeId": "92362c9e-9232-495f-a4e6-06ca0ac4a851"
+    },
+    "word-saw": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 47.868833333333335,
+      "duration": 0.5572916666666666,
+      "text": "saw",
+      "takeId": "cfb6b574-627f-45b8-a258-0c8c3941e955"
+    },
+    "word-say": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 48.676125,
+      "duration": 0.6037083333333333,
+      "text": "say",
+      "takeId": "df5de66f-c7e4-4112-9164-edcae0fd15fb"
+    },
+    "word-she": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 49.529833333333336,
+      "duration": 0.5572916666666666,
+      "text": "she",
+      "takeId": "823e590e-791a-40db-91cc-9d1bd3035990"
+    },
+    "word-so": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 50.337125,
+      "duration": 0.46441666666666664,
+      "text": "so",
+      "takeId": "d48d052a-c119-4f77-baf9-704e41245cef"
+    },
+    "word-soon": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 51.051541666666665,
+      "duration": 0.6501666666666667,
+      "text": "soon",
+      "takeId": "cbf25596-0ae3-4215-abe3-5a86de635cd3"
+    },
+    "word-that": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 51.951708333333336,
+      "duration": 0.6037083333333333,
+      "text": "that",
+      "takeId": "80d7d0f1-a968-4164-9725-269f9484816b"
+    },
+    "word-there": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 52.805416666666666,
+      "duration": 0.6965833333333333,
+      "text": "there",
+      "takeId": "0d03067f-0ba6-495f-bf83-90f3ed028488"
+    },
+    "word-they": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 53.752,
+      "duration": 0.5108333333333334,
+      "text": "they",
+      "takeId": "6753b967-e9e9-4e94-b4de-1aa7f006a7e4"
+    },
+    "word-this": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 54.51283333333333,
+      "duration": 0.46441666666666664,
+      "text": "this",
+      "takeId": "00611880-8e17-4c07-88ef-656148c6b85b"
+    },
+    "word-too": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 55.22725,
+      "duration": 0.46441666666666664,
+      "text": "too",
+      "takeId": "3c5ba28c-6e2c-4629-8471-824f635f9c88"
+    },
+    "word-under": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 55.94166666666667,
+      "duration": 0.6501666666666667,
+      "text": "under",
+      "takeId": "10d45daa-0831-45a9-b200-1ecdf9888e6b"
+    },
+    "word-want": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 56.841833333333334,
+      "duration": 0.6501666666666667,
+      "text": "want",
+      "takeId": "6343788e-b727-4489-96b1-d855a2d1a327"
+    },
+    "word-was": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 57.742,
+      "duration": 0.5108333333333334,
+      "text": "was",
+      "takeId": "4ab084fe-20b9-4c21-83c1-b793d916f8fc"
+    },
+    "word-well": {
+      "file": "audio/pack-9b534bc7e6e756612d05.mp3",
+      "start": 58.502833333333335,
+      "duration": 0.6037083333333333,
+      "text": "well",
+      "takeId": "c3e4a4c6-8337-4aa4-8116-811cfdafdc0b"
+    },
+    "word-went": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 0,
+      "duration": 0.46441666666666664,
+      "text": "went",
+      "takeId": "0492647d-972f-4b7f-8146-c2eaea3bfb37"
+    },
+    "word-what": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 0.7144166666666667,
+      "duration": 0.6037083333333333,
+      "text": "what",
+      "takeId": "b5879eb4-e116-413a-acf4-98d115436282"
+    },
+    "word-white": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 1.568125,
+      "duration": 0.7894583333333334,
+      "text": "white",
+      "takeId": "e2eb2bb2-2f83-4b4e-be8f-a2575944729b"
+    },
+    "word-who": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 2.6075833333333334,
+      "duration": 0.46441666666666664,
+      "text": "who",
+      "takeId": "b3c17e6e-9bc4-4536-bf1d-d02f57fcd6a4"
+    },
+    "word-will": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 3.322,
+      "duration": 0.6037083333333333,
+      "text": "will",
+      "takeId": "b7e4250f-d610-46af-8a2e-6ca7a9b8f615"
+    },
+    "word-with": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 4.175708333333334,
+      "duration": 0.6037083333333333,
+      "text": "with",
+      "takeId": "84c895e7-5087-44db-86c6-f62fa1c7d9b9"
+    },
+    "word-yes": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 5.029416666666667,
+      "duration": 0.5572916666666666,
+      "text": "yes",
+      "takeId": "302b2c27-e95b-4965-a7a9-3801ba8cce9b"
+    },
+    "word-after": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 5.836708333333333,
+      "duration": 0.6501666666666667,
+      "text": "after",
+      "takeId": "ae2d7848-006a-4f2a-b794-04ac916e088d"
+    },
+    "word-again": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 6.736875,
+      "duration": 0.6501666666666667,
+      "text": "again",
+      "takeId": "b633c324-5cb5-4aeb-9150-a834b7826a78"
+    },
+    "word-an": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 7.637041666666667,
+      "duration": 0.46441666666666664,
+      "text": "an",
+      "takeId": "59aaf334-1fd6-41f5-b138-9433551330be"
+    },
+    "word-any": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 8.351458333333333,
+      "duration": 0.6037083333333333,
+      "text": "any",
+      "takeId": "cfe0116f-725c-4e0c-bdf6-24cdd32abb2a"
+    },
+    "word-as": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 9.205166666666667,
+      "duration": 0.3715,
+      "text": "as",
+      "takeId": "845a9291-7442-468c-9742-14297b8dc2e5"
+    },
+    "word-ask": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 9.826666666666666,
+      "duration": 0.6501666666666667,
+      "text": "ask",
+      "takeId": "6e64ef1a-59ef-40ab-b45a-f52060742063"
+    },
+    "word-by": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 10.726833333333333,
+      "duration": 0.5572916666666666,
+      "text": "by",
+      "takeId": "dfbdf88c-84e7-4239-add5-a8bdce171708"
+    },
+    "word-could": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 11.534125,
+      "duration": 0.6501666666666667,
+      "text": "could",
+      "takeId": "a1cebb57-d160-41c5-a983-a0476cfc4682"
+    },
+    "word-every": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 12.434291666666667,
+      "duration": 0.5572916666666666,
+      "text": "every",
+      "takeId": "b3295bfe-4118-439b-b3ba-98a73974d65e"
+    },
+    "word-fly": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 13.241583333333333,
+      "duration": 0.6965833333333333,
+      "text": "fly",
+      "takeId": "ac6dcdf7-034a-46c0-bdb0-4b86ca10e272"
+    },
+    "word-from": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 14.188166666666667,
+      "duration": 0.6037083333333333,
+      "text": "from",
+      "takeId": "9d3f91ef-e550-4146-8208-fcb53739833f"
+    },
+    "word-give": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 15.041875,
+      "duration": 0.6037083333333333,
+      "text": "give",
+      "takeId": "717a45a5-1525-4ebb-b667-ab1a13aee761"
+    },
+    "word-going": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 15.895583333333333,
+      "duration": 0.6037083333333333,
+      "text": "going",
+      "takeId": "4b4db75e-24c2-4474-b4eb-51322566fc7d"
+    },
+    "word-had": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 16.749291666666668,
+      "duration": 0.5572916666666666,
+      "text": "had",
+      "takeId": "f3269982-e593-4872-9616-0457dd4efcf7"
+    },
+    "word-has": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 17.556583333333332,
+      "duration": 0.5572916666666666,
+      "text": "has",
+      "takeId": "ade112e0-1f03-4b4f-b3f4-183633b493f3"
+    },
+    "word-her": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 18.363875,
+      "duration": 0.46441666666666664,
+      "text": "her",
+      "takeId": "e708cbfe-7796-459c-b637-a837e1ede00b"
+    },
+    "word-him": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 19.078291666666665,
+      "duration": 0.6037083333333333,
+      "text": "him",
+      "takeId": "026ea9cc-852c-4da8-be1f-91aea52c1e8b"
+    },
+    "word-his": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 19.932,
+      "duration": 0.3715,
+      "text": "his",
+      "takeId": "f958c86b-94e5-4491-91ed-8d753394f64f"
+    },
+    "word-how": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 20.5535,
+      "duration": 0.5108333333333334,
+      "text": "how",
+      "takeId": "1d70056f-d998-414e-8616-a6f5cede5767"
+    },
+    "word-just": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 21.314333333333334,
+      "duration": 0.5572916666666666,
+      "text": "just",
+      "takeId": "07b90ffe-ae36-42d3-9af8-c366d202e298"
+    },
+    "word-know": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 22.121625,
+      "duration": 0.5572916666666666,
+      "text": "know",
+      "takeId": "4ef0be48-f35a-4f41-820c-4376c6e798aa"
+    },
+    "word-let": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 22.928916666666666,
+      "duration": 0.5108333333333334,
+      "text": "let",
+      "takeId": "06fafba1-6b35-42d7-84ee-b1ef5e5149d8"
+    },
+    "word-live": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 23.68975,
+      "duration": 0.5572916666666666,
+      "text": "live",
+      "takeId": "bcd1896c-2e36-40a9-a182-b9a658030350"
+    },
+    "word-may": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 24.497041666666668,
+      "duration": 0.46441666666666664,
+      "text": "may",
+      "takeId": "049f0306-423d-4d9a-b02c-a098ea27342a"
+    },
+    "word-of": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 25.211458333333333,
+      "duration": 0.4179583333333333,
+      "text": "of",
+      "takeId": "ebd54c2b-ca75-4ba1-9287-265ff291c58c"
+    },
+    "word-old": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 25.879416666666668,
+      "duration": 0.4179583333333333,
+      "text": "old",
+      "takeId": "798a6449-f882-4ef8-9398-005948792fce"
+    },
+    "word-once": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 26.547375,
+      "duration": 0.6037083333333333,
+      "text": "once",
+      "takeId": "8a8ca812-334b-4bca-bb56-6f60b034f153"
+    },
+    "word-open": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 27.401083333333332,
+      "duration": 0.6501666666666667,
+      "text": "open",
+      "takeId": "21ea2a82-e869-4e35-b181-59da58e243b2"
+    },
+    "word-over": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 28.30125,
+      "duration": 0.6501666666666667,
+      "text": "over",
+      "takeId": "486a8fb5-7fbe-4079-896d-000764b73975"
+    },
+    "word-put": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 29.201416666666667,
+      "duration": 0.4179583333333333,
+      "text": "put",
+      "takeId": "5f7982d8-1a72-45f3-a05d-a00c24c8ee92"
+    },
+    "word-round": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 29.869375,
+      "duration": 0.8359166666666666,
+      "text": "round",
+      "takeId": "5af530b2-8c19-476c-a14f-68fb6aa39b73"
+    },
+    "word-some": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 30.955291666666668,
+      "duration": 0.6501666666666667,
+      "text": "some",
+      "takeId": "35e8dec6-6776-4570-af85-116d09f96da9"
+    },
+    "word-stop": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 31.855458333333335,
+      "duration": 0.7430416666666667,
+      "text": "stop",
+      "takeId": "a54219ad-b70a-443e-8aac-8ede655f2225"
+    },
+    "word-take": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 32.8485,
+      "duration": 0.5572916666666666,
+      "text": "take",
+      "takeId": "2f6e3905-8e5d-4912-84d9-2965f6d5ec5b"
+    },
+    "word-thank": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 33.655791666666666,
+      "duration": 0.6501666666666667,
+      "text": "thank",
+      "takeId": "526fa4ed-b28a-4b84-b93e-3d5f37426985"
+    },
+    "word-them": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 34.555958333333336,
+      "duration": 0.6501666666666667,
+      "text": "them",
+      "takeId": "a0819a24-0d6d-4c37-bf41-d1a5c8e563f4"
+    },
+    "word-then": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 35.456125,
+      "duration": 0.5572916666666666,
+      "text": "then",
+      "takeId": "7bb7529a-383e-43c7-9354-7416e5005fef"
+    },
+    "word-think": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 36.263416666666664,
+      "duration": 0.7430416666666667,
+      "text": "think",
+      "takeId": "01c8cb53-9ad7-4737-9b5d-34004887d330"
+    },
+    "word-walk": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 37.256458333333335,
+      "duration": 0.7430416666666667,
+      "text": "walk",
+      "takeId": "9cd4f46f-3b61-4d55-9318-cc311047dc60"
+    },
+    "word-were": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 38.2495,
+      "duration": 0.6501666666666667,
+      "text": "were",
+      "takeId": "26508d27-dd34-4a1c-99b6-dbad4885132d"
+    },
+    "word-when": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 39.14966666666667,
+      "duration": 0.5572916666666666,
+      "text": "when",
+      "takeId": "6b157705-c0b2-4f12-82de-765c71695cc4"
+    },
+    "word-always": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 39.95695833333333,
+      "duration": 0.6965833333333333,
+      "text": "always",
+      "takeId": "a6b3bafb-ec37-4860-867b-faaa4d42e9ab"
+    },
+    "word-around": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 40.90354166666667,
+      "duration": 0.8359166666666666,
+      "text": "around",
+      "takeId": "6c5d193a-53a2-43a0-ab90-bdb1321f7b25"
+    },
+    "word-because": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 41.98945833333333,
+      "duration": 0.7430416666666667,
+      "text": "because",
+      "takeId": "4e186301-a6f4-472e-849d-36184a5b607f"
+    },
+    "word-been": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 42.9825,
+      "duration": 0.6037083333333333,
+      "text": "been",
+      "takeId": "c3e24129-dd83-47ae-b43a-864e66983eeb"
+    },
+    "word-before": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 43.83620833333333,
+      "duration": 0.6965833333333333,
+      "text": "before",
+      "takeId": "820cd807-8591-4657-a698-44d544150aa6"
+    },
+    "word-best": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 44.78279166666667,
+      "duration": 0.7430416666666667,
+      "text": "best",
+      "takeId": "fea85f12-6535-4833-be2c-ecd2cf1c0436"
+    },
+    "word-both": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 45.77583333333333,
+      "duration": 0.6965833333333333,
+      "text": "both",
+      "takeId": "d90d4f77-b3b4-4575-bf79-7afe29ea5619"
+    },
+    "word-buy": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 46.72241666666667,
+      "duration": 0.6037083333333333,
+      "text": "buy",
+      "takeId": "e10bcc04-cb35-46f7-b1a9-268577f370fd"
+    },
+    "word-call": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 47.576125,
+      "duration": 0.6501666666666667,
+      "text": "call",
+      "takeId": "d23ee96e-26db-4c3d-862f-766d31b55697"
+    },
+    "word-cold": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 48.47629166666667,
+      "duration": 0.7430416666666667,
+      "text": "cold",
+      "takeId": "74b752ad-7ec5-49a9-8f60-d2e02dba516f"
+    },
+    "word-does": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 49.46933333333333,
+      "duration": 0.6501666666666667,
+      "text": "does",
+      "takeId": "0fc7b502-c8d9-40cd-9f67-d2ee8cd62b46"
+    },
+    "word-dont": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 50.3695,
+      "duration": 0.6037083333333333,
+      "text": "don't",
+      "takeId": "e958c04b-2b94-4bd4-bca8-70f66a41ee0c"
+    },
+    "word-fast": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 51.22320833333333,
+      "duration": 0.7894583333333334,
+      "text": "fast",
+      "takeId": "faa69c9c-8ffa-4daf-9eb2-dc7794b19288"
+    },
+    "word-first": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 52.26266666666667,
+      "duration": 0.7894583333333334,
+      "text": "first",
+      "takeId": "b48e62f6-aeb9-4044-b1b6-80f68700e67e"
+    },
+    "word-five": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 53.302125,
+      "duration": 0.7894583333333334,
+      "text": "five",
+      "takeId": "d88c3689-b63b-422a-a412-2b1c0dfe975b"
+    },
+    "word-found": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 54.34158333333333,
+      "duration": 0.6965833333333333,
+      "text": "found",
+      "takeId": "9273bb52-00e3-4293-b5b2-5702181dabc5"
+    },
+    "word-gave": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 55.28816666666667,
+      "duration": 0.6501666666666667,
+      "text": "gave",
+      "takeId": "fc067cbb-d375-4220-bb41-10a7d9f64728"
+    },
+    "word-goes": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 56.18833333333333,
+      "duration": 0.6965833333333333,
+      "text": "goes",
+      "takeId": "9a099cbe-6261-4084-b9bb-fb92f6e7ec4f"
+    },
+    "word-green": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 57.13491666666667,
+      "duration": 0.6501666666666667,
+      "text": "green",
+      "takeId": "163161aa-799b-4397-995f-ec3519375537"
+    },
+    "word-its": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 58.03508333333333,
+      "duration": 0.5108333333333334,
+      "text": "its",
+      "takeId": "8b01df77-5328-496f-a66b-c704a0e47290"
+    },
+    "word-made": {
+      "file": "audio/pack-00557f55a7ec5a2227e8.mp3",
+      "start": 58.79591666666666,
+      "duration": 0.7430416666666667,
+      "text": "made",
+      "takeId": "78518a0b-5901-462e-82bf-31a02397b1b5"
+    },
+    "word-many": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 0,
+      "duration": 0.6501666666666667,
+      "text": "many",
+      "takeId": "fd188a2a-2eaa-4cd3-a860-e745ee48f3f3"
+    },
+    "word-off": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 0.9001666666666667,
+      "duration": 0.5572916666666666,
+      "text": "off",
+      "takeId": "8b10c450-ecc9-495a-8781-8b1438f65709"
+    },
+    "word-or": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 1.7074583333333333,
+      "duration": 0.46441666666666664,
+      "text": "or",
+      "takeId": "5a554f01-7bf6-4f96-97a7-8d4c818b23e6"
+    },
+    "word-pull": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 2.421875,
+      "duration": 0.6501666666666667,
+      "text": "pull",
+      "takeId": "036ed6de-11e4-4885-b1d5-9e62492c85f8"
+    },
+    "word-read": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 3.322041666666667,
+      "duration": 0.6501666666666667,
+      "text": "read",
+      "takeId": "e3e2cb0e-a9d4-45ed-b0f7-90d537bfacd2"
+    },
+    "word-right": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 4.222208333333334,
+      "duration": 0.5572916666666666,
+      "text": "right",
+      "takeId": "a5a50bd5-af26-4072-a42f-82458cc17753"
+    },
+    "word-sing": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 5.0295,
+      "duration": 0.6501666666666667,
+      "text": "sing",
+      "takeId": "49007b07-e0c0-4ef3-8bab-23a29e0d3eb8"
+    },
+    "word-sleep": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 5.929666666666667,
+      "duration": 0.6965833333333333,
+      "text": "sleep",
+      "takeId": "305cea3b-0bdf-4e84-b334-49b14aacc45e"
+    },
+    "word-tell": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 6.87625,
+      "duration": 0.6965833333333333,
+      "text": "tell",
+      "takeId": "aed4062a-57c8-4caa-9a15-18517021c60e"
+    },
+    "word-their": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 7.8228333333333335,
+      "duration": 0.6501666666666667,
+      "text": "their",
+      "takeId": "c63e9f12-71d5-4f62-b1a7-2790b6d36ef1"
+    },
+    "word-these": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 8.723,
+      "duration": 0.6037083333333333,
+      "text": "these",
+      "takeId": "ab60930d-bcb6-4978-9cdc-6d62ff5aa66b"
+    },
+    "word-those": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 9.576708333333332,
+      "duration": 0.6501666666666667,
+      "text": "those",
+      "takeId": "cf40c5be-39fe-4735-9c68-f6adbd1b6265"
+    },
+    "word-upon": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 10.476875,
+      "duration": 0.6501666666666667,
+      "text": "upon",
+      "takeId": "5361deb7-3569-4a89-b2e1-bf2660541d78"
+    },
+    "word-us": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 11.377041666666667,
+      "duration": 0.5108333333333334,
+      "text": "us",
+      "takeId": "383d94b1-c276-48e4-85c3-9bf1111f71c3"
+    },
+    "word-use": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 12.137875,
+      "duration": 0.6965833333333333,
+      "text": "use",
+      "takeId": "9e2781ba-1062-4dda-ba2c-9fb2dc8651db"
+    },
+    "word-very": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 13.084458333333334,
+      "duration": 0.6965833333333333,
+      "text": "very",
+      "takeId": "6f23ca17-d56c-4b64-a891-8d31bfd3c0f9"
+    },
+    "word-wash": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 14.031041666666667,
+      "duration": 0.7430416666666667,
+      "text": "wash",
+      "takeId": "6644a175-4d1c-4faa-9b98-08eb71b3b377"
+    },
+    "word-which": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 15.024083333333333,
+      "duration": 0.5108333333333334,
+      "text": "which",
+      "takeId": "8da0a30d-ee67-47d0-a53d-cb8e95661ccd"
+    },
+    "word-why": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 15.784916666666666,
+      "duration": 0.6037083333333333,
+      "text": "why",
+      "takeId": "df043ea1-3fe1-4cad-a3f9-c3c476f027f4"
+    },
+    "word-wish": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 16.638625,
+      "duration": 0.6965833333333333,
+      "text": "wish",
+      "takeId": "1d157914-c37e-421e-b241-d42d108fbc05"
+    },
+    "word-work": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 17.585208333333334,
+      "duration": 0.6501666666666667,
+      "text": "work",
+      "takeId": "10d876ae-8568-475a-bf6c-db45171d1bf9"
+    },
+    "word-would": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 18.485375,
+      "duration": 0.6037083333333333,
+      "text": "would",
+      "takeId": "a19a9144-24c2-4647-9037-1916608e63ea"
+    },
+    "word-write": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 19.339083333333335,
+      "duration": 0.7430416666666667,
+      "text": "write",
+      "takeId": "0a6a024d-f9a0-4f6c-8cdd-c48fc383cc84"
+    },
+    "word-your": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 20.332125,
+      "duration": 0.6037083333333333,
+      "text": "your",
+      "takeId": "04142454-d96d-4f1e-be09-b7fb744df904"
+    },
+    "word-about": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 21.185833333333335,
+      "duration": 0.7430416666666667,
+      "text": "about",
+      "takeId": "726eec30-0a7d-46b2-bd47-659f586bc4ae"
+    },
+    "word-better": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 22.178875,
+      "duration": 0.6501666666666667,
+      "text": "better",
+      "takeId": "c7f6e980-73a4-40a6-aa7c-9285e4478790"
+    },
+    "word-bring": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 23.079041666666665,
+      "duration": 0.6965833333333333,
+      "text": "bring",
+      "takeId": "3037e623-b10f-4dd2-b1ee-4a806826b428"
+    },
+    "word-carry": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 24.025625,
+      "duration": 0.7430416666666667,
+      "text": "carry",
+      "takeId": "02335f3f-d511-4b11-8d75-7845ca13ddb4"
+    },
+    "word-clean": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 25.018666666666668,
+      "duration": 0.6965833333333333,
+      "text": "clean",
+      "takeId": "5b02957f-c4ce-432e-ac87-c095a725f4a2"
+    },
+    "word-cut": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 25.96525,
+      "duration": 0.5572916666666666,
+      "text": "cut",
+      "takeId": "3eed94b1-1ad7-43aa-ad2a-1a9410fc0c33"
+    },
+    "word-done": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 26.772541666666665,
+      "duration": 0.6501666666666667,
+      "text": "done",
+      "takeId": "6509072c-8012-4d7e-94b6-d7d7e3f89245"
+    },
+    "word-draw": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 27.672708333333333,
+      "duration": 0.5572916666666666,
+      "text": "draw",
+      "takeId": "775f113e-2ab0-4cb3-99b2-ec1afded2571"
+    },
+    "word-drink": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 28.48,
+      "duration": 0.6965833333333333,
+      "text": "drink",
+      "takeId": "5541d890-8a37-4964-b3f7-2ded6f0d1d07"
+    },
+    "word-eight": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 29.426583333333333,
+      "duration": 0.6037083333333333,
+      "text": "eight",
+      "takeId": "dc1108c3-7b6d-4a05-80f9-8525ee4fb2b9"
+    },
+    "word-fall": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 30.280291666666667,
+      "duration": 0.6965833333333333,
+      "text": "fall",
+      "takeId": "86dd66d1-bded-4c05-8414-cc264f667bfe"
+    },
+    "word-far": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 31.226875,
+      "duration": 0.6501666666666667,
+      "text": "far",
+      "takeId": "1f7351ef-7645-4107-8233-031f65c7fe32"
+    },
+    "word-full": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 32.12704166666666,
+      "duration": 0.6037083333333333,
+      "text": "full",
+      "takeId": "8db00f5d-596f-482c-af22-c0a8c3b05597"
+    },
+    "word-got": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 32.98075,
+      "duration": 0.5572916666666666,
+      "text": "got",
+      "takeId": "6224f4b9-ea4a-4e59-b3d2-b15f78bb4bbd"
+    },
+    "word-grow": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 33.788041666666665,
+      "duration": 0.5572916666666666,
+      "text": "grow",
+      "takeId": "e44fc69a-10bd-40c9-b1f4-8da8e0370e03"
+    },
+    "word-hold": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 34.595333333333336,
+      "duration": 0.6501666666666667,
+      "text": "hold",
+      "takeId": "08d30d6f-6c0d-424f-986b-c15e02b21e61"
+    },
+    "word-hot": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 35.4955,
+      "duration": 0.6037083333333333,
+      "text": "hot",
+      "takeId": "246fc872-0bd4-407f-9d92-d264c70e8522"
+    },
+    "word-hurt": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 36.34920833333333,
+      "duration": 0.6501666666666667,
+      "text": "hurt",
+      "takeId": "412d0b8f-7b0a-41f9-a10b-ce9e8c61b19f"
+    },
+    "word-if": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 37.249375,
+      "duration": 0.3715,
+      "text": "if",
+      "takeId": "6a5e570b-2c92-4cc5-b6b3-04236dd881c9"
+    },
+    "word-keep": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 37.870875,
+      "duration": 0.5572916666666666,
+      "text": "keep",
+      "takeId": "1f27205a-80d8-4c0e-aec9-f0d014ebc086"
+    },
+    "word-kind": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 38.67816666666667,
+      "duration": 0.6501666666666667,
+      "text": "kind",
+      "takeId": "a755035c-9506-48b5-8543-82d84d963f4c"
+    },
+    "word-laugh": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 39.57833333333333,
+      "duration": 0.6037083333333333,
+      "text": "laugh",
+      "takeId": "9279a8fd-3b15-4086-8b46-9223c27bfdad"
+    },
+    "word-light": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 40.43204166666667,
+      "duration": 0.7430416666666667,
+      "text": "light",
+      "takeId": "d15c8d21-5eb3-41c1-b8d6-6419face5f7c"
+    },
+    "word-long": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 41.42508333333333,
+      "duration": 0.6501666666666667,
+      "text": "long",
+      "takeId": "9b7eab69-bf7e-4b18-9e0c-25a0208b9f01"
+    },
+    "word-much": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 42.32525,
+      "duration": 0.5108333333333334,
+      "text": "much",
+      "takeId": "06d9e19b-6571-428a-b85e-1ebdf6b786cd"
+    },
+    "word-myself": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 43.086083333333335,
+      "duration": 0.7894583333333334,
+      "text": "myself",
+      "takeId": "55aea751-5bd0-45a8-9f24-7304f45de51a"
+    },
+    "word-never": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 44.12554166666666,
+      "duration": 0.6037083333333333,
+      "text": "never",
+      "takeId": "bac0c3d7-0333-4585-8587-3156a33fe14b"
+    },
+    "word-only": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 44.97925,
+      "duration": 0.6501666666666667,
+      "text": "only",
+      "takeId": "9a81c66b-534c-43ba-9109-50f26d1680b8"
+    },
+    "word-own": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 45.879416666666664,
+      "duration": 0.5572916666666666,
+      "text": "own",
+      "takeId": "816edf07-b587-4057-8536-6b083ae14e15"
+    },
+    "word-pick": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 46.686708333333335,
+      "duration": 0.6965833333333333,
+      "text": "pick",
+      "takeId": "d08c1c9b-030f-4c49-a34f-eba084a8324c"
+    },
+    "word-seven": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 47.633291666666665,
+      "duration": 0.7430416666666667,
+      "text": "seven",
+      "takeId": "c9866088-a886-44b5-a96b-11eff147dbc6"
+    },
+    "word-shall": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 48.626333333333335,
+      "duration": 0.6965833333333333,
+      "text": "shall",
+      "takeId": "7b390265-6452-4107-a776-694434911af9"
+    },
+    "word-show": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 49.572916666666664,
+      "duration": 0.5108333333333334,
+      "text": "show",
+      "takeId": "3512697d-4707-4c41-b6fa-c32a584d5dff"
+    },
+    "word-six": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 50.33375,
+      "duration": 0.6965833333333333,
+      "text": "six",
+      "takeId": "ff6255e9-7b7c-417e-b3ea-e4b56af51e5c"
+    },
+    "word-small": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 51.28033333333333,
+      "duration": 0.6965833333333333,
+      "text": "small",
+      "takeId": "75a1f161-5ca1-4e08-a9fa-fa09c59340df"
+    },
+    "word-start": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 52.22691666666667,
+      "duration": 0.7894583333333334,
+      "text": "start",
+      "takeId": "011eb474-9047-4085-ae5e-636540bebfe4"
+    },
+    "word-ten": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 53.266375,
+      "duration": 0.6037083333333333,
+      "text": "ten",
+      "takeId": "079c2d91-d3bd-4ac8-bd81-858931628b4c"
+    },
+    "word-today": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 54.12008333333333,
+      "duration": 0.6501666666666667,
+      "text": "today",
+      "takeId": "e3f9fe7f-d490-4d89-bb14-50f649b991db"
+    },
+    "word-together": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 55.02025,
+      "duration": 0.8359166666666666,
+      "text": "together",
+      "takeId": "d8927cd9-efdc-49af-8b50-2feed75d0a9c"
+    },
+    "word-try": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 56.10616666666667,
+      "duration": 0.6037083333333333,
+      "text": "try",
+      "takeId": "c8838ab9-a872-4db0-8b61-92d89dccebd5"
+    },
+    "word-warm": {
+      "file": "audio/pack-0f65de8e4e90454e2ec0.mp3",
+      "start": 56.959875,
+      "duration": 0.7430416666666667,
+      "text": "warm",
+      "takeId": "115ef9fe-2a1d-42a7-8243-d3241584a0ca"
+    }
+  }
+}

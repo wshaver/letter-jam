@@ -43,7 +43,7 @@ export function useGame(opts: UseGameOpts) {
     setCelebration(null);
     setStatus('playing');
     if (opts?.auto) inputLockedUntil.current = Date.now() + 400;
-    speaker.speak(wordPrompt(r.target.text, r.target.sentence));
+    speaker.speak(wordPrompt(r.target.text, r.target.sentence), profileRef.current.settings.gameMode);
   }, [words, speaker, onProfileChange, rng]);
 
   const started = useRef(false);
@@ -75,8 +75,8 @@ export function useGame(opts: UseGameOpts) {
       hadWrong.current = true;
       // Name the wrong pick out loud, then repeat the prompt so the child
       // re-anchors on what they are actually listening for.
-      speaker.speak(wordAlone(word.text));
-      speaker.queue(wordPrompt(round.target.text, round.target.sentence));
+      speaker.speak(wordAlone(word.text), profileRef.current.settings.gameMode);
+      speaker.queue(wordPrompt(round.target.text, round.target.sentence), profileRef.current.settings.gameMode);
       setWrongIds((prev) => new Set(prev).add(word.id));
       if (profileRef.current.settings.wrongAnswerMode === 'oneAndDone') {
         const updated = applyResult(profileRef.current, round.target.id, false);
@@ -88,7 +88,7 @@ export function useGame(opts: UseGameOpts) {
   };
 
   const replay = () => {
-    if (round) speaker.speak(wordPrompt(round.target.text, round.target.sentence));
+    if (round) speaker.speak(wordPrompt(round.target.text, round.target.sentence), profileRef.current.settings.gameMode);
   };
 
   return { round, status, celebration, wrongIds, choose, replay, next: startRound };

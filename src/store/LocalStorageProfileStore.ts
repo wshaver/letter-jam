@@ -1,26 +1,31 @@
 import type { SaveBlob } from '../engine/types';
 import { EMPTY_BLOB, type ProfileStore } from './ProfileStore';
+import { parseProgress } from './progressBackup';
 
 const KEY = 'letter-jam-save-v1';
+const BACKUP_KEY = `${KEY}-backup`;
 
 export class LocalStorageProfileStore implements ProfileStore {
   async load(): Promise<SaveBlob> {
-    const raw = localStorage.getItem(KEY);
-    if (!raw) return structuredClone(EMPTY_BLOB);
-    try {
-      const blob = JSON.parse(raw) as SaveBlob;
-      // Backfill fields added after a blob was saved (e.g. gameMode, streak).
-      for (const p of blob.profiles) {
-        p.settings = { ...{ wrongAnswerMode: 'keepTrying', gameMode: 'words' }, ...p.settings };
-        p.progress.stats = { ...{ rounds: 0, correctFirstTry: 0, streak: 0 }, ...p.progress.stats };
-      }
-      return blob;
-    } catch {
-      return structuredClone(EMPTY_BLOB);
+    for (const key of [KEY, BACKUP_KEY]) {
+      const raw = localStorage.getItem(key);
+      if (!raw) continue;
+      try { return parseProgress(raw); } catch { /* try the last good save */ }
     }
+    return structuredClone(EMPTY_BLOB);
   }
 
   async save(blob: SaveBlob): Promise<void> {
-    localStorage.setItem(KEY, JSON.stringify(blob));
+    const raw = JSON.stringify(blob);
+    parseProgress(raw);
+    // Keep the previous valid save for recovery from an interrupted/corrupt write.
+    const previous = localStorage.getItem(KEY);
+    if (previous) {
+      try {
+        parseProgress(previous);
+        localStorage.setItem(BACKUP_KEY, previous);
+      } catch { /* do not let an invalid primary overwrite the recovery copy */ }
+    }
+    localStorage.setItem(KEY, raw);
   }
 }

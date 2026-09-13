@@ -48,7 +48,7 @@ it('includes 52 letter entries with letter grades and template sentences', () =>
     tags: ['letter', 'lower'],
     sentence: 'A is for apple.',
   });
-  expect(wordById('letter-x-uc')?.sentence).toBe('We find x in fox.');
+  expect(wordById('letter-x-uc')?.sentence).toBe('X is for xylophone.');
 });
 
 it('wordsForMode splits letters from words', () => {

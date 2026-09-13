@@ -1,9 +1,10 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, type CSSProperties } from 'react';
 import type { Profile, Round, Word } from '../engine/types';
 import type { Rng } from '../engine/random';
 import type { Speaker } from '../engine/speech';
 import { useGame } from './useGame';
 import { Feedback } from './Feedback';
+import { roundFont } from '../engine/fonts';
 
 interface PlayScreenProps {
   profile: Profile;
@@ -54,13 +55,15 @@ export function PlayScreen(props: PlayScreenProps) {
   // a short target among long decoys is a visual tell for the answer.
   const maxLen = Math.max(...round.choices.map((w) => w.text.length));
   const size = maxLen === 1 ? 'glyph' : maxLen >= 7 ? 'long' : '';
+  const font = roundFont(round.fontId);
 
   return (
     <div className="play">
       <button className="speaker" aria-label="Hear the word again" onClick={replay}>
         🔊
       </button>
-      <div className="cards">
+      <div className="cards" data-count={round.choices.length} data-font={font.id}
+        style={{ '--round-font': `"${font.family}", ${font.kind}` } as CSSProperties}>
         {showCards &&
           round.choices.map((w) => {
           const reveal = status === 'missed' && w.id === round.target.id;

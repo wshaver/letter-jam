@@ -3,6 +3,7 @@ import { boxWeight } from './leitner';
 import { shuffle, weightedPick, type Rng } from './random';
 import { similarity } from './similarity';
 import { areHomophones } from './homophones';
+import { chooseFont } from './fonts';
 
 export function activePool(profile: Profile, words: Word[]): Word[] {
   return words.filter((w) => profile.progress.words[w.id]?.introduced);
@@ -111,5 +112,5 @@ export function buildRound(
   };
   const decoys = pickDecoys(target, words, difficulty, rng);
   const choices = shuffle([target, ...decoys], rng);
-  return { target, choices };
+  return { target, choices, fontId: chooseFont(state.decoyNearness, rng) };
 }

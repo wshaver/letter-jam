@@ -45,3 +45,32 @@ it('backfills streak on legacy stats that predate it', async () => {
   const blob = await store.load();
   expect(blob.profiles[0].progress.stats).toEqual({ rounds: 7, correctFirstTry: 5, streak: 0 });
 });
+
+it('recovers the previous valid save when the latest save is corrupted or missing', async () => {
+  const store = new LocalStorageProfileStore();
+  const first = { version: 1, activeProfileId: 'first', profiles: [] };
+  await store.save(first);
+  await store.save({ ...first, activeProfileId: 'second' });
+  localStorage.setItem('letter-jam-save-v1', '{broken');
+  expect(await store.load()).toEqual(first);
+  localStorage.removeItem('letter-jam-save-v1');
+  expect(await store.load()).toEqual(first);
+});
+
+it('does not expire progress after months without playing', async () => {
+  vi.useFakeTimers();
+  try {
+    const store = new LocalStorageProfileStore();
+    const blob = { version: 1, activeProfileId: 'x', profiles: [] };
+    await store.save(blob);
+    vi.setSystemTime(Date.now() + 365 * 24 * 60 * 60 * 1000);
+    expect(await store.load()).toEqual(blob);
+  } finally { vi.useRealTimers(); }
+});
+
+it('rejects failed writes instead of reporting progress as saved', async () => {
+  const write = vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => { throw new DOMException('Full', 'QuotaExceededError'); });
+  try {
+    await expect(new LocalStorageProfileStore().save(EMPTY_BLOB)).rejects.toThrow('Full');
+  } finally { write.mockRestore(); }
+});

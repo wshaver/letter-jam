@@ -27,6 +27,15 @@ is stored locally.
 - **Adaptive difficulty per word.** Each word tracks its own difficulty. Right
   answers make the distractors more confusable and add more cards; repeated
   misses ease it back off.
+- **Six adaptive fonts in both modes.** Andika, Nunito and Atkinson Hyperlegible
+  (sans-serif), plus Lora, Libre Baskerville and Source Serif 4 (serif). All cards
+  in a round share the same font, selected once using the target item's current
+  difficulty. Font variation unlocks at difficulty 0, 0.2, 0.3, 0.5, 0.6 and 0.8;
+  a new item starts with Andika and eight first-try successes unlock all six.
+  Two consecutive misses reduce difficulty by 0.3, narrowing font variety too.
+  Existing saves use their current difficulty without migration or reset. The
+  font files are served locally and loaded before play; their licenses ship in
+  `public/fonts/`. Card letter sizes are unchanged.
 - **Spaced repetition.** A 5-box Leitner system resurfaces struggled-with words
   sooner and mastered words rarely. New words are introduced automatically as
   the child clears the ones they know.
@@ -59,9 +68,9 @@ interesting logic fully unit-testable without a DOM.
    - decoys are mutually distinct, and
    - at least one decoy shares the target's first letter, so a child can't
      win by first-letter alone.
-3. **Speak & render.** The prompt is spoken via the browser's
-   `SpeechSynthesis` (`speech.ts`), and the cards flip onto the screen at a
-   uniform size.
+3. **Speak & render.** Approved recordings play through Howler sprites, with
+   device `SpeechSynthesis` for missing audio and word context sentences.
+   The cards flip onto the screen at a uniform size.
 4. **Score.** A first-try correct answer moves the word up a Leitner box; any
    wrong tap drops it two boxes (floor 1) and re-reads the prompt. Results feed
    back into per-word difficulty (`profiles.ts`).
@@ -91,10 +100,32 @@ interesting logic fully unit-testable without a DOM.
 
 ### Storage
 
-All state is a single JSON blob in `localStorage`, behind a `ProfileStore`
-interface (`src/store`) so it can move to a server later without touching game
-logic. Legacy saves are migrated on load by back-filling any newly added
-fields.
+Progress has no app-defined expiry. The existing `letter-jam-save-v1` key is
+preserved, and legacy saves still migrate on load. A second local key retains
+the previous valid save for recovery if the primary save is missing or corrupt.
+This second key does not protect against clearing all website data.
+
+Selecting or creating a player requests persistent storage through
+`navigator.storage.persist()`. The browser decides whether to grant it; denial
+does not interrupt play. Failed saves show an error with backup instructions.
+
+On iPad, use Safari → Share → Add to Home Screen, and launch Letter Jam from
+that icon. The manifest opens a standalone Home Screen app. WebKit exempts
+Home Screen apps from its ITP inactivity cap; normal Safari tabs may still
+lose script-written data after inactivity. See
+[WebKit tracking prevention](https://webkit.org/tracking-prevention/) and
+[storage policy](https://webkit.org/blog/14403/updates-to-storage-policy/).
+Neither this app nor persistent storage can prevent explicit website-data
+clearing, private-session deletion, or loss of the device.
+
+**Keep progress safe**, on the player screen and in Settings, provides a
+downloadable JSON backup of all players and a validated restore. Back up
+before moving into the Home Screen app: its storage may be separate from
+Safari. Restore merges players by ID, retaining the profile with more completed
+rounds; ties keep the current profile. Refresh the downloaded backup after
+playing. Files saved outside the browser can recover progress after website
+data is removed. There is no server backup, and previously deleted saves
+cannot be reconstructed without a surviving copy.
 
 ### Touch, audio & mobile
 
@@ -112,8 +143,35 @@ Built to feel right on an iPad in a small child's hands:
 ## Tech stack
 
 React 19 · Vite · TypeScript (strict) · Vitest + jsdom + React Testing Library
-· `canvas-confetti`. No runtime dependencies beyond React and the confetti
-library; audio and speech use built-in browser APIs.
+· `canvas-confetti` · Howler. Celebration chimes use Web Audio; missing speech
+uses the device's browser voice.
+
+### Approved speech recordings
+
+`src/data/audio.json` maps approved dopamine-learning-machine Studio takes to
+five local MP3 sprite packs in `public/audio/` (about 3.6 MB total). Howler loads
+each pack on demand and reuses it. The import includes 26 names, 26 complete
+letter phrases, and 241 isolated words; 226 of Letter Jam's 313 words have a
+recording. Missing words and context sentences keep device speech. Playback
+failures also fall back to device speech. Letter names and sight words such as
+“a” and “I” use separate recordings.
+
+Letter hints use the approved take's wording, including “G is for goat” and
+“X is for xylophone”, in both cases of the letter. The prompt still follows
+name → phrase → name. Word prompts, answer sequencing, scoring and chimes
+keep their existing behavior.
+
+After approving and applying audio in the source Studio, refresh the snapshot:
+
+```sh
+npm run import:audio -- ../dopamine-learning-machine
+npm run build
+```
+
+The importer checks availability, review status and the active approved take ID
+before copying a clip. It copies published sprite files without re-encoding and
+stores the approved take's text with phoneme markup removed. No private take
+history or credentials are imported. Publish the rebuilt app to deliver updates.
 
 ## Getting started
 
@@ -160,7 +218,8 @@ src/
     homophones.ts        # homophone groups never shown together
     roundBuilder.ts      # assembles a round (target + distractors)
     profiles.ts          # profile helpers, apply a result
-    speech.ts            # SpeechSynthesis wrapper + prompt formatting
+    speech.ts            # Recorded/device speech queue + prompt formatting
+    recordedAudio.ts     # Howler sprites and approved clip lookup
     random.ts            # rng-injected weighted pick / shuffle
     id.ts                # id generation (secure-context safe)
   store/                 # ProfileStore interface + localStorage impl
@@ -184,12 +243,42 @@ npm test
 The pure engine is exhaustively unit-tested; UI behavior (celebrations, taps,
 auto-advance, mode switching) is covered with React Testing Library.
 
+## Deploying
+
+```sh
+npm run publish:letterjam
+```
+
+`scripts/publish.py` publishes only to `https://willshaver.com/letterjam/`,
+following dopamine-learning-machine's versioned SFTP release workflow. It runs
+the tests and production build, verifies uploaded bytes, switches the live
+symlink, and compares every public release file against its HTTPS response.
+Verification failure restores the previous site. The first deployment preserves
+the old directory; later releases retain previous versions and assets needed by
+already-open tabs. No browser progress keys or server-side user data are changed.
+
+One-time setup on another machine:
+
+```sh
+python -m pip install --target .deploy-tools paramiko==5.0.0
+python scripts/publish.py --inspect
+```
+
+Before inspection, put SSH `host`, `username`, and `password` in the ignored
+`.env.deploy.json` and the verified SSH host key in `.deploy/known_hosts`.
+The current setup reuses the existing dopamine-learning-machine SSH credentials
+and pinned host key; database and account credentials are not needed. Keep these
+files private. Deployment records, including the previous release path, are
+written to `.deploy/last-publish.json`. The publisher uploads only the built
+static site and its generated cache configuration.
+
 ## Accessibility & audience notes
 
 - Designed for touch first, with large targets and no time pressure — it is
   **not** a dexterity game.
-- Uses the browser's default English voice (Chrome's "Google US English" reads
-  best); quality varies by device and OS.
+- Uses approved recorded speech when available. Device speech prefers
+  "Google US English" and otherwise an available English voice; fallback
+  quality varies by device and OS.
 - Motion respects `prefers-reduced-motion`.
 
 ## License

@@ -5,6 +5,8 @@ body { margin: 0; font-family: system-ui, sans-serif; }
 .speaker { font-size: 4rem; background: none; border: none; cursor: pointer; }
 .cards { display: flex; flex-wrap: wrap; gap: 1.25rem; justify-content: center; max-width: 1000px; }
 .card {
+  font-family: var(--round-font, 'Andika'), sans-serif;
+  font-weight: 400;
   width: 280px; height: 170px;
   display: flex; align-items: center; justify-content: center;
   font-size: 3.2rem; border-radius: 1.25rem;
@@ -43,13 +45,23 @@ body { margin: 0; font-family: system-ui, sans-serif; }
 .topbar .spacer { flex: 1; }
 .topbar button { font-size: 1.5rem; background: none; border: none; cursor: pointer; }
 .settings { max-width: 480px; margin: 0 auto; padding: 2rem; }
+.progress-backup { margin-top: 1.5rem; text-align: left; font-size: 1rem; }
+.progress-backup summary { cursor: pointer; padding: 0.75rem 0; }
+.progress-backup button, .progress-backup label { display: block; margin: 0.75rem 0; }
+.progress-backup button { min-height: 44px; padding: 0.5rem; }
+.progress-backup input { display: block; max-width: 100%; margin-top: 0.5rem; }
 .setting-row { display: flex; align-items: center; gap: 0.75rem; font-size: 1.25rem; margin: 1.5rem 0; }
 .loading { padding: 2rem; text-align: center; font-size: 1.5rem; }
 
 /* --- touch hardening (iPad: no scroll, no zoom, no accidental selection) --- */
-html, body { overscroll-behavior: none; height: 100%; }
-#root { position: fixed; inset: 0; overflow: hidden; display: flex; flex-direction: column; }
-#root > * { overflow-y: auto; }
+html, body { overscroll-behavior: none; height: 100%; overflow: hidden; }
+#root {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%; height: 100dvh;
+  overflow: hidden; display: flex; flex-direction: column;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+/* Parent forms can grow (many profiles or an expanded backup panel). */
+#root > .select, #root > .settings { overflow-y: auto; overscroll-behavior: contain; }
 * { -webkit-tap-highlight-color: transparent; }
 button, .card {
   touch-action: manipulation;
@@ -109,3 +121,49 @@ body { touch-action: manipulation; }
 
 /* --- build version stamp on the profile screen --- */
 .version { margin-top: 2rem; color: #99a; font-size: 0.8rem; font-family: monospace; }
+
+/* Fit every game state inside the available viewport, including Safari's bars.
+   Reserve the feedback row so winning never pushes the cards off screen. */
+.app { display: flex; flex-direction: column; flex: 1; width: 100%; min-width: 0; min-height: 0; overflow: hidden; touch-action: none; }
+.topbar { flex: 0 0 auto; padding: 0.4rem 0.75rem; gap: 0.4rem; }
+.topbar .who { min-width: 0; max-width: 40%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.topbar > button { min-width: 44px; min-height: 44px; }
+.topbar .stat { min-height: 36px; font-size: clamp(0.85rem, 2vw, 1.15rem); }
+.play {
+  flex: 1; min-width: 0; min-height: 0; overflow: hidden;
+  display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr) 64px;
+  justify-items: center; align-items: center;
+  gap: 8px; padding: 8px 16px;
+}
+.speaker { font-size: 3rem; line-height: 1; min-height: 56px; min-width: 64px; padding: 4px; }
+.cards {
+  width: min(100%, 1000px); height: 100%; min-width: 0; min-height: 0;
+  display: grid; grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 190px));
+  align-content: center; gap: 12px;
+}
+.cards[data-count="3"] { grid-template-rows: minmax(0, 190px); }
+.card {
+  grid-column: span 2; width: 100%; height: 100%; min-width: 0; min-height: 0;
+  padding: 4px; font-size: clamp(1.6rem, 4.2vw, 3.2rem);
+}
+.card.long { font-size: clamp(1.1rem, 3.5vw, 2.3rem); }
+.card.glyph { font-size: clamp(2.5rem, 8vw, 5.5rem); }
+.card:last-child:nth-child(4) { grid-column: 3 / span 2; }
+.card:nth-child(4):nth-last-child(2) { grid-column: 2 / span 2; }
+.card:last-child:nth-child(5) { grid-column: 4 / span 2; }
+.round-end { grid-row: 3; display: flex; align-items: center; justify-content: center; gap: 16px; width: 100%; font-size: 1.5rem; }
+.round-end .aw { margin: 0; }
+.next { width: min(48vw, 320px); min-height: 56px; padding: 8px 16px; font-size: 1.5rem; }
+#root[data-narrow-cards="true"] .cards { grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(0, 190px)); }
+#root[data-narrow-cards="true"] .cards[data-count="5"] { grid-template-rows: repeat(3, minmax(0, 190px)); }
+#root[data-narrow-cards="true"] .cards .card:nth-child(n) { grid-column: span 2; }
+#root[data-narrow-cards="true"] .cards .card:last-child:nth-child(odd) { grid-column: 2 / span 2; }
+#root[data-narrow-header="true"] .topbar .stats { flex-basis: 100%; order: 10; justify-content: center; margin-top: 0.35rem; }
+#root[data-short="true"] .play { grid-template-rows: auto minmax(0, 1fr) 48px; gap: 0; padding: 0 12px; }
+#root[data-short="true"] .speaker { min-height: 44px; font-size: 2.25rem; }
+#root[data-short="true"] .next { min-height: 44px; padding: 6px 12px; }
+#root[data-short="true"] .cards { gap: 4px; }
+#root[data-short="true"] .card.glyph { padding: 0; }
+#root[data-short="true"] .topbar { padding-block: 0; row-gap: 0; }
+#root[data-short="true"] .topbar .stats { margin-top: 0; }

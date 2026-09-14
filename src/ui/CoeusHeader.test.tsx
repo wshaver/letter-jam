@@ -1,9 +1,9 @@
-import { act, fireEvent, render, screen } from '@testing-library/react';
+import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { afterEach, expect, it, vi } from 'vitest';
 import { CoeusHeader } from './CoeusHeader';
 import { context, statistics } from '../test/coeus';
 
-afterEach(() => vi.unstubAllGlobals());
+afterEach(() => { vi.unstubAllGlobals(); vi.useRealTimers(); vi.clearAllMocks(); });
 const actions = { onSettings: vi.fn(), onLeave: vi.fn(), onError: vi.fn() };
 
 it('uses server scopes and refreshes on completion and focus', async () => {
@@ -27,7 +27,7 @@ it('shows unavailable values and retries a failed request', async () => {
   let failed = true;
   vi.stubGlobal('fetch', async () => failed ? new Response(null, { status: 503 }) : Response.json(statistics(2)));
   render(<CoeusHeader context={context} refreshKey="" {...actions} />);
-  fireEvent.click(await screen.findByRole('button', { name: 'Retry statistics' }));
+  await screen.findByRole('button', { name: 'Retry statistics' });
   expect(screen.getByRole('button', { name: 'Rounds played · Letter Jam: unavailable' })).toBeInTheDocument();
   failed = false;
   fireEvent.click(await screen.findByRole('button', { name: 'Retry statistics' }));
@@ -39,11 +39,35 @@ it('discards late responses after the selected student changes', async () => {
   const other = { ...context, student: { id: 2, name: 'Sam' } };
   const next = statistics(8);
   next.student_id = 2; next.student_wide.student_id = 2;
-  vi.stubGlobal('fetch', vi.fn().mockImplementationOnce(() => new Promise(done => { resolve = done; }))
-    .mockResolvedValueOnce(Response.json(next)));
+  const fetcher = vi.fn().mockImplementationOnce(() => new Promise(done => { resolve = done; }))
+    .mockResolvedValueOnce(Response.json(next));
+  vi.stubGlobal('fetch', fetcher);
   const view = render(<CoeusHeader context={context} refreshKey="" {...actions} />);
+  await waitFor(() => expect(fetcher).toHaveBeenCalledOnce());
   view.rerender(<CoeusHeader context={other} refreshKey="" {...actions} />);
   await screen.findByRole('button', { name: 'Rounds played · Letter Jam: 8' });
   await act(async () => resolve(Response.json(statistics(99))));
   expect(screen.getByRole('button', { name: 'Rounds played · Letter Jam: 8' })).toBeInTheDocument();
+});
+
+it('coalesces completion and rapid focus refreshes into one fresh request', async () => {
+  vi.useFakeTimers();
+  const fetcher = vi.fn(async () => Response.json(statistics(4)));
+  vi.stubGlobal('fetch', fetcher);
+  const view = render(<CoeusHeader context={context} refreshKey="" {...actions} />);
+  await act(async () => vi.advanceTimersByTimeAsync(100));
+  expect(fetcher).toHaveBeenCalledOnce();
+  view.rerender(<CoeusHeader context={context} refreshKey="completed" {...actions} />);
+  await act(async () => vi.advanceTimersByTimeAsync(50));
+  fireEvent(window, new Event('focus'));
+  fireEvent(window, new Event('focus'));
+  await act(async () => vi.advanceTimersByTimeAsync(100));
+  expect(fetcher).toHaveBeenCalledTimes(2);
+  expect(screen.getByRole('button', { name: 'Rounds played · Letter Jam: 4' })).toBeInTheDocument();
+});
+
+it.each([401, 419, 403])('passes session or access failure %i to game recovery', async status => {
+  vi.stubGlobal('fetch', async () => new Response(null, { status }));
+  render(<CoeusHeader context={context} refreshKey="" {...actions} />);
+  await waitFor(() => expect(actions.onError).toHaveBeenCalledWith(expect.objectContaining({ status })));
 });

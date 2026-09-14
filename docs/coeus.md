@@ -10,6 +10,9 @@ outcomes remain in global totals and are excluded from game totals; chip
 tooltips disclose incomplete game history. No statistics are stored locally.
 Unavailable reads display dashes with retry. Receipt/reconciliation, focus,
 context changes and returning from Settings trigger fresh reads.
+Refresh triggers within 100 ms are coalesced into one request. A missing
+statistics endpoint leaves play available with statistics retry; session expiry
+and denied access still use the connection recovery screen.
 
 Settings contains adult preferences and answer mode. The large top-right X
 returns to the authorized Coeus path, stops audio and retains round recovery.

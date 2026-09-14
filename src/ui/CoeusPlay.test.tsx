@@ -13,14 +13,14 @@ vi.mock('../engine/speech', () => ({ createSpeaker: () => voice,
 beforeEach(() => { vi.clearAllMocks(); localStorage.clear(); window.history.replaceState({}, '', '/letterjam/' + search); });
 afterEach(() => { vi.useRealTimers(); vi.unstubAllGlobals(); window.history.replaceState({}, '', '/'); });
 
-function serve(server: GameServer) {
+function serve(server: GameServer, statsStatus = 200) {
   vi.stubGlobal('fetch', async (url: string, options?: RequestInit) => {
     if (url.includes('csrf-cookie')) {
       document.cookie = 'XSRF-TOKEN=test-token';
       return new Response(null, { status: 204 });
     }
     if (url.includes('game-context')) return Response.json(context);
-    if (url.includes('/statistics')) return Response.json(statistics(server.outcomes.size));
+    if (url.includes('/statistics')) return statsStatus === 200 ? Response.json(statistics(server.outcomes.size)) : new Response(null, { status: statsStatus });
     if (url.includes('/progress/')) return Response.json({ enrollment_id: context.enrollment.id,
       lesson_version_id: context.lesson.version_id, total_items: 8,
       summary: { introduced: 6, mastered: server.outcomes.size, complete: false } });
@@ -40,6 +40,7 @@ it('renders live content under StrictMode and prevents repeated taps while savin
   serve(server);
   render(<StrictMode><CoeusEntry /></StrictMode>);
   const correct = await screen.findByRole('button', { name: 'quokka' });
+  await screen.findByRole('button', { name: 'Rounds played · Letter Jam: 0' });
   expect(screen.getByRole('button', { name: 'numbat' })).toBeEnabled();
   let release!: () => void;
   server.gate = new Promise(resolve => { release = resolve; });
@@ -61,6 +62,7 @@ it('close cancels audio and retains an uncertain answer for exact recovery', asy
   serve(server);
   const view = render(<CoeusEntry />);
   const correct = await screen.findByRole('button', { name: 'quokka' });
+  await screen.findByRole('button', { name: 'Rounds played · Letter Jam: 0' });
   let release!: () => void;
   server.gate = new Promise(resolve => { release = resolve; });
   fireEvent.click(correct);
@@ -79,6 +81,16 @@ it('close cancels audio and retains an uncertain answer for exact recovery', asy
   expect(await screen.findByText('Celebration big')).toBeInTheDocument();
   expect(server.outcomes.size).toBe(1);
   expect(server.attempts).toHaveLength(1);
+});
+
+it('keeps the active round playable when the statistics endpoint is missing', async () => {
+  const server = new GameServer();
+  serve(server, 404);
+  render(<CoeusEntry />);
+  await screen.findByRole('button', { name: 'Retry statistics' });
+  fireEvent.click(screen.getByRole('button', { name: 'quokka' }));
+  expect(await screen.findByText('Celebration big')).toBeInTheDocument();
+  expect(server.outcomes.size).toBe(1);
 });
 
 it('restores faded wrong choices after refresh and gives only a small celebration', async () => {

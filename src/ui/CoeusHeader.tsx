@@ -17,14 +17,16 @@ export function CoeusHeader({ context, refreshKey, onSettings, onLeave, onError 
   useEffect(() => {
     const controller = new AbortController();
     setStats(null); setError(false);
-    void loadStatistics(context, controller.signal).then(value => {
-      if (!controller.signal.aborted) setStats(value);
-    }).catch(cause => {
-      if (controller.signal.aborted) return;
-      setError(true);
-      if (cause instanceof ContextError && [401, 419, 403, 404].includes(cause.status)) onError(cause);
-    });
-    return () => controller.abort();
+    const timer = setTimeout(() => {
+      void loadStatistics(context, controller.signal).then(value => {
+        if (!controller.signal.aborted) setStats(value);
+      }).catch(cause => {
+        if (controller.signal.aborted) return;
+        setError(true);
+        if (cause instanceof ContextError && [401, 419, 403].includes(cause.status)) onError(cause);
+      });
+    }, 100);
+    return () => { clearTimeout(timer); controller.abort(); };
   }, [context, refreshKey, revision, onError]);
   useEffect(() => {
     if (tip === null) return;

@@ -9,11 +9,13 @@ require that context; there is no standalone play or local player creation.
 Coeus issues each question and its recommended choices. Letter Jam speaks the
 supplied prompt and presents up to five cards. First-try success reports known;
 a miss reports unknown when the round finishes. Keep trying is the default;
-Show the answer ends the round on a miss. Confirmed answers trigger feedback and
-a three-second next-round countdown.
+Show the answer ends the round on a miss. Change this in the header's Settings
+menu under After a wrong answer. Confirmed answers trigger feedback and a
+three-second next-round countdown.
 
-Settings & progress pauses the round. Shared introduced/mastered counts come
-from Coeus under its current learning policy, across games and devices. They are
+Settings opens the Settings & progress panel and pauses the round. Shared
+introduced/mastered counts come from Coeus under its current learning policy,
+across games and devices. They are
 separate from celebrations. Choose the card font, answer interaction and
 celebration effects/chimes locally for each student and lesson on this browser.
 Preferences do not change server scheduling or migrate old profiles.

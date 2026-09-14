@@ -1,8 +1,10 @@
-import { playRecording, speechParts, type SpeechMode } from './recordedAudio';
+import { playRecording, playPublishedRecording, speechParts, type SpeechMode, type PublishedClip } from './recordedAudio';
+
+export interface SpeechPart { text: string; id?: string; recording?: PublishedClip }
 
 export interface Speaker {
-  speak(text: string, mode?: SpeechMode): void; // interrupts whatever is playing or queued
-  queue(text: string, mode?: SpeechMode): void; // speaks after the current utterance finishes
+  speak(text: string | SpeechPart[], mode?: SpeechMode): void; // interrupts whatever is playing or queued
+  queue(text: string | SpeechPart[], mode?: SpeechMode): void; // speaks after the current utterance finishes
   cancel(): void;
 }
 
@@ -33,7 +35,7 @@ export function pickVoice(
 
 export function createSpeaker(preferredName = 'Google US English', recordings = true): Speaker {
   const synth = typeof window !== 'undefined' ? window.speechSynthesis : undefined;
-  let pending: { text: string; id?: string }[] = [];
+  let pending: SpeechPart[] = [];
   let active = false;
   let generation = 0;
   let stop: (() => void) | undefined;
@@ -56,9 +58,10 @@ export function createSpeaker(preferredName = 'Google US English', recordings = 
       if (!synth) { done(); return; }
       utter(part.text, done);
     };
-    if (part.id) {
+    if (part.recording || part.id) {
       try {
-        const cancelRecording = playRecording(part.id, done, fallback);
+        const cancelRecording = part.recording ? playPublishedRecording(part.recording, done, fallback)
+          : playRecording(part.id!, done, fallback);
         if (!finished && !usingFallback) stop = cancelRecording;
       }
       catch { fallback(); }
@@ -85,11 +88,11 @@ export function createSpeaker(preferredName = 'Google US English', recordings = 
   return {
     speak(text, mode = 'words') {
       cancel();
-      pending.push(...(recordings ? speechParts(text, mode) : [{ text }]));
+      pending.push(...(typeof text !== 'string' ? text : recordings ? speechParts(text, mode) : [{ text }]));
       next();
     },
     queue(text, mode = 'words') {
-      pending.push(...(recordings ? speechParts(text, mode) : [{ text }]));
+      pending.push(...(typeof text !== 'string' ? text : recordings ? speechParts(text, mode) : [{ text }]));
       next();
     },
     cancel,

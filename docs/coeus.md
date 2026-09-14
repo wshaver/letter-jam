@@ -97,3 +97,20 @@ game-context API; see its `docs/game-bootstrap.md` for response/error contracts.
 
 Validation: `npm test` and `npm run build`. Coeus tests cover authorization,
 enrollment/version validation, compatibility revocation, and mounted return paths.
+
+## Published audio
+
+Each issued item's optional `media` array carries immutable Coeus clip references.
+Letter Jam uses `letter-name`, `word-name`, and `context-sentence` roles for the
+name/context/name sequence and wrong-card naming. No text lookup into the bundled
+snapshot selects connected recordings. Only same-origin `/coeus/lesson-media/`
+URLs with the supplied hash are accepted, independently of the game's base URL.
+Sprite seconds become Howler milliseconds, with explicit MIME-to-codec mapping
+because media URLs have no extension. The decoded clip cache is bounded to eight
+entries and includes URL, clip identity and offsets.
+
+Absent, invalid, failed or timed-out audio uses device speech. The issued sentence
+is preserved; a context recording with different wording is ignored. Replay,
+settings and leaving cancel current speech and queued segments. No audio event
+records an outcome. The existing first-gesture audio unlock remains in use;
+physical iPad acceptance is still required before production rollout.

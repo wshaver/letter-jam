@@ -5,6 +5,11 @@ import type { Answer, Challenge, Outcome } from '../coeus/gameplay';
 export const context: Context = { student: { id: 1, name: 'Alex' }, game: { key: 'letter-jam', name: 'Letter Jam' },
   lesson: { id: 2, version_id: 3, version: 1, title: 'Words' }, enrollment: { id: 4 }, return_path: '/coeus/games?student=1' };
 export const search = '?student=1&lesson=3&game=letter-jam';
+export const statistics = (rounds = 0) => {
+  const common = { student_id: 1, coverage: { unattributed_rounds: 0, game_history_complete: true },
+    streak: rounds, first_try_wins: rounds, rounds, introduced: 6, mastered: 2, groups: [] };
+  return { ...common, scope: { game: 'letter-jam' }, student_wide: { ...common, scope: { game: null }, mastered: 9, introduced: 20 } };
+};
 export const question = (sequence = 1): Challenge => ({
   id: `10000000-0000-4000-8000-${String(sequence).padStart(12, '0')}`, enrollment_id: 4, lesson_version_id: 3,
   target: { id: 1001 + sequence, type: 'word', payload: { text: 'quokka', sentence: 'The quokka is smiling.' }, level: { title: 'New words', position: 0 } },

@@ -9,6 +9,7 @@ import { resumeAudio } from './sound';
 import { readPreferences, savePreferences, type Preferences } from '../coeus/preferences';
 import { roundFont } from '../engine/fonts';
 import { CoeusSettings } from './CoeusSettings';
+import { CoeusHeader } from './CoeusHeader';
 
 export function CoeusPlay({ context, onError, speaker: suppliedSpeaker }: {
   context: Context; onError: (error: Error) => void; speaker?: Speaker;
@@ -49,26 +50,20 @@ export function CoeusPlay({ context, onError, speaker: suppliedSpeaker }: {
     if (!settingsOpen && state.phase === 'completed' && countdown === 0) void session.current?.next(true);
   }, [countdown, state.phase, settingsOpen]);
 
-  if (settingsOpen) return <CoeusSettings context={context} preferences={preferences} onChange={updatePreferences}
-    onBack={() => setSettingsOpen(false)} onError={onError} storageWarning={storageWarning} />;
+  const header = <CoeusHeader context={context}
+    refreshKey={`${state.phase === 'completed' ? state.challenge?.id : ''}:${settingsOpen}`}
+    onSettings={() => setSettingsOpen(true)} onLeave={() => { session.current?.stop(); speaker.cancel(); }} onError={onError} />;
 
-  if (state.phase === 'loading') return <p role="status">Loading your round…</p>;
-  if (state.phase === 'empty') return <p role="status">There are no questions available for this lesson.</p>;
+  if (settingsOpen) return <>{header}<CoeusSettings context={context} preferences={preferences} onChange={updatePreferences}
+    onBack={() => setSettingsOpen(false)} onError={onError} storageWarning={storageWarning} /></>;
+
+  if (state.phase === 'loading') return <>{header}<p role="status">Loading your round…</p></>;
+  if (state.phase === 'empty') return <>{header}<p role="status">There are no questions available for this lesson.</p></>;
   if (state.phase === 'error' || !target) return null;
   const maxLength = Math.max(...state.choices.map(item => item.payload.text.length));
   const size = maxLength === 1 ? 'glyph' : maxLength >= 7 ? 'long' : '';
-  return <div className="play">
-    <div className="coeus-controls">
-    <label className="coeus-answer-mode">After a wrong answer{' '}
-      <select aria-label="After a wrong answer" value={mode} disabled={state.phase !== 'playing'}
-        onChange={event => updatePreferences({ ...preferences, mode: event.target.value as typeof mode })}>
-        <option value="keepTrying">Keep trying</option>
-        <option value="oneAndDone">Show the answer</option>
-      </select>
-    </label>
-    <button disabled={state.phase !== 'playing'} onClick={() => setSettingsOpen(true)}>Settings & progress</button>
+  return <>{header}<div className="play">
     <button className="speaker" aria-label="Hear the word again" onClick={() => speaker.speak(itemSpeech(target))}>🔊</button>
-    </div>
     <div className="cards" key={state.challenge!.id} data-count={state.choices.length} data-font={font.id}
       style={{ '--round-font': `"${font.family}", ${font.kind}` } as CSSProperties}>
       {state.choices.map(item => <button key={item.id}
@@ -94,5 +89,5 @@ export function CoeusPlay({ context, onError, speaker: suppliedSpeaker }: {
       {state.ending === 'won' ? preferences.effects ? <Feedback level={state.known ? 'big' : 'small'} /> : <p role="status">Nice!</p> : <p className="aw">aw…</p>}
       <button className="next" onClick={() => void session.current?.next()}>Next ({countdown})</button>
     </div>}
-  </div>;
+  </div></>;
 }

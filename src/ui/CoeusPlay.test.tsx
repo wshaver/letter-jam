@@ -2,7 +2,7 @@ import { StrictMode } from 'react';
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { afterEach, beforeEach, expect, it, vi } from 'vitest';
 import { CoeusEntry } from './CoeusEntry';
-import { context, GameServer, search } from '../test/coeus';
+import { context, GameServer, search, statistics } from '../test/coeus';
 
 vi.mock('./Feedback', () => ({ Feedback: ({ level }: { level: string }) => <p role="status">Celebration {level}</p> }));
 vi.mock('./sound', () => ({ resumeAudio: vi.fn() }));
@@ -20,6 +20,7 @@ function serve(server: GameServer) {
       return new Response(null, { status: 204 });
     }
     if (url.includes('game-context')) return Response.json(context);
+    if (url.includes('/statistics')) return Response.json(statistics(server.outcomes.size));
     if (url.includes('/progress/')) return Response.json({ enrollment_id: context.enrollment.id,
       lesson_version_id: context.lesson.version_id, total_items: 8,
       summary: { introduced: 6, mastered: server.outcomes.size, complete: false } });
@@ -47,7 +48,34 @@ it('renders live content under StrictMode and prevents repeated taps while savin
   expect(await screen.findByText('Saving your answer…')).toBeInTheDocument();
   expect(correct).toBeDisabled();
   expect(screen.queryByRole('button', { name: /Next/ })).not.toBeInTheDocument();
+  expect(screen.getByRole('button', { name: 'Rounds played · Letter Jam: 0' })).toBeInTheDocument();
   await act(async () => release());
+  expect(await screen.findByText('Celebration big')).toBeInTheDocument();
+  expect(server.outcomes.size).toBe(1);
+  expect(server.attempts).toHaveLength(1);
+  expect(await screen.findByRole('button', { name: 'Rounds played · Letter Jam: 1' })).toBeInTheDocument();
+});
+
+it('close cancels audio and retains an uncertain answer for exact recovery', async () => {
+  const server = new GameServer();
+  serve(server);
+  const view = render(<CoeusEntry />);
+  const correct = await screen.findByRole('button', { name: 'quokka' });
+  let release!: () => void;
+  server.gate = new Promise(resolve => { release = resolve; });
+  fireEvent.click(correct);
+  await screen.findByText('Saving your answer…');
+  const saved = JSON.stringify(localStorage);
+  const close = screen.getByRole('link', { name: 'Back to Coeus' });
+  expect(close).toHaveAttribute('href', context.return_path);
+  close.addEventListener('click', event => event.preventDefault());
+  const cancellations = voice.cancel.mock.calls.length;
+  fireEvent.click(close);
+  expect(voice.cancel.mock.calls.length).toBeGreaterThan(cancellations);
+  expect(JSON.stringify(localStorage)).toBe(saved);
+  view.unmount();
+  await act(async () => release());
+  render(<CoeusEntry />);
   expect(await screen.findByText('Celebration big')).toBeInTheDocument();
   expect(server.outcomes.size).toBe(1);
   expect(server.attempts).toHaveLength(1);
@@ -106,7 +134,9 @@ it('one-and-done reveals the correct card and records unknown', async () => {
   serve(server);
   render(<CoeusEntry />);
   await screen.findByRole('button', { name: 'numbat' });
+  fireEvent.click(screen.getByRole('button', { name: 'Settings' }));
   fireEvent.change(screen.getByRole('combobox', { name: 'After a wrong answer' }), { target: { value: 'oneAndDone' } });
+  fireEvent.click(screen.getByRole('button', { name: 'Back to round' }));
   fireEvent.click(screen.getByRole('button', { name: 'numbat' }));
   await waitFor(() => expect(screen.getByRole('button', { name: 'quokka' })).toHaveClass('reveal'));
   expect(await screen.findByText('aw…')).toBeInTheDocument();
@@ -130,7 +160,7 @@ it('pauses the same round for settings, retains preferences and leaves legacy da
   localStorage.setItem('letter-jam-save-v1', 'legacy-data');
   const view = render(<CoeusEntry />);
   fireEvent.click(await screen.findByRole('button', { name: 'numbat' }));
-  fireEvent.click(screen.getByRole('button', { name: 'Settings & progress' }));
+  fireEvent.click(screen.getByRole('button', { name: 'Settings' }));
   expect(await screen.findByText('Introduced: 6 · Mastered: 0 · Total: 8')).toBeInTheDocument();
   expect(screen.queryByRole('button', { name: 'quokka' })).not.toBeInTheDocument();
   expect(server.outcomes.size).toBe(0);
@@ -143,16 +173,18 @@ it('pauses the same round for settings, retains preferences and leaves legacy da
   view.unmount();
   render(<CoeusEntry />);
   const correct = await screen.findByRole('button', { name: 'quokka' });
+  fireEvent.click(screen.getByRole('button', { name: 'Settings' }));
   expect(screen.getByRole('combobox', { name: 'After a wrong answer' })).toHaveValue('oneAndDone');
+  fireEvent.click(screen.getByRole('button', { name: 'Back to round' }));
   expect(correct.parentElement).toHaveStyle('--round-font: "Lora", serif');
-  fireEvent.click(correct);
+  fireEvent.click(screen.getByRole('button', { name: 'quokka' }));
   expect(await screen.findByText('Nice!')).toBeInTheDocument();
   expect(screen.queryByText('Celebration small')).not.toBeInTheDocument();
   expect(localStorage.getItem('letter-jam-save-v1')).toBe('legacy-data');
   expect([...server.outcomes.values()][0].known).toBe(false);
   fireEvent.click(screen.getByRole('button', { name: 'Next (3)' }));
   await screen.findByRole('button', { name: 'quokka' });
-  fireEvent.click(screen.getByRole('button', { name: 'Settings & progress' }));
+  fireEvent.click(screen.getByRole('button', { name: 'Settings' }));
   expect(await screen.findByText('Introduced: 6 · Mastered: 1 · Total: 8')).toBeInTheDocument();
 });
 
@@ -175,7 +207,7 @@ it('passes issued audio through replay and wrong-card naming, then cancels for s
   expect(voice.speak.mock.lastCall![0][0].recording).toEqual(wrong);
   expect(voice.queue.mock.lastCall![0][0].recording).toEqual(recording);
   const cancellations = voice.cancel.mock.calls.length;
-  fireEvent.click(screen.getByRole('button', { name: 'Settings & progress' }));
+  fireEvent.click(screen.getByRole('button', { name: 'Settings' }));
   expect(voice.cancel.mock.calls.length).toBeGreaterThan(cancellations);
   await screen.findByText(/Introduced: 6/);
   expect(server.outcomes.size).toBe(0);

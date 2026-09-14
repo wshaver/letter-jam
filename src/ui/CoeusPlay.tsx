@@ -2,7 +2,8 @@ import { useEffect, useRef, useState, type CSSProperties } from 'react';
 import type { Context } from '../coeus/client';
 import { RecoveryStore } from '../coeus/recovery';
 import { RoundSession, type RoundState } from '../coeus/roundSession';
-import { createSpeaker, wordAlone, wordPrompt, type Speaker } from '../engine/speech';
+import { createSpeaker, type Speaker } from '../engine/speech';
+import { itemSpeech } from '../coeus/speech';
 import { Feedback } from './Feedback';
 import { resumeAudio } from './sound';
 import { readPreferences, savePreferences, type Preferences } from '../coeus/preferences';
@@ -33,12 +34,11 @@ export function CoeusPlay({ context, onError, speaker: suppliedSpeaker }: {
   }, [context, speaker]);
   useEffect(() => { if (state.error) onError(state.error); }, [state.error, onError]);
   const target = state.challenge?.target;
-  const prompt = target ? wordPrompt(target.payload.text, target.payload.sentence ?? '') : '';
   useEffect(() => {
-    if (settingsOpen || state.phase !== 'playing' || !prompt) { speaker.cancel(); return; }
-    speaker.speak(prompt);
+    if (settingsOpen || state.phase !== 'playing' || !target) { speaker.cancel(); return; }
+    speaker.speak(itemSpeech(target));
     return () => speaker.cancel();
-  }, [state.phase, state.challenge?.id, prompt, speaker, settingsOpen]);
+  }, [state.phase, state.challenge?.id, target, speaker, settingsOpen]);
   useEffect(() => {
     setCountdown(3);
     if (state.phase !== 'completed' || settingsOpen) return;
@@ -67,7 +67,7 @@ export function CoeusPlay({ context, onError, speaker: suppliedSpeaker }: {
       </select>
     </label>
     <button disabled={state.phase !== 'playing'} onClick={() => setSettingsOpen(true)}>Settings & progress</button>
-    <button className="speaker" aria-label="Hear the word again" onClick={() => speaker.speak(prompt)}>🔊</button>
+    <button className="speaker" aria-label="Hear the word again" onClick={() => speaker.speak(itemSpeech(target))}>🔊</button>
     </div>
     <div className="cards" key={state.challenge!.id} data-count={state.choices.length} data-font={font.id}
       style={{ '--round-font': `"${font.family}", ${font.kind}` } as CSSProperties}>
@@ -82,8 +82,8 @@ export function CoeusPlay({ context, onError, speaker: suppliedSpeaker }: {
           void game.choose(item.id, mode).then(() => {
             if (session.current !== game || game.state.phase !== 'playing') return;
             if (game.state.wrongIds.includes(item.id)) {
-              speaker.speak(wordAlone(item.payload.text));
-              speaker.queue(prompt);
+              speaker.speak(itemSpeech(item, false));
+              speaker.queue(itemSpeech(target));
             }
           });
         }}>{item.payload.text}</button>)}

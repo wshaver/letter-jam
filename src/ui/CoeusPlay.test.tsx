@@ -6,10 +6,11 @@ import { context, GameServer, search } from '../test/coeus';
 
 vi.mock('./Feedback', () => ({ Feedback: ({ level }: { level: string }) => <p role="status">Celebration {level}</p> }));
 vi.mock('./sound', () => ({ resumeAudio: vi.fn() }));
-vi.mock('../engine/speech', () => ({ createSpeaker: () => ({ speak: vi.fn(), queue: vi.fn(), cancel: vi.fn() }),
+const voice = vi.hoisted(() => ({ speak: vi.fn(), queue: vi.fn(), cancel: vi.fn() }));
+vi.mock('../engine/speech', () => ({ createSpeaker: () => voice,
   wordPrompt: (text: string, sentence: string) => `${text}. ${sentence}`, wordAlone: (text: string) => text }));
 
-beforeEach(() => { localStorage.clear(); window.history.replaceState({}, '', '/letterjam/' + search); });
+beforeEach(() => { vi.clearAllMocks(); localStorage.clear(); window.history.replaceState({}, '', '/letterjam/' + search); });
 afterEach(() => { vi.useRealTimers(); vi.unstubAllGlobals(); window.history.replaceState({}, '', '/'); });
 
 function serve(server: GameServer) {
@@ -153,4 +154,29 @@ it('pauses the same round for settings, retains preferences and leaves legacy da
   await screen.findByRole('button', { name: 'quokka' });
   fireEvent.click(screen.getByRole('button', { name: 'Settings & progress' }));
   expect(await screen.findByText('Introduced: 6 · Mastered: 1 · Total: 8')).toBeInTheDocument();
+});
+
+it('passes issued audio through replay and wrong-card naming, then cancels for settings', async () => {
+  const server = new GameServer();
+  const recording = { role: 'word-name', clip: 'quokka-clip', asset: 'pack',
+    url: '/coeus/lesson-media/pack/' + 'a'.repeat(64), sha256: 'a'.repeat(64), mime_type: 'audio/mpeg',
+    start_seconds: 2, duration_seconds: 1, transcript: 'quokka', language: 'en-US' };
+  server.challenge.target.media = [recording];
+  const wrong = { ...recording, clip: 'numbat-clip', transcript: 'numbat', start_seconds: 4 };
+  server.challenge.distractors[0].media = [wrong];
+  serve(server);
+  render(<CoeusEntry />);
+  await screen.findByRole('button', { name: 'quokka' });
+  expect(voice.speak.mock.lastCall![0][0].recording).toEqual(recording);
+  fireEvent.click(screen.getByRole('button', { name: 'Hear the word again' }));
+  expect(voice.speak.mock.lastCall![0][2].recording).toEqual(recording);
+  fireEvent.click(screen.getByRole('button', { name: 'numbat' }));
+  await waitFor(() => expect(voice.queue).toHaveBeenCalled());
+  expect(voice.speak.mock.lastCall![0][0].recording).toEqual(wrong);
+  expect(voice.queue.mock.lastCall![0][0].recording).toEqual(recording);
+  const cancellations = voice.cancel.mock.calls.length;
+  fireEvent.click(screen.getByRole('button', { name: 'Settings & progress' }));
+  expect(voice.cancel.mock.calls.length).toBeGreaterThan(cancellations);
+  await screen.findByText(/Introduced: 6/);
+  expect(server.outcomes.size).toBe(0);
 });

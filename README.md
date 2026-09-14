@@ -36,9 +36,10 @@ selectors must still pass current Coeus authorization.
 
 ## Audio and display
 
-Connected play currently uses device speech for issued text and sentences.
-Published Coeus audio is a separate migration step. Reusable recorded-audio
-support and the older audio snapshot remain available for that work.
+Connected play uses published Coeus recordings by explicit name/context roles.
+Missing or failed recordings fall back to device speech using the issued text.
+Recorded words bracket device-spoken context sentences; letters can use recorded
+names and contexts. Older questions without media still use device speech.
 Six locally served card fonts are selectable; Andika is the default. Celebration
 effects and chimes can be disabled without muting the question prompt.
 

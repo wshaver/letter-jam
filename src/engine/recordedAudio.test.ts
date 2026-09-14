@@ -8,6 +8,7 @@ vi.mock('howler', () => ({
     options: any;
     play = vi.fn(() => 7);
     stop = vi.fn();
+    unload = vi.fn();
     load = vi.fn();
     constructor(options: any) { this.options = options; mock.players.push(this); }
     state() { return this.loaded ? 'loaded' : 'unloaded'; }
@@ -22,7 +23,7 @@ vi.mock('howler', () => ({
   },
 }));
 
-import { clips, speechParts, playRecording } from './recordedAudio';
+import { clips, speechParts, playRecording, playPublishedRecording, type PublishedClip } from './recordedAudio';
 import { createSpeaker, wordPrompt } from './speech';
 let utterances: any[];
 beforeEach(() => {
@@ -107,4 +108,73 @@ it('plays approved recordings even without device speech support', () => {
   const player = playerFor('name-a'); player.emit('load');
   expect(player.play).toHaveBeenLastCalledWith('name-a');
   speaker.cancel();
+});
+
+const published = (key: string, role = 'word-name'): PublishedClip => ({
+  role, clip: key, asset: 'approved-pack', url: '/coeus/lesson-media/approved-pack/' + 'a'.repeat(64),
+  sha256: 'a'.repeat(64), mime_type: 'audio/mpeg', start_seconds: 1.25, duration_seconds: 0.5,
+  transcript: 'A', language: 'en-US',
+});
+
+it('plays issued media from the Coeus sibling mount with explicit format and millisecond offsets', () => {
+  window.history.replaceState({}, '', '/letterjam/');
+  const done = vi.fn(), failed = vi.fn();
+  const stop = playPublishedRecording(published('mount-test'), done, failed);
+  const player = latest();
+  expect(player.options.src).toEqual([window.location.origin + published('mount-test').url]);
+  expect(player.options.format).toEqual(['mp3']);
+  expect(player.options.sprite.clip).toEqual([1250, 500]);
+  player.emit('load');
+  expect(player.play).toHaveBeenCalledWith('clip');
+  player.emit('end'); player.emit('playerror');
+  expect(done).toHaveBeenCalledTimes(1);
+  expect(failed).not.toHaveBeenCalled();
+  stop();
+  window.history.replaceState({}, '', '/');
+});
+
+it('sequences issued recordings and device context, and keeps speech independent of bundled mappings', () => {
+  const speaker = createSpeaker(undefined, false);
+  const recording = published('sequence');
+  speaker.speak([{ text: 'A.', recording }, { text: 'A new issued sentence.' }, { text: 'A.', recording }]);
+  const player = latest(); player.emit('load'); player.emit('end');
+  expect(utterances.map(u => u.text)).toEqual(['A new issued sentence.']);
+  utterances[0].onend();
+  expect(player.play).toHaveBeenCalledTimes(2);
+  speaker.cancel();
+  expect(player.stop).toHaveBeenCalled();
+});
+
+it('falls back for unavailable issued packs and cancels stale completions on replay', () => {
+  const speaker = createSpeaker(undefined, false);
+  speaker.speak([{ text: 'Question.', recording: published('failed-load') }]);
+  const player = latest(); player.emit('loaderror');
+  expect(utterances.map(u => u.text)).toEqual(['Question.']);
+  const end = utterances[0].onend;
+  speaker.speak([{ text: 'Replay.', recording: published('replay') }]);
+  end();
+  const replay = latest();
+  speaker.cancel();
+  replay.emit('load');
+  expect(replay.play).not.toHaveBeenCalled();
+});
+
+it('falls back when issued metadata is unusable without fetching a different origin', () => {
+  const speaker = createSpeaker(undefined, false);
+  const count = mock.players.length;
+  speaker.speak([{ text: 'Safe fallback.', recording: { ...published('invalid'), url: 'https://example.org/audio.mp3' } }]);
+  expect(mock.players).toHaveLength(count);
+  expect(utterances.map(u => u.text)).toEqual(['Safe fallback.']);
+  speaker.cancel();
+});
+
+it('uses revision-specific offsets and limits decoded recording memory', () => {
+  const original = published('revision');
+  playPublishedRecording(original, vi.fn(), vi.fn())();
+  const first = latest();
+  playPublishedRecording({ ...original, start_seconds: 2.5 }, vi.fn(), vi.fn())();
+  expect(latest()).not.toBe(first);
+  expect(latest().options.sprite.clip).toEqual([2500, 500]);
+  for (let i = 0; i < 9; i++) playPublishedRecording(published('cache-' + i), vi.fn(), vi.fn())();
+  expect(first.unload).toHaveBeenCalledTimes(1);
 });

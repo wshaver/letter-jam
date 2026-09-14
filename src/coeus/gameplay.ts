@@ -1,10 +1,13 @@
 import { ContextError, selectors, type Context } from './client';
 
+import type { PublishedClip } from '../engine/recordedAudio';
+
 export interface Item {
   id: number;
   type: 'letter' | 'word';
   payload: { text: string; sentence?: string; case?: string };
   level: { title: string; position: number };
+  media?: PublishedClip[];
 }
 
 export interface Challenge {

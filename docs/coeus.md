@@ -1,5 +1,25 @@
 # Coeus migration
 
+## Statistics header
+
+The five chips read `/coeus/api/students/{student}/statistics?game=letter-jam`.
+Streak, first-try wins and rounds use Letter Jam outcomes; introduced/mastered
+use the included student-wide counts across enrolled content and games.
+Objective/content identities are deduplicated by Coeus. Older unattributed
+outcomes remain in global totals and are excluded from game totals; chip
+tooltips disclose incomplete game history. No statistics are stored locally.
+Unavailable reads display dashes with retry. Receipt/reconciliation, focus,
+context changes and returning from Settings trigger fresh reads.
+Refresh triggers within 100 ms are coalesced into one request. A missing
+statistics endpoint leaves play available with statistics retry; session expiry
+and denied access still use the connection recovery screen.
+
+Settings contains adult preferences and answer mode. The large top-right X
+returns to the authorized Coeus path, stops audio and retains round recovery.
+Deploy the paired Coeus statistics API/migration before this client update.
+
+The migration-era notes below retain historical verification context.
+
 Letter Jam is Coeus-only by explicit product decision. All entry paths, including
 bare `/letterjam/` and `/`, require authorized Coeus launch context. Missing or
 incomplete selectors show a link to Coeus selection. There is no standalone fallback.

@@ -129,6 +129,12 @@ body { touch-action: manipulation; }
 .topbar .who { min-width: 0; max-width: 40%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .topbar > button { min-width: 44px; min-height: 44px; }
 .topbar .stat { min-height: 36px; font-size: clamp(0.85rem, 2vw, 1.15rem); }
+.topbar nav button { min-height: 44px; font-size: 1rem; }
+.close-game { display: grid; place-items: center; min-width: 52px; min-height: 52px; font-size: 2.75rem; line-height: 1; text-decoration: none; color: #334; }
+.topbar .stat-tip { white-space: normal; width: min(220px, 70vw); text-align: left; }
+.topbar .stat:nth-child(n+3) .stat-tip { left: auto; right: 0; }
+.topbar .stats-retry { font-size: 0.85rem; min-height: 36px; }
+.stat-group { display: block; margin-top: 0.3rem; }
 .play {
   flex: 1; min-width: 0; min-height: 0; overflow: hidden;
   display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr) 64px;

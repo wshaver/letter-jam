@@ -18,12 +18,10 @@ export function CoeusEntry() {
     return () => controller.abort();
   }, [retry]);
   return <main className="app">
-    <header className="topbar">
+    {(!context || error) && <header className="topbar">
     <strong>Letter Jam</strong>
     <a href={context?.return_path ?? '/coeus/games'}>Back to Coeus</a>
-    {context && <><span className="who">{context.student.name}</span>
-      <span>{context.lesson.title} · Version {context.lesson.version}</span></>}
-    </header>
+    </header>}
     {!context && !error && <p role="status">Connecting to Coeus…</p>}
     {error && <>
       <p role="alert">{error.message}</p>
